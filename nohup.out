@@ -1,0 +1,29 @@
+port 1313 already in use, attempting to use an available port
+Start building sites … 
+hugo v0.89.4-AB01BA6E linux/amd64 BuildDate=2021-11-17T08:24:09Z VendorInfo=gohugoio
+WARN 2021/12/01 17:45:59 found no layout file for "HTML" for kind "page": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN 2021/12/01 17:45:59 found no layout file for "HTML" for kind "home": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN 2021/12/01 17:45:59 found no layout file for "HTML" for kind "section": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN 2021/12/01 17:45:59 found no layout file for "HTML" for kind "taxonomy": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN 2021/12/01 17:45:59 found no layout file for "HTML" for kind "taxonomy": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+
+                   | EN  
+-------------------+-----
+  Pages            |  4  
+  Paginator pages  |  0  
+  Non-page files   |  0  
+  Static files     |  0  
+  Processed images |  0  
+  Aliases          |  0  
+  Sitemaps         |  1  
+  Cleaned          |  0  
+
+Built in 2 ms
+Watching for changes in /opt/blog/{archetypes,content,data,layouts,static}
+Watching for config changes in /opt/blog/config.toml
+Environment: "development"
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:33340/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+WARN 2021/12/02 10:06:42 found no layout file for "HTML" for kind "home": You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
