@@ -3,7 +3,7 @@ title: "树莓派搭建k3s"
 date: 2021-12-02
 draft: true
 author: "sjtfreaks"
-tags: "树莓派","k3s"
+tags: ["树莓派","k3s"]
 ---
 
 # 树莓派安装k3s

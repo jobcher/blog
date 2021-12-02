@@ -3,7 +3,7 @@ title: "hugo 命令大全"
 date: 2021-12-01T17:05:35+08:00
 draft: true
 author: "sjtfreaks"
-tags: "hugo"
+tags: ["hugo"]
 ---
 
 hugo new site blog
