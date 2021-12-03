@@ -64,7 +64,9 @@ tags: ["gitlab"]
     cd .ssh/
     cat id_rsa.pub >>authorized_keys
     docker cp id_rsa gitlab-runner:/root
-
+    docker exec -it gitlab-runner /bin/bash
+    chmod 600 /root/id_rsa
+    
 ### 3.配置.gitlab-ci.yml文件
     vim .gitlab-ci.yml
   
