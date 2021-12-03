@@ -21,24 +21,51 @@ tags: ["gitlab"]
 2. 手动二进制文件部署
 3. 通过rpm/deb包部署
 
-通过二进制文件方式安装
-# Download the binary for your system
-    sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+1. docker方式安装
 
-# Give it permissions to execute
-    sudo chmod +x /usr/local/bin/gitlab-runner
+安装文档：https://docs.gitlab.com/runne...
 
-# Create a GitLab CI user
+    docker run -dit \
+    --name gitlab-runner \
+    --restart always \
+    -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    gitlab/gitlab-runner
+1.1 设置信息
+
+    docker exec -it gitlab-runner gitlab-runner register
+2. 非docker方式安装
+
+2.1 安装GitLab Runner
+
+安装环境：Linux  
+
+其他环境参考：https://docs.gitlab.com/runne...  
+
+下载  
+  
+    curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+添加权限  
+
+    chmod +x /usr/local/bin/gitlab-runner  
+新建gitlab-runner用户  
+
     sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+安装  
 
-# Install and run as service
-    sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
-    sudo gitlab-runner start
+安装时需要指定我们上面新建的用户  
 
-注册runner的命令  
-    sudo gitlab-runner register --url https://gitlab.com/ --registration-token $REGISTRATION_TOKEN
+    gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+启动  
+    gitlab-runner start
 
-### 2.配置.gitlab-ci.yml文件
+### 2.配置 docker shell链接
+    ssh-keygen -t rsa
+    cd .ssh/
+    cat id_rsa.pub >>authorized_keys
+    docker cp id_rsa gitlab-runner:/root
+
+### 3.配置.gitlab-ci.yml文件
     vim .gitlab-ci.yml
   
     stages:          # List of stages for jobs, and their order of execution
@@ -50,7 +77,7 @@ tags: ["gitlab"]
     stage: build
     script:
         - echo "上传代码"
-        - cd /opt/blog && sh gitpull.sh
+        - ssh -i /root/id_rsa root@172.17.0.2 && cd /opt/blog && sh gitpull.sh
         - echo "上传完成."
 
     unit-test-job:   # This job runs in the test stage.
