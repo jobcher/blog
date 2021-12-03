@@ -7,9 +7,10 @@ build-job:
   stage: build
   script:
     - echo "上传文章"
-    - ssh -i /root/id_rsa root@172.17.0.2
     - cd /opt/blog && sh gitpull.sh
     - echo "上传完成."
+  tags:
+    - dev
 
 unit-test-job:   
   stage: test
@@ -18,6 +19,8 @@ unit-test-job:
     - echo "重启hugo."
     - sleep 60
     - echo "Code coverage is 90%"
+  tags:
+    - dev
 
 deploy-job:      
   stage: deploy
@@ -25,3 +28,5 @@ deploy-job:
   script:
     - echo "Deploying application..."
     - echo "Application successfully deployed."
+  tags:
+    - dev
