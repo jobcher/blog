@@ -7,7 +7,7 @@ build-job:
   stage: build
   script:
     - echo "上传文章"
-    - cd /opt && git clone https://gitlab.com/sjtfreaks/blog.git
+    - cd /opt/blog && sh gitpull.sh
     - echo "上传完成."
   tags:
     - dev
