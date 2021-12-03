@@ -1,3 +1,10 @@
+---
+title: "brew 安装配置"
+date: 2021-12-03
+draft: true
+author: "sjtfreaks"
+tags: ["brew"]
+---
 # brew 安装配置
 ## 一.安装
 ### 1.在ubuntu上安装 brew
