@@ -6,5 +6,6 @@ author: "sjtfreaks"
 tags: ["hugo"]
 ---
 
-hugo new site blog
-hugo new posts/first.md
+hugo new site blog  
+hugo new posts/first.md  
+nohup hugo server -e production -t LoveIt -D &  

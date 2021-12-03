@@ -19,7 +19,7 @@ tags: ["brew"]
 ## 二、使用
 ### 1.安装 wget
     brew install wget
-
+  
 Homebrew 会将软件包安装到独立目录，并将其文件软链接至 /usr/local  
   
     $ cd /usr/local

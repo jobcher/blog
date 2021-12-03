@@ -24,4 +24,5 @@ tags: ["gitlab"]
 我这边选择docker部署  
 1. 拉取镜像  
     docker pull gitlab/gitlab-runner:latest
+2. 
 
