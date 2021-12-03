@@ -77,7 +77,7 @@ tags: ["gitlab"]
     stage: build
     script:
         - echo "上传代码"
-        - sudo ssh -i /root/id_rsa root@172.17.0.2 && cd /opt/blog && sh gitpull.sh
+        - ssh -i /root/id_rsa root@172.17.0.2 && cd /opt/blog && sh gitpull.sh
         - echo "上传完成."
 
     unit-test-job:   # This job runs in the test stage.
