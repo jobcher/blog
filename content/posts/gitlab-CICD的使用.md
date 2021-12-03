@@ -21,28 +21,55 @@ tags: ["gitlab"]
 2. 手动二进制文件部署
 3. 通过rpm/deb包部署
 
-通过docker方式安装
-    docker run -dit \
-    --name gitlab-runner \
-    --restart always \
-    -v /srv/gitlab-runner/config:/etc/gitlab-runner \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    gitlab/gitlab-runner
+通过二进制文件方式安装
+# Download the binary for your system
+    sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
 
-设置信息  
-    docker exec -ti gitlab-runner gitlab-runner register
+# Give it permissions to execute
+    sudo chmod +x /usr/local/bin/gitlab-runner
 
-    Enter the GitLab instance URL (for example, https://gitlab.com/):
-    https://gitlab.com/ #地址
-    Enter the registration token:
-    #token令牌
-    Enter a description for the runner:
-    [c********4]: gitlabrunner #描述
-    Enter tags for the runner (comma-separated):
-    hugo #tag标识
-    Registering runner... succeeded                     runner=_e********
-    Enter an executor: ssh, virtualbox, docker-ssh+machine, docker-ssh, parallels, shell, docker+machine, kubernetes, custom, docker:
-    shell #选择你的方式
-    Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
+# Create a GitLab CI user
+    sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
 
-### 2.配置
+# Install and run as service
+    sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+    sudo gitlab-runner start
+
+注册runner的命令  
+    sudo gitlab-runner register --url https://gitlab.com/ --registration-token $REGISTRATION_TOKEN
+
+### 2.配置.gitlab-ci.yml文件
+    vim .gitlab-ci.yml
+  
+    stages:          # List of stages for jobs, and their order of execution
+    - build
+    - test
+    - deploy
+
+    build-job:       # This job runs in the build stage, which runs first.
+    stage: build
+    script:
+        - echo "上传代码"
+        - cd /opt/blog && sh gitpull.sh
+        - echo "上传完成."
+
+    unit-test-job:   # This job runs in the test stage.
+    stage: test    # It only starts when the job in the build stage completes successfully.
+    script:
+        - echo "Running unit tests... This will take about 60 seconds."
+        - sleep 60
+        - echo "Code coverage is 90%"
+
+    lint-test-job:   # This job also runs in the test stage.
+    stage: test    # It can run at the same time as unit-test-job (in parallel).
+    script:
+        - echo "Linting code... This will take about 10 seconds."
+        - sleep 10
+        - echo "No lint issues found."
+
+    deploy-job:      # This job runs in the deploy stage.
+    stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+    script:
+        - echo "Deploying application..."
+        - echo "Application successfully deployed."
+
