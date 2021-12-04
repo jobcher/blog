@@ -45,5 +45,8 @@ tags: ["hugo"]
     $ git push -u origin master
 
 
+## hugo 添加搜索插件
+
+
 ## 常用命令
 nohup hugo server -e production -t LoveIt -D &  
