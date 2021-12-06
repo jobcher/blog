@@ -74,7 +74,13 @@ dashboard.admin-user-role.yml
     sudo k3s kubectl proxy
   
 http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
-## 3.安装 kube—kubernetes 监控
+
+### 连接lens 
+    cat /etc/rancher/k3s/k3s.yaml
+    
+
+## 3.安装 kube—prometheus 监控
+
 
 ## 4.安装 nfs外部驱动挂载storageclass
 
