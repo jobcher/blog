@@ -77,6 +77,9 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
 
 ### 连接lens 
     cat /etc/rancher/k3s/k3s.yaml
+    更改本地host
+    穿透服务器IP    local
+     
     
 
 ## 3.安装 kube—prometheus 监控
