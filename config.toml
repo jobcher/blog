@@ -130,11 +130,11 @@ theme = "LoveIt"
     [params.home.profile]
       enable = true
       # Gravatar 邮箱，用于优先在主页显示的头像
-      gravatarEmail = ""
+      gravatarEmail = "13028911306@163.com"
       # 主页显示头像的 URL
       avatarURL = "/static/avatar.jpg"
       # LoveIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
-      title = ""
+      title = "nbtyfood 技术日志"
       # 主页显示的网站副标题
       subtitle = "这是 nbtyfood.com 技术分享"
       # 是否为副标题显示打字机动画
