@@ -41,6 +41,7 @@ frps 相对于nps的优势是对于高流量的媒体服务能够提供更可靠
     ./install-frps.sh uninstall
   
 更新 frps服务  
+  
     ./install-frps.sh update
   
 Server management（服务管理器） 
