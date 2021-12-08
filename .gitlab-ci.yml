@@ -17,8 +17,8 @@ unit-test-job:
   when: manual
   script:
     - echo "重启hugo."
-    - sleep 60
-    - echo "Code coverage is 90%"
+    - cd /opt/blog && sh reload-hugo.sh
+    - echo "结束 end"
   tags:
     - dev
 
