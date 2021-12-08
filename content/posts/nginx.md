@@ -1,6 +1,6 @@
 ---
 title: "nginx 汇总"
-date: 2021-12-07
+date: 2021-12-08
 draft: true
 author: "sjtfreaks"
 tags: ["nginx","linux"]
