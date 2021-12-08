@@ -15,9 +15,9 @@ theme = "LoveIt"
   # LoveIt 更改 | 0.2.0 LoveIt 主题版本
   version = "0.2.X"
   # 网站描述
-  description = "这是我的全新 Hugo 网站"
+  description = "这是 nbtyfood.com 技术分享"
   # 网站关键词
-  keywords = ["Theme", "Hugo"]
+  keywords = ["技术分享", "Hugo"]
   # 网站默认主题样式 ("light", "dark", "auto")
   defaultTheme = "auto"
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
@@ -78,7 +78,7 @@ theme = "LoveIt"
       # LOGO 的 URL
       logo = ""
       # 标题名称
-      name = ""
+      name = "nbtyfood 技术日志"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = ""
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
@@ -98,7 +98,7 @@ theme = "LoveIt"
     # LoveIt 新增 | 0.2.0 是否显示作者
     author = true
     # 网站创立年份
-    since = 2019
+    since = 2021
     # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
     icp = ""
     # 许可协议信息 (支持 HTML 格式)
@@ -216,7 +216,7 @@ theme = "LoveIt"
     XMPP = ""
     Matrix = ""
     Bilibili = ""
-    Email = "xxxx@xxxx.com"
+    Email = "nb@nbtyfood.com"
     RSS = true # LoveIt 新增 | 0.2.0
 
   # LoveIt 更改 | 0.2.0 文章页面配置
