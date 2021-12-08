@@ -54,13 +54,13 @@ theme = "LoveIt"
       # LOGO 的 URL
       logo = ""
       # 标题名称
-      name = ""
+      name = "nbtyfood 日志"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = ""
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
       post = ""
       # LoveIt 新增 | 0.2.5 是否为标题显示打字机动画
-      typeit = false
+      typeit = true
 
    # 页面底部信息配置
   [params.footer]
@@ -117,3 +117,11 @@ theme = "LoveIt"
     # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = true
 
+# 用于 Hugo 输出文档的设置
+[outputs]
+  # LoveIt 更改 | 0.2.0
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]
