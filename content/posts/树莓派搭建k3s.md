@@ -83,7 +83,18 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
     
 
 ## 3.安装 kube—prometheus 监控
+### 一键安装
+    git clone https://github.com/coreos/kube-prometheus.git
+    cd kube-prometheus/manifests
+    k3s kubectl apply -f setup/
+    k3s kubectl get pod -n monitoring
+    k3s kubectl apply -f .
 
+  
+### 一键卸载
+    cd kube-prometheus/manifests
+    k3s kubectl delete -f .
+    k3s kubectl delete -f setup/
 
 ## 4.安装 nfs外部驱动挂载storageclass
 
