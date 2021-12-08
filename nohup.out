@@ -72,3 +72,228 @@ Serving pages from memory
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
+
+Change detected, rebuilding site.
+2021-12-02 12:33:12.060 +0800
+Source changed "/opt/blog/content/posts/树莓派搭建k3s.md": WRITE
+Total in 12 ms
+
+Change detected, rebuilding site.
+2021-12-02 12:42:08.560 +0800
+Source changed "/opt/blog/content/posts/树莓派搭建k3s.md": WRITE
+Total in 12 ms
+
+Change detected, rebuilding site.
+2021-12-02 13:06:32.060 +0800
+Source changed "/opt/blog/content/posts/first.md": WRITE
+Source changed "/opt/blog/content/posts/树莓派搭建k3s.md": WRITE
+ERROR 2021/12/02 13:06:32 Rebuild failed:
+
+ERROR 2021/12/02 13:06:32 "/opt/blog/content/posts/树莓派搭建k3s.md:5:1": failed to unmarshal YAML: yaml: line 4: did not find expected key
+Total in 0 ms
+
+Change detected, rebuilding site.
+2021-12-02 13:13:01.060 +0800
+Source changed "/opt/blog/content/posts/first.md": WRITE
+Source changed "/opt/blog/content/posts/树莓派搭建k3s.md": WRITE
+Total in 13 ms
+
+Change of config file detected, rebuilding site.
+2021-12-03 09:13:54.561 +0800
+Rebuilt in 123 ms
+
+Change detected, rebuilding site.
+2021-12-03 09:44:04.561 +0800
+Source changed "/opt/blog/content/posts/Markdown教程.md": WRITE
+Source changed "/opt/blog/content/posts/git 使用方法.md": WRITE
+Source changed "/opt/blog/content/posts/gitlab-CICD的使用.md": WRITE
+Source changed "/opt/blog/content/posts/gitlab技巧.md": WRITE
+ERROR 2021/12/03 09:44:04 Rebuild failed:
+
+ERROR 2021/12/03 09:44:04 Failed to render pages: render of "page" failed: execute of template failed: template: posts/single.html:92:124: executing "content" at <partial "function/content.html">: error calling partial: "/opt/blog/themes/LoveIt/layouts/partials/function/content.html:15:15": execute of template failed: template: partials/function/content.html:15:15: executing "partials/function/content.html" at <partial "function/checkbox.html" $content>: error calling partial: partial that returns a value needs a non-zero argument.
+Total in 70 ms
+Start building sites … 
+hugo v0.89.4-AB01BA6E linux/amd64 BuildDate=2021-11-17T08:24:09Z VendorInfo=gohugoio
+
+                   | ZH-CN  
+-------------------+--------
+  Pages            |     7  
+  Paginator pages  |     0  
+  Non-page files   |     0  
+  Static files     |    83  
+  Processed images |     0  
+  Aliases          |     0  
+  Sitemaps         |     1  
+  Cleaned          |     0  
+
+Built in 76 ms
+Watching for changes in /opt/blog/{archetypes,content,data,layouts,static,themes}
+Watching for config changes in /opt/blog/config.toml
+Environment: "production"
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+
+Change detected, rebuilding site.
+2021-12-03 10:03:12.629 +0800
+Source changed "/opt/blog/content/posts/Markdown教程.md": WRITE
+Source changed "/opt/blog/content/posts/brew安装配置.md": WRITE
+Source changed "/opt/blog/content/posts/first.md": WRITE
+Source changed "/opt/blog/content/posts/git 使用方法.md": WRITE
+Source changed "/opt/blog/content/posts/gitlab-CICD的使用.md": WRITE
+Source changed "/opt/blog/content/posts/gitlab技巧.md": WRITE
+Source changed "/opt/blog/content/posts/树莓派搭建k3s.md": WRITE
+Total in 33 ms
+Start building sites … 
+hugo v0.89.4-AB01BA6E linux/amd64 BuildDate=2021-11-17T08:24:09Z VendorInfo=gohugoio
+
+                   | ZH-CN  
+-------------------+--------
+  Pages            |    28  
+  Paginator pages  |     0  
+  Non-page files   |     0  
+  Static files     |    83  
+  Processed images |     0  
+  Aliases          |     8  
+  Sitemaps         |     1  
+  Cleaned          |     0  
+
+Built in 254 ms
+Watching for changes in /opt/blog/{archetypes,content,data,layouts,static,themes}
+Watching for config changes in /opt/blog/config.toml
+Environment: "production"
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+
+Change detected, rebuilding site.
+2021-12-03 14:05:27.474 +0800
+Source changed "/opt/blog/content/posts/gitlab-CICD的使用.md": WRITE
+Total in 11 ms
+Start building sites … 
+hugo v0.89.4-AB01BA6E linux/amd64 BuildDate=2021-11-17T08:24:09Z VendorInfo=gohugoio
+
+                   | ZH-CN  
+-------------------+--------
+  Pages            |    28  
+  Paginator pages  |     0  
+  Non-page files   |     0  
+  Static files     |    83  
+  Processed images |     0  
+  Aliases          |     8  
+  Sitemaps         |     1  
+  Cleaned          |     0  
+
+Built in 229 ms
+Watching for changes in /opt/blog/{archetypes,content,data,layouts,static,themes}
+Watching for config changes in /opt/blog/config.toml
+Environment: "production"
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+
+Change detected, rebuilding site.
+2021-12-03 15:52:13.384 +0800
+Source changed "/opt/blog/content/posts/gitlab-CICD的使用.md": WRITE
+Total in 9 ms
+
+Change detected, rebuilding site.
+2021-12-03 16:22:24.385 +0800
+Data changed "/opt/blog/data/1.txt": CREATE
+Total in 9 ms
+
+Change detected, rebuilding site.
+2021-12-03 16:23:09.384 +0800
+Template added "/opt/blog/layouts/1.txt": CREATE
+Total in 42 ms
+
+Change of Static files detected, rebuilding site.
+2021-12-03 16:24:47.884 +0800
+Syncing 1.txt to /
+
+Change detected, rebuilding site.
+2021-12-03 16:59:41.384 +0800
+Source changed "/opt/blog/content/posts/gitlab-CICD的使用.md": WRITE
+Total in 9 ms
+
+Change of Static files detected, rebuilding site.
+2021-12-03 17:21:19.384 +0800
+File no longer exists in static dir, removing /1.txt
+
+Change of Static files detected, rebuilding site.
+2021-12-03 17:21:39.384 +0800
+Syncing favicon_package_v0.16.zip to /
+
+Change of Static files detected, rebuilding site.
+2021-12-03 17:21:47.385 +0800
+Syncing android-chrome-192x192.png to /
+Syncing mstile-150x150.png to /
+Syncing favicon-16x16.png to /
+Syncing safari-pinned-tab.svg to /
+Syncing favicon.ico to /
+Syncing site.webmanifest to /
+Syncing apple-touch-icon.png to /
+Syncing browserconfig.xml to /
+Syncing favicon-32x32.png to /
+
+Change of config file detected, rebuilding site.
+2021-12-03 17:32:27.385 +0800
+Rebuilt in 97 ms
+
+Change detected, rebuilding site.
+2021-12-03 20:11:09.386 +0800
+Source changed "/opt/blog/content/posts/Markdown教程.md": WRITE
+Source changed "/opt/blog/content/posts/git 使用方法.md": WRITE
+Total in 27 ms
+
+Change detected, rebuilding site.
+2021-12-03 20:38:00.384 +0800
+Source changed "/opt/blog/content/posts/first.md": WRITE
+Total in 28 ms
+
+Change detected, rebuilding site.
+2021-12-03 20:50:07.885 +0800
+Source changed "/opt/blog/content/posts/yunwei.md": WRITE
+Total in 24 ms
+
+Change detected, rebuilding site.
+2021-12-03 20:58:10.384 +0800
+Source changed "/opt/blog/content/posts/yunwei.md": WRITE
+Total in 31 ms
+2021/12/04 00:56:33 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+
+Change of config file detected, rebuilding site.
+2021-12-04 18:52:02.884 +0800
+Rebuilt in 107 ms
+
+Change detected, rebuilding site.
+2021-12-05 17:50:32.884 +0800
+Source changed "/opt/blog/content/posts/tcpip.md": WRITE
+Total in 18 ms
+
+Change detected, rebuilding site.
+2021-12-06 15:51:42.384 +0800
+Source changed "/opt/blog/content/posts/树莓派搭建k3s.md": WRITE
+Total in 18 ms
+
+Change detected, rebuilding site.
+2021-12-06 17:09:39.885 +0800
+Source changed "/opt/blog/content/posts/nps.md": WRITE
+Source changed "/opt/blog/content/posts/树莓派搭建k3s.md": WRITE
+Total in 21 ms
+2021/12/07 02:04:14 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2021/12/07 06:55:34 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+2021/12/07 11:26:17 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+
+Change detected, rebuilding site.
+2021-12-07 17:44:13.884 +0800
+Source changed "/opt/blog/content/posts/nginx.md": WRITE
+Source changed "/opt/blog/content/posts/树莓派搭建k3s.md": WRITE
+Total in 34 ms
+
+Change of config file detected, rebuilding site.
+2021-12-08 10:15:16.885 +0800
+Rebuilt in 128 ms
