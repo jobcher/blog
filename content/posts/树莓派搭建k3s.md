@@ -84,8 +84,9 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
 
 ## 3.安装 kube—prometheus 监控
 ### 一键安装
-    git clone https://github.com/coreos/kube-prometheus.git
-    cd kube-prometheus/manifests
+    wget https://github.com/prometheus-operator/kube-prometheus/archive/refs/tags/v0.9.0.tar.gz
+    tar -zxvf v0.9.0.tar.gz
+    cd kube-prometheus-0.9.0/manifests
     k3s kubectl apply -f setup/
     k3s kubectl get pod -n monitoring
     k3s kubectl apply -f .
