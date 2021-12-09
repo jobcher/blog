@@ -1,6 +1,6 @@
 stages:          
   - build
-  - test
+  - docker
   - deploy
 
 build-job:       
@@ -12,12 +12,12 @@ build-job:
   tags:
     - dev
 
-unit-test-job:   
-  stage: test
+build-docker-job:   
+  stage: docker
   when: manual
   script:
-    - echo "重启hugo."
-    - cd /opt/blog && sh reload-hugo.sh
+    - echo "生成 docker hugo."
+    - cd /opt/blog && sh updatedocker.sh
     - echo "结束 end"
   tags:
     - dev
