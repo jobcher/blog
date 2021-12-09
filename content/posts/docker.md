@@ -13,6 +13,8 @@ tags: ["docker"]
     curl -sSL https://get.daocloud.io/docker | sh
 
 # docker命令
+常用docker命令  
+  
     #查看容器
     docker ps
     #查看镜像
