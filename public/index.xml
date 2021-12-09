@@ -2,7 +2,7 @@
     <channel>
         <title>nbtyfood 日志</title>
         <link>http://www.nbtyfood.com/</link>
-        <description>nbtyfood 日志</description>
+        <description>这是 nbtyfood.com 技术分享</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language>
             <atom:link href="http://www.nbtyfood.com/index.xml" rel="self" type="application/rss+xml" />
         </channel>
