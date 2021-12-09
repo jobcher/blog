@@ -79,6 +79,28 @@ Dockerfile 中如果存在多个 CMD 指令，仅最后一个生效。
     CMD ["<param1>","<param2>",...]  # 该写法是为 ENTRYPOINT 指令指定的程序提供默认参数
 
 ## 通过dockerfile文件封装hugo
-
-
+  
+dokcerfile文件
+  
+    FROM nginx:1.21
+    COPY public/ /usr/share/nginx/html
+  
+docker.sh文件  
+  
+    #/!bin/bash
+    echo "删除旧的docker"
+    docker ps
+    docker stop nginx-hugo
+    docker rm nginx-hugo
+    docker rmi nginx:hugo
+    echo "生成新的docker"
+    hugo -t LoveIt -D
+    docker build -t nginx:hugo .
+    docker run --name nginx-hugo -d -p 8080:80 nginx:hugo
+    echo "显示端口"
+    netstat -lntp
+  
+执行脚本：
+  
+    sh update.sh
 
