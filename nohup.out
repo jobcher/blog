@@ -534,3 +534,68 @@ Change detected, rebuilding site.
 2021-12-08 15:33:14.705 +0800
 Source changed "/opt/blog/content/posts/nps.md": WRITE
 Total in 45 ms
+Start building sites … 
+hugo v0.89.4-AB01BA6E linux/amd64 BuildDate=2021-11-17T08:24:09Z VendorInfo=gohugoio
+
+                   | ZH-CN  
+-------------------+--------
+  Pages            |    54  
+  Paginator pages  |     1  
+  Non-page files   |     0  
+  Static files     |    99  
+  Processed images |     0  
+  Aliases          |    14  
+  Sitemaps         |     1  
+  Cleaned          |     0  
+
+Built in 238 ms
+Watching for changes in /opt/blog/{archetypes,content,data,layouts,static,themes}
+Watching for config changes in /opt/blog/config.toml
+Environment: "production"
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+Start building sites … 
+hugo v0.89.4-AB01BA6E linux/amd64 BuildDate=2021-11-17T08:24:09Z VendorInfo=gohugoio
+
+                   | ZH-CN  
+-------------------+--------
+  Pages            |    54  
+  Paginator pages  |     1  
+  Non-page files   |     0  
+  Static files     |    99  
+  Processed images |     0  
+  Aliases          |    14  
+  Sitemaps         |     1  
+  Cleaned          |     0  
+
+Built in 248 ms
+Watching for changes in /opt/blog/{archetypes,content,data,layouts,static,themes}
+Watching for config changes in /opt/blog/config.toml
+Environment: "production"
+Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop
+
+Change detected, rebuilding site.
+2021-12-08 22:14:41.199 +0800
+Source changed "/opt/blog/content/posts/docker.md": WRITE
+Total in 33 ms
+
+Change detected, rebuilding site.
+2021-12-08 23:13:42.698 +0800
+Source changed "/opt/blog/content/posts/树莓派搭建k3s.md": WRITE
+Total in 37 ms
+
+Change detected, rebuilding site.
+2021-12-09 10:17:56.198 +0800
+Source changed "/opt/blog/content/posts/docker.md": WRITE
+Total in 44 ms
+
+Change detected, rebuilding site.
+2021-12-09 14:23:01.698 +0800
+Source changed "/opt/blog/content/posts/docker01.md": WRITE
+Source changed "/opt/blog/content/posts/树莓派搭建k3s.md": WRITE
+Total in 266 ms
