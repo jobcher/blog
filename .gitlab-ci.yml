@@ -18,6 +18,9 @@ build-docker-job:
     - echo "生成 docker hugo."
     - cd /opt/blog && sh updatedocker.sh
     - echo "结束 end"
+  environment:
+    name: production
+    url: https://www.nbtyfood.com
   tags:
     - dev
 
