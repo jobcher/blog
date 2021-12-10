@@ -4,6 +4,8 @@ date: 2021-12-09
 draft: true
 author: "sjtfreaks"
 tags: ["k8s"]
+categories: ["k8s"]
+series: ["k8s入门系列"]
 ---
 
 # Kubernetes k8s 组件

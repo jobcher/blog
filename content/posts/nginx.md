@@ -4,6 +4,8 @@ date: 2021-12-08
 draft: true
 author: "sjtfreaks"
 tags: ["nginx","linux"]
+categories: ["web 服务器"]
+series: ["web服务入门系列"]
 ---
 
 # nginx 汇总

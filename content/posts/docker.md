@@ -4,6 +4,8 @@ date: 2021-12-09
 draft: true
 author: "sjtfreaks"
 tags: ["docker"]
+categories: ["docker"]
+series: ["docker入门系列"]
 ---
 
 # 安装docker

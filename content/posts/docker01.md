@@ -4,6 +4,8 @@ date: 2021-12-09
 draft: true
 author: "sjtfreaks"
 tags: ["docker","dockerfile","DockerCompose"]
+categories: ["docker"]
+series: ["docker进阶系列"]
 ---
 
 # docker 进阶使用

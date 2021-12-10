@@ -4,6 +4,8 @@ date: 2021-12-08
 draft: true
 author: "sjtfreaks"
 tags: ["内网穿透","nps"]
+categories: ["日常"]
+series: ["日常系列"]
 ---
 
 # 内网穿透

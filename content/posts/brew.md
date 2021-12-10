@@ -4,6 +4,8 @@ date: 2021-12-03
 draft: true
 author: "sjtfreaks"
 tags: ["brew"]
+categories: ["Mac"]
+series: ["Mac系列"]
 ---
 # brew 安装配置
 ## 一.安装

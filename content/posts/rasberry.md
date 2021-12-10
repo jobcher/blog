@@ -4,6 +4,8 @@ date: 2021-12-06
 draft: true
 author: "sjtfreaks"
 tags: ["树莓派","k3s"]
+categories: ["日常"]
+series: ["日常系列"]
 ---
 
 # 树莓派安装k3s

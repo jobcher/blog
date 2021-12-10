@@ -4,6 +4,8 @@ date: 2021-12-03
 draft: true
 author: "sjtfreaks"
 tags: ["gitlab"]
+categories: ["gitlab"]
+series: ["git入门系列"]
 ---
 
 # git使用方法

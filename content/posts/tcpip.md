@@ -4,6 +4,8 @@ date: 2021-12-08
 draft: true
 author: "sjtfreaks"
 tags: ["TCP/IP"]
+categories: ["基础"]
+series: ["基础知识系列"]
 ---
 # TCP/IP协议
 
