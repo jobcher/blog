@@ -10,13 +10,13 @@ series: ["docker入门系列"]
 
 # 安装docker
 通过docker 脚本安装  
-  
+```sh
     curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
     curl -sSL https://get.daocloud.io/docker | sh
-
+```
 # docker命令
 常用docker命令  
-  
+```sh
     #查看容器
     docker ps
     #查看镜像
@@ -27,3 +27,4 @@ series: ["docker入门系列"]
     docker rm $(docker ps -aq)
     #删除镜像
     docker rmi nginx
+```

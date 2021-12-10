@@ -27,12 +27,15 @@ series: ["git入门系列"]
 
 安装文档：https://docs.gitlab.com/runne...
 
+```sh
     docker run -dit \
     --name gitlab-runner \
     --restart always \
     -v /srv/gitlab-runner/config:/etc/gitlab-runner \
     -v /var/run/docker.sock:/var/run/docker.sock \
     gitlab/gitlab-runner
+```
+
 1.1 设置信息
 
     docker exec -it gitlab-runner gitlab-runner register
@@ -46,22 +49,30 @@ series: ["git入门系列"]
 
 下载  
   
+```sh
     curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+```
+
 添加权限  
-
+```sh
     chmod +x /usr/local/bin/gitlab-runner  
+```
 新建gitlab-runner用户  
-
+```sh
     sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+```
 安装  
 
 安装时需要指定我们上面新建的用户  
-
+```sh
     gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+```
 启动  
+```sh
     gitlab-runner start
-
+```
 ### 2.配置 docker shell链接
+```sh
     ssh-keygen -t rsa
     cd .ssh/
     cat id_rsa.pub >>authorized_keys
@@ -77,8 +88,9 @@ series: ["git入门系列"]
 
     systemctl daemon-reload
     systemctl restart gitlab-runner
-
+```
 ### 3.配置.gitlab-ci.yml文件
+```sh
     vim .gitlab-ci.yml
   
     stages:          
@@ -111,4 +123,4 @@ series: ["git入门系列"]
     script:
         - echo "Deploying application..."
         - echo "Application successfully deployed."
-
+```
