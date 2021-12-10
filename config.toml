@@ -569,3 +569,9 @@ theme = "LoveIt"
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   taxonomyTerm = ["HTML"]
+
+# 分类
+[taxonomies]
+tag = "tags"
+category = "categories"
+seris = "series"
