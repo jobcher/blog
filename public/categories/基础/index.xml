@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>基础 - 分类 - nbtyfood 日志</title>
+        <link>http://www.nbtyfood.com/categories/%E5%9F%BA%E7%A1%80/</link>
+        <description>基础 - 分类 - nbtyfood 日志</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/categories/%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+    <title>TCP/IP详解</title>
+    <link>http://www.nbtyfood.com/tcpip/</link>
+    <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/tcpip/</guid>
+    <description><![CDATA[TCP/IP协议 什么是TCP/IP协议 OSI七层架构 TCP/IP四层模型 协议 应用层 HTTP、SMTP、SNMP、FTP、Telnet、SIP]]></description>
+</item><item>
+    <title>运维知识图谱</title>
+    <link>http://www.nbtyfood.com/yunwei/</link>
+    <pubDate>Wed, 01 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/yunwei/</guid>
+    <description><![CDATA[运维图谱]]></description>
+</item></channel>
+</rss>

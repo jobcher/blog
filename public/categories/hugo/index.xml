@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>hugo - 分类 - nbtyfood 日志</title>
+        <link>http://www.nbtyfood.com/categories/hugo/</link>
+        <description>hugo - 分类 - nbtyfood 日志</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 01 Dec 2021 17:05:35 &#43;0800</lastBuildDate><atom:link href="http://www.nbtyfood.com/categories/hugo/" rel="self" type="application/rss+xml" /><item>
+    <title>hugo 命令大全</title>
+    <link>http://www.nbtyfood.com/first/</link>
+    <pubDate>Wed, 01 Dec 2021 17:05:35 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/first/</guid>
+    <description><![CDATA[hugo命令大全 安装hugo 二进制安装 1 brew install hugo 源码安装 1 2 3 export GOPATH=$HOME/go go get -v github.com/spf13/hugo go get -u -v github.com/spf13/hugo #更新依赖库 生成站点 1 2 hugo new site /opt/blog cd /opt/blog 创建文章 1 2 3 4 hugo new about.md]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>docker进阶使用 - nbtyfood 日志</title><meta name="Description" content="这是 nbtyfood.com 技术分享"><meta property="og:title" content="docker进阶使用" />
+<meta property="og:description" content="docker 进阶使用 dockerfile和docker compose的配置 Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.nbtyfood.com/docker01/" /><meta property="og:image" content="http://www.nbtyfood.com/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-09T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://www.nbtyfood.com/logo.png"/>
+
+<meta name="twitter:title" content="docker进阶使用"/>
+<meta name="twitter:description" content="docker 进阶使用 dockerfile和docker compose的配置 Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.nbtyfood.com/docker01/" /><link rel="prev" href="http://www.nbtyfood.com/kubernetes/" /><link rel="next" href="http://www.nbtyfood.com/docker/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "docker进阶使用",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/www.nbtyfood.com\/docker01\/"
+        },"genre": "posts","keywords": "docker, dockerfile, DockerCompose","wordcount":  1026 ,
+        "url": "http:\/\/www.nbtyfood.com\/docker01\/","datePublished": "2021-12-09T00:00:00+00:00","dateModified": "2021-12-09T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "sjtfreaks"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="nbtyfood 日志">nbtyfood 技术日志</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="nbtyfood 日志">nbtyfood 技术日志</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">docker进阶使用</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-09">2021-12-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1026 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#docker命令详解">Docker命令详解</a>
+      <ul>
+        <li><a href="#copy">COPY</a></li>
+        <li><a href="#from">FROM</a></li>
+        <li><a href="#run">RUN</a></li>
+        <li><a href="#add">ADD</a></li>
+        <li><a href="#cmd">CMD</a></li>
+      </ul>
+    </li>
+    <li><a href="#通过dockerfile文件封装hugo">通过dockerfile文件封装hugo</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="docker-进阶使用">docker 进阶使用</h1>
+<p>dockerfile和docker compose的配置</p>
+<h1 id="dockerfile-使用">Dockerfile 使用</h1>
+<p>Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。</p>
+<p>例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile">    FROM nginx<span class="err">
+</span><span class="err"></span>    RUN <span class="nb">echo</span> <span class="s1">&#39;这是一个本地构建的nginx镜像&#39;</span> &gt; /usr/share/nginx/html/index.html<span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>保存Dockerfile文件并在本地路径执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    docker build -t nginx:v1-test .
+    docker run -name docker run --name nginx-test -d  -p 8080:80 nginx:v1-test
+</code></pre></td></tr></table>
+</div>
+</div><p>浏览nginx页面确认更新内容</p>
+<pre><code>curl 127.0.0.1:8080
+输出：
+这是一个本地构建的nginx镜像
+</code></pre>
+<h2 id="docker命令详解">Docker命令详解</h2>
+<h3 id="copy">COPY</h3>
+<p>复制指令，从上下文目录中复制文件或者目录到容器里指定路径。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile">    COPY <span class="o">[</span>--chown<span class="o">=</span>&lt;user&gt;:&lt;group&gt;<span class="o">]</span> &lt;源路径1&gt;...  &lt;目标路径&gt;<span class="err">
+</span><span class="err"></span>    COPY <span class="o">[</span>--chown<span class="o">=</span>&lt;user&gt;:&lt;group&gt;<span class="o">]</span> <span class="o">[</span><span class="s2">&#34;&lt;源路径1&gt;&#34;</span>,...  <span class="s2">&#34;&lt;目标路径&gt;&#34;</span><span class="o">]</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>&lt;源路径&gt;：源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 filepath.Match 规则。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile">    COPY hom* /mydir/<span class="err">
+</span><span class="err"></span>    COPY hom?.txt /mydir/<span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="from">FROM</h3>
+<p>FROM：定制的镜像都是基于 FROM 的镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile">    FROM nginx<span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="run">RUN</h3>
+<p>RUN：用于执行后面跟着的命令行命令</p>
+<p>shell：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile">    RUN &lt;命令行命令&gt;<span class="err">
+</span><span class="err"></span>    <span class="c1"># &lt;命令行命令&gt; 等同于，在终端操作的 shell 命令。</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>exec：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile">    RUN <span class="o">[</span><span class="s2">&#34;可执行文件&#34;</span>, <span class="s2">&#34;参数1&#34;</span>, <span class="s2">&#34;参数2&#34;</span><span class="o">]</span><span class="err">
+</span><span class="err"></span>    <span class="c1"># 例如：</span><span class="err">
+</span><span class="err"></span>    <span class="c1"># RUN [&#34;./test.php&#34;, &#34;dev&#34;, &#34;offline&#34;] 等价于 RUN ./test.php dev offline</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="add">ADD</h3>
+<p>ADD 指令和 COPY 的使用格类似</p>
+<p>ADD 的优点：在执行 &lt;源文件&gt; 为 tar 压缩文件的话，压缩格式为 gzip, bzip2 以及 xz 的情况下，会自动复制并解压到 &lt;目标路径&gt;。</p>
+<p>ADD 的缺点：在不解压的前提下，无法复制 tar 压缩文件。会令镜像构建缓存失效，从而可能会令镜像构建变得比较缓慢。具体是否使用，可以根据是否需要自动解压来决定。</p>
+<h3 id="cmd">CMD</h3>
+<p>类似于 RUN 指令，用于运行程序，但二者运行的时间点不同:</p>
+<ol>
+<li>CMD 在docker run 时运行。</li>
+<li>RUN 是在 docker build。</li>
+</ol>
+<p>Dockerfile 中如果存在多个 CMD 指令，仅最后一个生效。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile">    CMD &lt;shell 命令&gt; <span class="err">
+</span><span class="err"></span>    CMD <span class="o">[</span><span class="s2">&#34;&lt;可执行文件或命令&gt;&#34;</span>,<span class="s2">&#34;&lt;param1&gt;&#34;</span>,<span class="s2">&#34;&lt;param2&gt;&#34;</span>,...<span class="o">]</span> <span class="err">
+</span><span class="err"></span>    CMD <span class="o">[</span><span class="s2">&#34;&lt;param1&gt;&#34;</span>,<span class="s2">&#34;&lt;param2&gt;&#34;</span>,...<span class="o">]</span>  <span class="c1"># 该写法是为 ENTRYPOINT 指令指定的程序提供默认参数</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="通过dockerfile文件封装hugo">通过dockerfile文件封装hugo</h2>
+<p>dokcerfile文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile">    FROM nginx:1.21<span class="err">
+</span><span class="err"></span>    COPY public/ /usr/share/nginx/html<span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>docker.sh文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    <span class="c1">#/!bin/bash</span>
+    <span class="nb">echo</span> <span class="s2">&#34;删除旧的docker&#34;</span>
+    docker ps
+    docker stop nginx-hugo
+    docker rm nginx-hugo
+    docker rmi nginx:hugo
+    <span class="nb">echo</span> <span class="s2">&#34;生成新的docker&#34;</span>
+    hugo -t LoveIt -D
+    docker build -t nginx:hugo .
+    docker run --name nginx-hugo -d -p 8080:80 nginx:hugo
+    <span class="nb">echo</span> <span class="s2">&#34;显示端口&#34;</span>
+    netstat -lntp
+</code></pre></td></tr></table>
+</div>
+</div><p>执行脚本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">    sh update.sh
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-12-09</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/docker01/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://www.nbtyfood.com/docker01/" data-title="docker进阶使用" data-via="xxxx" data-hashtags="docker,dockerfile,DockerCompose"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://www.nbtyfood.com/docker01/" data-hashtag="docker"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://www.nbtyfood.com/docker01/" data-title="docker进阶使用" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://www.nbtyfood.com/docker01/" data-title="docker进阶使用"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.nbtyfood.com/docker01/" data-title="docker进阶使用"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.nbtyfood.com/docker01/" data-title="docker进阶使用" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.nbtyfood.com/docker01/" data-title="docker进阶使用" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.nbtyfood.com/docker01/" data-title="docker进阶使用"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">docker</a>,&nbsp;<a href="/tags/dockerfile/">dockerfile</a>,&nbsp;<a href="/tags/dockercompose/">DockerCompose</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/kubernetes/" class="prev" rel="prev" title="Kubernetes k8s 组件"><i class="fas fa-angle-left fa-fw"></i>Kubernetes k8s 组件</a>
+            <a href="/docker/" class="next" rel="next" title="docker 命令">docker 命令<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">sjtfreaks</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">copyright by sjt</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

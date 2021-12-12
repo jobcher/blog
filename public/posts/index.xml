@@ -1,0 +1,77 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有文章 - nbtyfood 日志</title>
+        <link>http://www.nbtyfood.com/posts/</link>
+        <description>所有文章 | nbtyfood 日志</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>mysql 笔记（1）</title>
+    <link>http://www.nbtyfood.com/mysql01/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/mysql01/</guid>
+    <description><![CDATA[mysql 学习笔记（1） 本文章不涉及到关于mysql开放上的问题，主要记录关于mysql出现的问题，以及如何去维护mysql数据的日常。 mysql各]]></description>
+</item><item>
+    <title>163企业邮箱设置教程</title>
+    <link>http://www.nbtyfood.com/qyyemail163/</link>
+    <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/qyyemail163/</guid>
+    <description><![CDATA[163企业邮箱设置教程 请进入这个网站 https://qiye.163.com/help/l-11.html]]></description>
+</item><item>
+    <title>git技巧</title>
+    <link>http://www.nbtyfood.com/gitlab/</link>
+    <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/gitlab/</guid>
+    <description><![CDATA[git技巧 Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找]]></description>
+</item><item>
+    <title>docker image镜像上传</title>
+    <link>http://www.nbtyfood.com/dockerimage/</link>
+    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/dockerimage/</guid>
+    <description><![CDATA[docker image镜像上传 登入docker hub，在https://hub.docker.com上注册你的账号。 1 2 3 docker login username：#输入]]></description>
+</item><item>
+    <title>docker 命令</title>
+    <link>http://www.nbtyfood.com/docker/</link>
+    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/docker/</guid>
+    <description><![CDATA[安装docker 通过docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker命令 常用docker命令 1 2 3 4 5 6 7 8 9 10 #查看容器 docker]]></description>
+</item><item>
+    <title>docker进阶使用</title>
+    <link>http://www.nbtyfood.com/docker01/</link>
+    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/docker01/</guid>
+    <description><![CDATA[docker 进阶使用 dockerfile和docker compose的配置 Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令]]></description>
+</item><item>
+    <title>Kubernetes k8s 组件</title>
+    <link>http://www.nbtyfood.com/kubernetes/</link>
+    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/kubernetes/</guid>
+    <description><![CDATA[Kubernetes k8s 组件 控制平面组件（Control Plane Components） 控制平面的组件对集群做出全局决策(比如调度)，以及检测和响应集群事件（例如，当不]]></description>
+</item><item>
+    <title>2021年第50周记</title>
+    <link>http://www.nbtyfood.com/20211210/</link>
+    <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/20211210/</guid>
+    <description><![CDATA[2021年第50周周记 这周完成了以下任务 搭建hugo博客 使用docker封装了blog 搭建k3s环境 计划： 学习k8s 总结：没啥好总结，刚开始]]></description>
+</item><item>
+    <title>nginx 汇总</title>
+    <link>http://www.nbtyfood.com/nginx/</link>
+    <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/nginx/</guid>
+    <description><![CDATA[nginx 汇总 各类nginx 问题汇总 安装nginx 1 2 3 4 #centos yum install nginx #ubuntu apt install nginx http代理 正向代理 1 2 3 4 5 6 7 8 server { listen 80; server_name www.nbtyfood.com; location / { proxy_pass http://127.0.0.1:8080; } } 反向代理 负载]]></description>
+</item><item>
+    <title>TCP/IP详解</title>
+    <link>http://www.nbtyfood.com/tcpip/</link>
+    <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/tcpip/</guid>
+    <description><![CDATA[TCP/IP协议 什么是TCP/IP协议 OSI七层架构 TCP/IP四层模型 协议 应用层 HTTP、SMTP、SNMP、FTP、Telnet、SIP]]></description>
+</item></channel>
+</rss>

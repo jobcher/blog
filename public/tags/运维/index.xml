@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>运维 - 标签 - nbtyfood 日志</title>
+        <link>http://www.nbtyfood.com/tags/%E8%BF%90%E7%BB%B4/</link>
+        <description>运维 - 标签 - nbtyfood 日志</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 01 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/tags/%E8%BF%90%E7%BB%B4/" rel="self" type="application/rss+xml" /><item>
+    <title>运维知识图谱</title>
+    <link>http://www.nbtyfood.com/yunwei/</link>
+    <pubDate>Wed, 01 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/yunwei/</guid>
+    <description><![CDATA[运维图谱]]></description>
+</item></channel>
+</rss>

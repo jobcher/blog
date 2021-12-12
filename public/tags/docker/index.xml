@@ -1,0 +1,28 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>docker - 标签 - nbtyfood 日志</title>
+        <link>http://www.nbtyfood.com/tags/docker/</link>
+        <description>docker - 标签 - nbtyfood 日志</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/tags/docker/" rel="self" type="application/rss+xml" /><item>
+    <title>docker image镜像上传</title>
+    <link>http://www.nbtyfood.com/dockerimage/</link>
+    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/dockerimage/</guid>
+    <description><![CDATA[docker image镜像上传 登入docker hub，在https://hub.docker.com上注册你的账号。 1 2 3 docker login username：#输入]]></description>
+</item><item>
+    <title>docker 命令</title>
+    <link>http://www.nbtyfood.com/docker/</link>
+    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/docker/</guid>
+    <description><![CDATA[安装docker 通过docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker命令 常用docker命令 1 2 3 4 5 6 7 8 9 10 #查看容器 docker]]></description>
+</item><item>
+    <title>docker进阶使用</title>
+    <link>http://www.nbtyfood.com/docker01/</link>
+    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/docker01/</guid>
+    <description><![CDATA[docker 进阶使用 dockerfile和docker compose的配置 Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令]]></description>
+</item></channel>
+</rss>
