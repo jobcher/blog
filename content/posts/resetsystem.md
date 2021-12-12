@@ -13,7 +13,6 @@ series: ["日常系列"]
 shdo su -
 sudo vim /etc/ssh/sshd_config
 ```
-
 2. 增加权限  
 在# Authentication: 下输入  
   
