@@ -14,7 +14,9 @@ shdo su -
 sudo vim /etc/ssh/sshd_config
 ```
 
-2. 增加权限
+2. 增加权限  
+在# Authentication: 下输入  
+  
 ```bash
 PermitRootLogin yes
 ```
@@ -23,4 +25,4 @@ PermitRootLogin yes
 ```sh
 sudo passwd root
 service sshd restart
-```ß
+```
