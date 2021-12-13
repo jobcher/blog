@@ -109,7 +109,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: mysql:5.6
+      - image: mysql:5.7
         name: mysql
         env:
           # Use secret in real usage
@@ -134,28 +134,27 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: mysql-pv-volume
-  labels:
-    type: local
 spec:
-  storageClassName: manual
+  storageClassName: managed-nfs-storage
   capacity:
     storage: 20Gi
   accessModes:
     - ReadWriteOnce
-  hostPath:
-    path: "/mnt/data"
+  nfs:
+    server: 192.168.99.235
+    path: "/volume2/nfs-k8s"
 ---
 apiVersion: v1
-kind: PersistentVolumeClaim
 metadata:
   name: mysql-pv-claim
 spec:
-  storageClassName: manual
+  storageClassName: managed-nfs-storage
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 20Gi
+
 ```
 
 ## 部署 mysql
