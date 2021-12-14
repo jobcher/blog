@@ -89,9 +89,11 @@ metadata:
 spec:
   ports:
   - port: 3306
+    targetPort: 3306
   selector:
     app: mysql
   clusterIP: None
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -145,6 +147,7 @@ spec:
     path: "/volume2/nfs-k8s"
 ---
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
   name: mysql-pv-claim
 spec:
