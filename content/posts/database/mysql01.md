@@ -77,4 +77,41 @@ drop database <数据库名称>;
 ```sql
 use <数据库名称>;
 ```
-  
+5. 创建表
+```sql
+CREATE table <数据表名> (
+    <字段名1> <数据类型> [约束条件],
+    <字段名2> <数据类型> [约束条件],
+    <字段名3> <数据类型> [约束条件]
+)
+#例如
+CREATE TABLE IF NOT EXISTS `nbtyfood_tbl`(
+   `nbtyfood_id` INT UNSIGNED AUTO_INCREMENT,
+   `nbtyfood_title` VARCHAR(100) NOT NULL,
+   `nbtyfood_author` VARCHAR(40) NOT NULL,
+   `submission_date` DATE,
+   PRIMARY KEY ( `nbtyfood_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+6. 删除表
+```sql
+DROP TABLE <数据表名>;
+```
+7. 插入数据
+```sql
+INSERT INTO table_name ( field1, field2,...fieldN )
+VALUES
+value1, value2,...valueN );
+```
+8. 更新数据
+```sql
+UPDATE <数据表名> SET <字段名1>='更新' WHERE <字段名2>=3;
+```
+9. 删除数据
+```sql
+DELETE FROM <数据表名> WHERE <字段名2>=3;
+```
+10. 查询数据
+```sql
+select * from <数据表名>;
+```
