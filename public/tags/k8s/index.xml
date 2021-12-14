@@ -3,7 +3,14 @@
         <title>k8s - 标签 - nbtyfood 日志</title>
         <link>http://www.nbtyfood.com/tags/k8s/</link>
         <description>k8s - 标签 - nbtyfood 日志</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/tags/k8s/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 13 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/tags/k8s/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes 创建nfs存储类</title>
+    <link>http://www.nbtyfood.com/k8snfs/</link>
+    <pubDate>Mon, 13 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/k8snfs/</guid>
+    <description><![CDATA[Kubernetes 创建nfs存储类 首先你需要在别的终端上创建nfs服务并能提供nfs访问 Kubernetes 不包含内部 NFS 驱动。你需要使用外部驱动为 NFS 创建 StorageClas]]></description>
+</item><item>
     <title>Kubernetes k8s 组件</title>
     <link>http://www.nbtyfood.com/kubernetes/</link>
     <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>

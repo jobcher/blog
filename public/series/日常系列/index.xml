@@ -3,7 +3,14 @@
         <title>日常系列 - seris - nbtyfood 日志</title>
         <link>http://www.nbtyfood.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/</link>
         <description>日常系列 - seris - nbtyfood 日志</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>linux系统开启root权限</title>
+    <link>http://www.nbtyfood.com/resetsystem/</link>
+    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/resetsystem/</guid>
+    <description><![CDATA[linux系统开启root权限 修改ssh服务配置文件 1 2 shdo su - sudo vim /etc/ssh/sshd_config 增加权限 在# Authentication: 下输入 1 PermitRootLogin yes 更改root密码，重启服务 1 2 sudo passwd root service sshd restart]]></description>
+</item><item>
     <title>163企业邮箱设置教程</title>
     <link>http://www.nbtyfood.com/qyyemail163/</link>
     <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
