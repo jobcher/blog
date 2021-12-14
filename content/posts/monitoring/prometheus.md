@@ -1,6 +1,6 @@
 ---
 title: "prometheus 配置"
-date: 2021-12-03
+date: 2021-12-14
 draft: true
 author: "sjtfreaks"
 tags: ["prometheus"]
