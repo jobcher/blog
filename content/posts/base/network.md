@@ -1,6 +1,6 @@
 ---
 title: "网络基础知识"
-date: 2021-12-15
+date: 2021-12-16
 draft: true
 author: "sjtfreaks"
 tags: ["运维"]
@@ -31,8 +31,17 @@ series: ["基础知识系列"]
 ## 3、TCP协议与UDP协议工作在哪一层，作用是什么？
 传输层，对报文进行分组(发送时)、组装(接收时)提供  
 当进程需要传输可靠的数据时应使用TCP，当进程需要高效传输数据，可以忽略可靠性时应使用UDP协议。
-## 4、简述TCP三次握手的过程。
+## 4、简述TCP三次握手的过程。  
+
+![三次握手](/images/tcp1.gif)  
+  
+1. 第一次握手：Client将标志位SYN置为1，随机产生一个值seq=J，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。
+2. 第二次握手：Server收到数据包后由标志位SYN=1知道Client请求建立连接，Server将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该数据包发送给Client以确认连接请求，Server进入SYN_RCVD状态。
+3. 第三次握手：Client收到确认后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给Server，Server检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。
+
+## 5、简述TCP包头的内容。
 ![TCP报文段](/images/tcp.png)  
+  
 1. 源端口和目的端口：各占 2 个字节，分别写入源端口和目的端口。IP 地址 + 端口号就可以确定一个进程地址
 2. 序号/序列号（Sequense Number，SN）：在一个 TCP 连接中传送的字节流中的每一个字节都按顺序编号。该字段表示本报文段所发送的数据的第一个字节的序号。初始序号称为 Init Sequense Number, ISN（序号/序列号这个字段很重要，大家留个印象，下文会详细讲解）
 例如，一报文段的序号是 101，共有 100 字节的数据。这就表明：本报文段的数据的第一个字节的序号是 101，最后一个字节的序号是 200。显然，下一个报文段的数据序号应当从 201 开始，即下一个报文段的序号字段值应为 201。
@@ -43,15 +52,23 @@ series: ["基础知识系列"]
 6. 标志位：
 |标志位|作用|
 |:----|:----|
-|URG||
+|URG|紧急指针（urgent pointer）有效。
 |ACK|确认序号有效|
-|PSH||
-|RST||
-|SYN||
-|FIN||
-## 5、简述TCP包头的内容。
+|PSH|接收方应该尽快将这个报文交给应用层。|
+|RST|重置连接。|
+|SYN|发起一个新连接。|
+|FIN|释放一个连接。|
+  
+不要将确认序号Ack与标志位中的ACK搞混了。  
+确认方Ack=发起方Req+1，两端配对。
 
 ## 6、简述TCP四次挥手的过程。
+![四次挥手](/images/tcp2.gif)  
+  
+1. 第一次挥手：Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。
+2. 第二次挥手：Server收到FIN后，发送一个ACK给Client，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），Server进入CLOSE_WAIT状态。
+3. 第三次挥手：Server发送一个FIN，用来关闭Server到Client的数据传送，Server进入LAST_ACK状态。
+4. 第四次挥手：Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手。  
 
 ## 7、172.22.141.231/26，该IP位于哪个网段？该网段拥有多少可用IP地址？广播地址是什么？
 
