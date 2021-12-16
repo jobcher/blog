@@ -1,6 +1,6 @@
 ---
 title: "linux基础知识"
-date: 2021-12-14
+date: 2021-12-15
 draft: true
 author: "sjtfreaks"
 tags: ["运维"]
