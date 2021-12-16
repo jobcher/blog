@@ -22,7 +22,7 @@ series: ["基础知识系列"]
 |物理层|物理层（Physical Layer）在局域网上发送数据帧（Data Frame）1.数据实际传输2.电气特性定义|
 
 ## 2、TCP/IP四层模型与作用？
-|分层|协议|作用
+|分层|协议|
 |:----|:----|
 |应用层|HTTP、HTTPS、FTP、Telnet、SSH、SMTP、DNS|
 |传输层|TCP、UDP|
