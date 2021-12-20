@@ -1,6 +1,6 @@
 ---
 title: "rsync 文件同步"
-date: 2021-12-08
+date: 2021-12-20
 draft: true
 author: "sjtfreaks"
 tags: ["daliy","rsync"]
