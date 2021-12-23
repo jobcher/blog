@@ -14,6 +14,7 @@ build-job:
 
 build-docker-job:   
   stage: docker
+  when: manual
   script:
     - echo "生成 docker hugo."
     - cd /opt/blog && sh updatedocker.sh
