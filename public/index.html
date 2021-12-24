@@ -102,40 +102,55 @@
         alt="/avatar.jpg"
         title="/avatar.jpg" /></a></div><h1 class="home-title">nbtyfood 技术日志</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/k8snfs/">Kubernetes 创建nfs存储类</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-13">2021-12-13</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div><div class="content">Kubernetes 创建nfs存储类 首先你需要在别的终端上创建nfs服务并能提供nfs访问 Kubernetes 不包含内部 NFS 驱动。你需要使用外部驱动为 NFS 创建 StorageClas</div><div class="post-footer">
-        <a href="/k8snfs/">阅读全文</a><div class="post-tags">
+        <a href="/network/">网络基础知识</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-23">2021-12-23</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>基础</a></span></div><div class="content">网络基础知识 1、简述ISO/OSI七层模型的分层与作用 分层 作用 应用层 应用系统，提供用户服务 例如：HTTP、HTTPS、FTP、Telnet、</div><div class="post-footer">
+        <a href="/network/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/docker-kong/">docker 安装kong 网关</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-22">2021-12-22</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div><div class="content">docker 安装kong 网关 建立数据库 创建网络 1 docker network create kong-net 建立数据库 1 2 3 4 5 6 7 docker run -d --name kong-database \ --network=kong-net \ -p 5432:5432 \ -e &#34;POSTGRES_USER=kong&#34; \ -e &#34;POSTGRES_DB=kong&#34; \ -e &#34;POSTGRES_PASSWORD=kong123&#34; \ postgres:9.6 创建kong数据 1 2 3 4 5 6</div><div class="post-footer">
+        <a href="/docker-kong/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">docker</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/docker-registry/">搭建docker registry 镜像仓库</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-22">2021-12-22</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div><div class="content">搭建docker registry 镜像仓库 获取镜像 1 docker pull registry:2.7.1 1 docker pull hyper/docker-registry-web 容器运行 1 2 mkdir -p /opt/data/registry docker run -d -p 5000:5000 -v /opt/data/registry:/var/lib/registry --name registry registry:2.7.1 1 2 3 4 5 6 docker run -d -p 8080:8080 --name registry-web --link registry \ -e REGISTRY_URL=http://192.168.99.146:5000/v2 \ -e REGISTRY_TRUST_ANY_SSL=true \ -e REGISTRY_BASIC_AUTH=&#34;GjhYGDGi2HhkJB&#34; \ -e</div><div class="post-footer">
+        <a href="/docker-registry/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">docker</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/rsync/">rsync 文件同步</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-20">2021-12-20</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div><div class="content">rsync 文件同步 rsync 是一个常用的Linux应用程序，用于文件同步 安装 1 2 3 4 5 6 7 8 # Debian or Ubuntu $ sudo apt-get install rsync # Red Hat $ sudo yum install rsync # Arch Linux $ sudo pacman -S rsync 基本用法 使用 rsync</div><div class="post-footer">
+        <a href="/rsync/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/daliy/">daliy</a>,&nbsp;<a href="/tags/rsync/">rsync</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/helm/">helm 安装</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-16">2021-12-16</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div><div class="content">helm 安装 脚本安装 1 2 3 4 5 6 7 8 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 chmod 700 get_helm.sh ./get_helm.sh #或者可以使用这个命令 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash helm help 二进制安装 1 2 3 4 5 wget https://get.helm.sh/helm-v3.7.2-linux-amd64.tar.gz tar -zxvf helm-v3.7.2-linux-amd64.tar.gz cd helm-v3.7.2-linux-amd64 mv linux-amd64/helm /usr/local/bin/helm helm help</div><div class="post-footer">
+        <a href="/helm/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/k8s/">k8s</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/nginx01/">nginx 日志格式整理</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-13">2021-12-13</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/web-%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="far fa-folder fa-fw"></i>web 服务器</a></span></div><div class="content">nginx 日志配置 语法 1 2 access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]]; # 设置访问日志 access_log off; # 关闭访问日志 例子： 1 2 access_log /var/logs/nginx-access.log access_log /var/logs/nginx-access.log buffer=32k gzip flush=1m 使用log_format 自定义日志格式 Nginx预定</div><div class="post-footer">
-        <a href="/nginx01/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/nginx/">nginx</a>,&nbsp;<a href="/tags/linux/">linux</a></div></div>
+        <a href="/k8sloki/">k8s 部署loki日志</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-16">2021-12-16</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div><div class="content">k8s 部署loki日志 helm 拉取loki 1 2 3 4 5 6 7 8 9 10 #加源 helm repo add grafana https://grafana.github.io/helm-charts helm repo update #拉取 helm fetch grafana/loki-stack --untar --untardir . cd loki-stack # 生成 k8s 配置 helm template loki . &gt; loki.yaml # 部署（如果要修改默</div><div class="post-footer">
+        <a href="/k8sloki/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/k8s/">k8s</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/resetsystem/">linux系统开启root权限</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-12">2021-12-12</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div><div class="content">linux系统开启root权限 修改ssh服务配置文件 1 2 shdo su - sudo vim /etc/ssh/sshd_config 增加权限 在# Authentication: 下输入 1 PermitRootLogin yes 更改root密码，重启服务 1 2 sudo passwd root service sshd restart</div><div class="post-footer">
-        <a href="/resetsystem/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux/">linux</a></div></div>
+        <a href="/auto/">获取用户浏览器默认语言设置，自动判断跳转不同网站</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-16">2021-12-16</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div><div class="content">自动判断跳转不同网站 根据用户目前的浏览器配置语言进行显示 供语言切换按钮，用户自定义选择不同的语言显示 根据识别用户的浏览器语言，自动判断并跳转</div><div class="post-footer">
+        <a href="/auto/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/javascript/">javascript</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/mysql01/">mysql 笔记（1）</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-12">2021-12-12</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="far fa-folder fa-fw"></i>数据库</a></span></div><div class="content">mysql 学习笔记（1） 本文章不涉及到关于mysql开放上的问题，主要记录关于mysql出现的问题，以及如何去维护mysql数据的日常。 mysql各</div><div class="post-footer">
-        <a href="/mysql01/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/mysql/">mysql</a></div></div>
+        <a href="/linux/">linux基础知识</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-15">2021-12-15</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>基础</a></span></div><div class="content">linux 基础知识 1、简述Linux权限划分原则。 2、当用户user1，对/testdir目录有写和执行权限时，该目录下的只读文件file1是否可修</div><div class="post-footer">
+        <a href="/linux/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/qyyemail163/">163企业邮箱设置教程</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-10">2021-12-10</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div><div class="content">163企业邮箱设置教程 请进入这个网站 https://qiye.163.com/help/l-11.html</div><div class="post-footer">
-        <a href="/qyyemail163/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/daliy/">daliy</a></div></div>
+        <a href="/service/">linux服务基础知识</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-15">2021-12-15</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>基础</a></span></div><div class="content">linux服务基础知识 1、哪些设置能够提升SSH远程管理的安全等级 2、ssh连接时认证时间过长如何解决？ 3、scp和rsync进行远程文件复</div><div class="post-footer">
+        <a href="/service/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/gitlab/">git技巧</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-10">2021-12-10</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/gitlab/"><i class="far fa-folder fa-fw"></i>gitlab</a></span></div><div class="content">git技巧 Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找</div><div class="post-footer">
-        <a href="/gitlab/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/gitlab/">gitlab</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/dockerimage/">docker image镜像上传</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-09">2021-12-09</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div><div class="content">docker image镜像上传 登入docker hub，在https://hub.docker.com上注册你的账号。 1 2 3 docker login username：#输入</div><div class="post-footer">
-        <a href="/dockerimage/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">docker</a></div></div>
+        <a href="/mysql/">mysql基础知识</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2021-12-15">2021-12-15</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>基础</a></span></div><div class="content">mysql基础知识 1、库表student.report,有3个字段，姓名、学科、成绩，记录如下，根据要求完成SQL语句： Name Subject Result 李白 Math 95 张三 English</div><div class="post-footer">
+        <a href="/mysql/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
@@ -147,6 +162,10 @@
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/page/3/">3</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/page/4/">4</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

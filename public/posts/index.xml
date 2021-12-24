@@ -3,75 +3,75 @@
         <title>所有文章 - nbtyfood 日志</title>
         <link>http://www.nbtyfood.com/posts/</link>
         <description>所有文章 | nbtyfood 日志</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 13 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Kubernetes 创建nfs存储类</title>
-    <link>http://www.nbtyfood.com/k8snfs/</link>
-    <pubDate>Mon, 13 Dec 2021 00:00:00 &#43;0000</pubDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 23 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>网络基础知识</title>
+    <link>http://www.nbtyfood.com/network/</link>
+    <pubDate>Thu, 23 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/k8snfs/</guid>
-    <description><![CDATA[Kubernetes 创建nfs存储类 首先你需要在别的终端上创建nfs服务并能提供nfs访问 Kubernetes 不包含内部 NFS 驱动。你需要使用外部驱动为 NFS 创建 StorageClas]]></description>
+    <guid>http://www.nbtyfood.com/network/</guid>
+    <description><![CDATA[网络基础知识 1、简述ISO/OSI七层模型的分层与作用 分层 作用 应用层 应用系统，提供用户服务 例如：HTTP、HTTPS、FTP、Telnet、]]></description>
 </item><item>
-    <title>nginx 日志格式整理</title>
-    <link>http://www.nbtyfood.com/nginx01/</link>
-    <pubDate>Mon, 13 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <title>docker 安装kong 网关</title>
+    <link>http://www.nbtyfood.com/docker-kong/</link>
+    <pubDate>Wed, 22 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/nginx01/</guid>
-    <description><![CDATA[nginx 日志配置 语法 1 2 access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]]; # 设置访问日志 access_log off; # 关闭访问日志 例子： 1 2 access_log /var/logs/nginx-access.log access_log /var/logs/nginx-access.log buffer=32k gzip flush=1m 使用log_format 自定义日志格式 Nginx预定]]></description>
+    <guid>http://www.nbtyfood.com/docker-kong/</guid>
+    <description><![CDATA[docker 安装kong 网关 建立数据库 创建网络 1 docker network create kong-net 建立数据库 1 2 3 4 5 6 7 docker run -d --name kong-database \ --network=kong-net \ -p 5432:5432 \ -e &#34;POSTGRES_USER=kong&#34; \ -e &#34;POSTGRES_DB=kong&#34; \ -e &#34;POSTGRES_PASSWORD=kong123&#34; \ postgres:9.6 创建kong数据 1 2 3 4 5 6]]></description>
 </item><item>
-    <title>linux系统开启root权限</title>
-    <link>http://www.nbtyfood.com/resetsystem/</link>
-    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <title>搭建docker registry 镜像仓库</title>
+    <link>http://www.nbtyfood.com/docker-registry/</link>
+    <pubDate>Wed, 22 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/resetsystem/</guid>
-    <description><![CDATA[linux系统开启root权限 修改ssh服务配置文件 1 2 shdo su - sudo vim /etc/ssh/sshd_config 增加权限 在# Authentication: 下输入 1 PermitRootLogin yes 更改root密码，重启服务 1 2 sudo passwd root service sshd restart]]></description>
+    <guid>http://www.nbtyfood.com/docker-registry/</guid>
+    <description><![CDATA[搭建docker registry 镜像仓库 获取镜像 1 docker pull registry:2.7.1 1 docker pull hyper/docker-registry-web 容器运行 1 2 mkdir -p /opt/data/registry docker run -d -p 5000:5000 -v /opt/data/registry:/var/lib/registry --name registry registry:2.7.1 1 2 3 4 5 6 docker run -d -p 8080:8080 --name registry-web --link registry \ -e REGISTRY_URL=http://192.168.99.146:5000/v2 \ -e REGISTRY_TRUST_ANY_SSL=true \ -e REGISTRY_BASIC_AUTH=&#34;GjhYGDGi2HhkJB&#34; \ -e]]></description>
 </item><item>
-    <title>mysql 笔记（1）</title>
-    <link>http://www.nbtyfood.com/mysql01/</link>
-    <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <title>rsync 文件同步</title>
+    <link>http://www.nbtyfood.com/rsync/</link>
+    <pubDate>Mon, 20 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/mysql01/</guid>
-    <description><![CDATA[mysql 学习笔记（1） 本文章不涉及到关于mysql开放上的问题，主要记录关于mysql出现的问题，以及如何去维护mysql数据的日常。 mysql各]]></description>
+    <guid>http://www.nbtyfood.com/rsync/</guid>
+    <description><![CDATA[rsync 文件同步 rsync 是一个常用的Linux应用程序，用于文件同步 安装 1 2 3 4 5 6 7 8 # Debian or Ubuntu $ sudo apt-get install rsync # Red Hat $ sudo yum install rsync # Arch Linux $ sudo pacman -S rsync 基本用法 使用 rsync]]></description>
 </item><item>
-    <title>163企业邮箱设置教程</title>
-    <link>http://www.nbtyfood.com/qyyemail163/</link>
-    <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <title>helm 安装</title>
+    <link>http://www.nbtyfood.com/helm/</link>
+    <pubDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/qyyemail163/</guid>
-    <description><![CDATA[163企业邮箱设置教程 请进入这个网站 https://qiye.163.com/help/l-11.html]]></description>
+    <guid>http://www.nbtyfood.com/helm/</guid>
+    <description><![CDATA[helm 安装 脚本安装 1 2 3 4 5 6 7 8 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 chmod 700 get_helm.sh ./get_helm.sh #或者可以使用这个命令 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash helm help 二进制安装 1 2 3 4 5 wget https://get.helm.sh/helm-v3.7.2-linux-amd64.tar.gz tar -zxvf helm-v3.7.2-linux-amd64.tar.gz cd helm-v3.7.2-linux-amd64 mv linux-amd64/helm /usr/local/bin/helm helm help]]></description>
 </item><item>
-    <title>git技巧</title>
-    <link>http://www.nbtyfood.com/gitlab/</link>
-    <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <title>k8s 部署loki日志</title>
+    <link>http://www.nbtyfood.com/k8sloki/</link>
+    <pubDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/gitlab/</guid>
-    <description><![CDATA[git技巧 Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找]]></description>
+    <guid>http://www.nbtyfood.com/k8sloki/</guid>
+    <description><![CDATA[k8s 部署loki日志 helm 拉取loki 1 2 3 4 5 6 7 8 9 10 #加源 helm repo add grafana https://grafana.github.io/helm-charts helm repo update #拉取 helm fetch grafana/loki-stack --untar --untardir . cd loki-stack # 生成 k8s 配置 helm template loki . &gt; loki.yaml # 部署（如果要修改默]]></description>
 </item><item>
-    <title>docker image镜像上传</title>
-    <link>http://www.nbtyfood.com/dockerimage/</link>
-    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <title>获取用户浏览器默认语言设置，自动判断跳转不同网站</title>
+    <link>http://www.nbtyfood.com/auto/</link>
+    <pubDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/dockerimage/</guid>
-    <description><![CDATA[docker image镜像上传 登入docker hub，在https://hub.docker.com上注册你的账号。 1 2 3 docker login username：#输入]]></description>
+    <guid>http://www.nbtyfood.com/auto/</guid>
+    <description><![CDATA[自动判断跳转不同网站 根据用户目前的浏览器配置语言进行显示 供语言切换按钮，用户自定义选择不同的语言显示 根据识别用户的浏览器语言，自动判断并跳转]]></description>
 </item><item>
-    <title>docker 命令</title>
-    <link>http://www.nbtyfood.com/docker/</link>
-    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <title>linux基础知识</title>
+    <link>http://www.nbtyfood.com/linux/</link>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/docker/</guid>
-    <description><![CDATA[安装docker 通过docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker命令 常用docker命令 1 2 3 4 5 6 7 8 9 10 #查看容器 docker]]></description>
+    <guid>http://www.nbtyfood.com/linux/</guid>
+    <description><![CDATA[linux 基础知识 1、简述Linux权限划分原则。 2、当用户user1，对/testdir目录有写和执行权限时，该目录下的只读文件file1是否可修]]></description>
 </item><item>
-    <title>docker进阶使用</title>
-    <link>http://www.nbtyfood.com/docker01/</link>
-    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <title>linux服务基础知识</title>
+    <link>http://www.nbtyfood.com/service/</link>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/docker01/</guid>
-    <description><![CDATA[docker 进阶使用 dockerfile和docker compose的配置 Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令]]></description>
+    <guid>http://www.nbtyfood.com/service/</guid>
+    <description><![CDATA[linux服务基础知识 1、哪些设置能够提升SSH远程管理的安全等级 2、ssh连接时认证时间过长如何解决？ 3、scp和rsync进行远程文件复]]></description>
 </item><item>
-    <title>Kubernetes k8s 组件</title>
-    <link>http://www.nbtyfood.com/kubernetes/</link>
-    <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <title>mysql基础知识</title>
+    <link>http://www.nbtyfood.com/mysql/</link>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/kubernetes/</guid>
-    <description><![CDATA[Kubernetes k8s 组件 控制平面组件（Control Plane Components） 控制平面的组件对集群做出全局决策(比如调度)，以及检测和响应集群事件（例如，当不]]></description>
+    <guid>http://www.nbtyfood.com/mysql/</guid>
+    <description><![CDATA[mysql基础知识 1、库表student.report,有3个字段，姓名、学科、成绩，记录如下，根据要求完成SQL语句： Name Subject Result 李白 Math 95 张三 English]]></description>
 </item></channel>
 </rss>

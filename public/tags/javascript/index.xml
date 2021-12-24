@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>javascript - 标签 - nbtyfood 日志</title>
+        <link>http://www.nbtyfood.com/tags/javascript/</link>
+        <description>javascript - 标签 - nbtyfood 日志</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/tags/javascript/" rel="self" type="application/rss+xml" /><item>
+    <title>获取用户浏览器默认语言设置，自动判断跳转不同网站</title>
+    <link>http://www.nbtyfood.com/auto/</link>
+    <pubDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/auto/</guid>
+    <description><![CDATA[自动判断跳转不同网站 根据用户目前的浏览器配置语言进行显示 供语言切换按钮，用户自定义选择不同的语言显示 根据识别用户的浏览器语言，自动判断并跳转]]></description>
+</item></channel>
+</rss>
