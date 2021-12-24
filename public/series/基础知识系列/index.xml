@@ -3,7 +3,42 @@
         <title>基础知识系列 - seris - nbtyfood 日志</title>
         <link>http://www.nbtyfood.com/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/</link>
         <description>基础知识系列 - seris - nbtyfood 日志</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 23 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>网络基础知识</title>
+    <link>http://www.nbtyfood.com/network/</link>
+    <pubDate>Thu, 23 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/network/</guid>
+    <description><![CDATA[网络基础知识 1、简述ISO/OSI七层模型的分层与作用 分层 作用 应用层 应用系统，提供用户服务 例如：HTTP、HTTPS、FTP、Telnet、]]></description>
+</item><item>
+    <title>linux基础知识</title>
+    <link>http://www.nbtyfood.com/linux/</link>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/linux/</guid>
+    <description><![CDATA[linux 基础知识 1、简述Linux权限划分原则。 2、当用户user1，对/testdir目录有写和执行权限时，该目录下的只读文件file1是否可修]]></description>
+</item><item>
+    <title>linux服务基础知识</title>
+    <link>http://www.nbtyfood.com/service/</link>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/service/</guid>
+    <description><![CDATA[linux服务基础知识 1、哪些设置能够提升SSH远程管理的安全等级 2、ssh连接时认证时间过长如何解决？ 3、scp和rsync进行远程文件复]]></description>
+</item><item>
+    <title>mysql基础知识</title>
+    <link>http://www.nbtyfood.com/mysql/</link>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/mysql/</guid>
+    <description><![CDATA[mysql基础知识 1、库表student.report,有3个字段，姓名、学科、成绩，记录如下，根据要求完成SQL语句： Name Subject Result 李白 Math 95 张三 English]]></description>
+</item><item>
+    <title>shell基础知识</title>
+    <link>http://www.nbtyfood.com/shell/</link>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.nbtyfood.com/shell/</guid>
+    <description><![CDATA[shell基础知识 1、有一个b.txt文本(内容如下)，要求将所有域名截取出来，并统计重复域名出现的次数： http://www.baidu.com/index.html https://www.atguigu.com/index.html http://www.sina.com.cn/1024.html https://www.atguigu.com/2048.html http://www.sina.com.cn/4096.html https://www.atguigu.com/8192.html 2、统计当前服务器正在]]></description>
+</item><item>
     <title>TCP/IP详解</title>
     <link>http://www.nbtyfood.com/tcpip/</link>
     <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
