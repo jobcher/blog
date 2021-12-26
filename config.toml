@@ -6,7 +6,7 @@ languageCode = "zh-CN"
 # 是否包括中日韩文字
 hasCJKLanguage = true
 # 网站标题
-title = "nbtyfood 日志"
+title = "sjtfreaks 日志"
 
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = "LoveIt"
@@ -44,7 +44,7 @@ theme = "LoveIt"
   # LoveIt 更改 | 0.2.0 LoveIt 主题版本
   version = "0.2.X"
   # 网站描述
-  description = "Now, most of you are probably going to be totally bored out of your minds on Christmas day, and here's the perfect distraction. Test 2.6.15-rc7. All the stores will be closed, and there's really nothing better to do in between meals."
+  description = "书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……"
   # 网站关键词
   keywords = ["技术分享", "Hugo"]
   # 网站默认主题样式 ("light", "dark", "auto")
@@ -107,7 +107,7 @@ theme = "LoveIt"
       # LOGO 的 URL
       logo = ""
       # 标题名称
-      name = "nbtyfood 技术日志"
+      name = "sjtfreaks 技术日志"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = ""
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
@@ -163,9 +163,9 @@ theme = "LoveIt"
       # 主页显示头像的 URL
       avatarURL = "/avatar.jpg"
       # LoveIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
-      title = "nbtyfood 技术日志"
+      title = "sjtfreaks 技术日志"
       # 主页显示的网站副标题
-      subtitle = "圣诞节快乐，2.6.15-rc7！！！"
+      subtitle = "老板给我来一杯咖啡，和我的命一样苦，谢谢～"
       # 是否为副标题显示打字机动画
       typeit = true
       # 是否显示社交账号
@@ -526,7 +526,7 @@ theme = "LoveIt"
 # 作者配置
 [author]
   name = "sjtfreaks"
-  email = ""
+  email = "nb@nbtyfood.com"
   link = ""
 
 # 网站地图配置
