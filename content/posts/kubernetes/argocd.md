@@ -17,4 +17,4 @@ k3s kubectl create namespace argocd
 k3s kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 ## 使用
-![argocd](/images/argocd-2.png)
+![argocd-2](/images/argocd_2.png)
