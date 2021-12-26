@@ -6,7 +6,7 @@ languageCode = "zh-CN"
 # 是否包括中日韩文字
 hasCJKLanguage = true
 # 网站标题
-title = "sjtfreaks 日志"
+title = "nbtyfood 日志"
 
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = "LoveIt"
@@ -107,7 +107,7 @@ theme = "LoveIt"
       # LOGO 的 URL
       logo = ""
       # 标题名称
-      name = "sjtfreaks 技术日志"
+      name = "nbtyfood 技术日志"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = ""
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
@@ -163,9 +163,9 @@ theme = "LoveIt"
       # 主页显示头像的 URL
       avatarURL = "/avatar.jpg"
       # LoveIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
-      title = "sjtfreaks 技术日志"
+      title = "nbtyfood 技术日志"
       # 主页显示的网站副标题
-      subtitle = "老板给我来一杯咖啡，和我的命一样苦，谢谢～"
+      subtitle = "老板,给我来一杯咖啡，和我的命一样苦，谢谢～"
       # 是否为副标题显示打字机动画
       typeit = true
       # 是否显示社交账号
