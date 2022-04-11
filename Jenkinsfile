@@ -3,7 +3,7 @@ pipeline {
     stages {
         
         stage ('编译镜像'){
-            agent { dockerfile true }
+            agent { Dockerfile true }
             steps {
                 echo "生成 docker 构建"
                 sh 'docker stop docker-hugo'
