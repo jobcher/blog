@@ -1,8 +1,8 @@
 ---
 title: "docker 命令"
-date: 2021-12-09
+date: 2021-12-28
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["docker"]
 categories: ["docker"]
 series: ["docker入门系列"]
@@ -14,7 +14,18 @@ series: ["docker入门系列"]
     curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
     curl -sSL https://get.daocloud.io/docker | sh
 ```
-# docker命令
+## docker-compose 安装
+```sh
+#下载安装
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+#可执行权限
+sudo chmod +x /usr/local/bin/docker-compose
+#创建软链：
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+#测试是否安装成功
+docker-compose --version
+```
+## docker命令
 常用docker命令  
 ```sh
     #查看容器

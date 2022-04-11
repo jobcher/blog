@@ -2,7 +2,7 @@
 title: "树莓派搭建k3s"
 date: 2021-12-06
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["树莓派","k3s"]
 categories: ["日常"]
 series: ["日常系列"]

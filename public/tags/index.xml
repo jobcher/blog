@@ -1,7 +1,0 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Tags - 标签 - nbtyfood 日志</title>
-        <link>http://www.nbtyfood.com/tags/</link>
-        <description>Tags - 标签 - nbtyfood 日志</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><atom:link href="http://www.nbtyfood.com/tags/" rel="self" type="application/rss+xml" /></channel>
-</rss>

@@ -2,7 +2,7 @@
 title: "Argo cd 安装和部署"
 date: 2021-12-24
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["gitlab"]
 categories: ["gitlab"]
 series: ["git入门系列"]

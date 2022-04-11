@@ -1,8 +1,8 @@
 ---
 title: "prometheus 配置"
-date: 2021-12-14
+date: 2022-01-13
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["prometheus"]
 categories: ["监控"]
 series: ["运维监控系列"]
@@ -24,4 +24,22 @@ Prometheus 是由 SoundCloud 开源监控告警解决方案
 3. Prometheus 可以配置 rules，然后定时查询数据，当条件触发的时候，会将 alert 推送到配置的 Alertmanager。
 4. Alertmanager 收到警告的时候，可以根据配置，聚合，去重，降噪，最后发送警告。
 可以使用 API， Prometheus Console 或者 Grafana 查询和聚合数据。
+
+## 安装prometheus
+1. 使用预编译的二进制文件安装
+```sh
+wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz
+tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz
+cd prometheus-2.32.1.linux-amd64
+```
+
+2. 使用docker 安装
+```sh
+mkdir -p opt/prometheus
+vim prometheus.yml
+docker run \
+    -p 9090:9090 \
+    -v /path/to/prometheus.yml:/opt/prometheus/prometheus.yml \
+    prom/prometheus
+```
 

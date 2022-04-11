@@ -2,7 +2,7 @@
 title: "获取用户浏览器默认语言设置，自动判断跳转不同网站"
 date: 2021-12-16
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["javascript"]
 categories: ["日常"]
 series: ["日常系列"]

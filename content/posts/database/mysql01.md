@@ -2,7 +2,7 @@
 title: "mysql 笔记（1）"
 date: 2021-12-12
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["mysql"]
 categories: ["数据库"]
 series: ["mysql系列"]

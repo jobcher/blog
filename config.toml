@@ -1,4 +1,4 @@
-baseURL = "http://www.nbtyfood.com/"
+baseURL = "http://www.jobcher.com/"
 # [en, zh-cn, fr, ...] 设置默认的语言
 defaultContentLanguage = "zh-cn"
 # 网站语言, 仅在这里 CN 大写
@@ -6,7 +6,7 @@ languageCode = "zh-CN"
 # 是否包括中日韩文字
 hasCJKLanguage = true
 # 网站标题
-title = "nbtyfood 日志"
+title = "打工人日志 - jobcher"
 
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = "LoveIt"
@@ -39,6 +39,14 @@ theme = "LoveIt"
     url = "/categories/"
     title = ""
     weight = 3
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "关于"
+    url = "/about/"
+    title = ""
+    weight = 4
 
 [params]
   # LoveIt 更改 | 0.2.0 LoveIt 主题版本
@@ -57,7 +65,7 @@ theme = "LoveIt"
   # LoveIt 新增 | 0.2.0 日期格式
   dateFormat = "2006-01-02"
   # 网站图片, 用于 Open Graph 和 Twitter Cards
-  images = ["/logo.png"]
+  images = ["/avatar1.png"]
 
   # LoveIt 新增 | 0.2.0 应用图标配置
   [params.app]
@@ -105,9 +113,9 @@ theme = "LoveIt"
     # LoveIt 新增 | 0.2.0 页面头部导航栏标题配置
     [params.header.title]
       # LOGO 的 URL
-      logo = ""
+      logo = "https://www.jobcher.com/avatar1.png"
       # 标题名称
-      name = "nbtyfood 技术日志"
+      name = "打工人日志"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
       pre = ""
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
@@ -119,7 +127,7 @@ theme = "LoveIt"
   [params.footer]
     enable = true
     # LoveIt 新增 | 0.2.0 自定义内容 (支持 HTML 格式)
-    custom = ''
+    custom = '<a href="https://www.foreverblog.cn/go.html" target="_blank" > <img src="https://img.foreverblog.cn/wormhole_3.gif" alt="" style="width:auto;height:32px;" title="穿梭虫洞-随机访问十年之约友链博客"> </a>'
     # LoveIt 新增 | 0.2.0 是否显示 Hugo 和主题信息
     hugo = false
     # LoveIt 新增 | 0.2.0 是否显示版权信息
@@ -161,15 +169,15 @@ theme = "LoveIt"
       # Gravatar 邮箱，用于优先在主页显示的头像
       gravatarEmail = ""
       # 主页显示头像的 URL
-      avatarURL = "/avatar.jpg"
+      avatarURL = "/avatar1.png"
       # LoveIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
-      title = "nbtyfood 技术日志"
+      title = "打工人日志"
       # 主页显示的网站副标题
       subtitle = "老板,给我来一杯咖啡，和我的命一样苦，谢谢～"
       # 是否为副标题显示打字机动画
       typeit = true
       # 是否显示社交账号
-      social = false
+      social = true
       # LoveIt 新增 | 0.2.0 免责声明 (支持 HTML 格式)
       disclaimer = ""
     # 主页文章列表
@@ -183,14 +191,14 @@ theme = "LoveIt"
 
   # 作者的社交信息设置
   [params.social]
-    GitHub = "xxxx"
+    GitHub = "jobcher"
     Linkedin = ""
-    Twitter = "xxxx"
-    Instagram = "xxxx"
-    Facebook = "xxxx"
-    Telegram = "xxxx"
+    Twitter = ""
+    Instagram = ""
+    Facebook = ""
+    Telegram = ""
     Medium = ""
-    Gitlab = ""
+    Gitlab = "jobcher"
     Youtubelegacy = ""
     Youtubecustom = ""
     Youtubechannel = ""
@@ -203,7 +211,7 @@ theme = "LoveIt"
     FreeCodeCamp = ""
     Bitbucket = ""
     Stackoverflow = ""
-    Weibo = ""
+    Weibo = "6090738003"
     Odnoklassniki = ""
     VK = ""
     Flickr = ""
@@ -451,9 +459,9 @@ theme = "LoveIt"
   # LoveIt 新增 | 0.2.10 网站 SEO 配置
   [params.seo]
     # 图片 URL
-    image = ""
+    image = "https://www.jobcher.com/images/image.gif"
     # 缩略图 URL
-    thumbnailUrl = ""
+    thumbnailUrl = "https://www.jobcher.com/avatar1.png"
 
   # LoveIt 新增 | 0.2.0 网站分析配置
   [params.analytics]

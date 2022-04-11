@@ -2,7 +2,7 @@
 title: "nginx 日志格式整理"
 date: 2021-12-13
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["nginx","linux"]
 categories: ["web 服务器"]
 series: ["web服务入门系列"]

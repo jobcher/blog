@@ -2,7 +2,7 @@
 title: "git技巧"
 date: 2021-12-10
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["gitlab"]
 categories: ["gitlab"]
 series: ["git入门系列"]

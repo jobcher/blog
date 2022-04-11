@@ -2,7 +2,7 @@
 title: "nginx 编译参数详解"
 date: 2021-12-24
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["nginx","linux"]
 categories: ["web 服务器"]
 series: ["web服务入门系列"]

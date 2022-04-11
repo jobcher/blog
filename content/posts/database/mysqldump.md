@@ -2,7 +2,7 @@
 title: "mysql数据库备份迁移"
 date: 2021-12-24
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["mysql"]
 categories: ["数据库"]
 series: ["mysql系列"]
@@ -15,6 +15,8 @@ series: ["mysql系列"]
 # 安装 centos
 yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el7.x86_64.rpm
 yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el8.x86_64.rpm
+```
+```sh
 # 安装 ubuntu
 apt-get install libatomic1
 wget https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb
