@@ -1,5 +1,5 @@
 pipeline {
-    agent { Dockerfile true }
+    agent { dockerfile true }
     stages {
         stage ('编译镜像'){
             steps {
