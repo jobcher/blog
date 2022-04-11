@@ -2,7 +2,7 @@
 title: "安装配置 Terraform"
 date: 2021-12-27
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["Terraform"]
 categories: ["日常"]
 series: ["日常系列"]
@@ -38,6 +38,97 @@ sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(l
 sudo apt-get update && sudo apt-get install terraform
 #验证安装
 terraform -help
+```
+
+## terrafrom 控制proxmox虚拟机
+来源：https://github.com/Telmate/terraform-provider-proxmox  
+  
+### 首先你要有一台pve主机
+安装过程本篇文章就不想了，主要是要写一下关于他的配置  
+https://pve.proxmox.com/pve-docs/  
+  
+1. 下载
+```sh
+wget https://github.com/Telmate/terraform-provider-proxmox/releases/download/v2.9.3/terraform-provider-proxmox_2.9.3_linux_amd64.zip
+unzip terraform-provider-proxmox_2.9.3_linux_amd64.zip
+```
+### 编写terrafrom程序
+1. 虚拟机main.tf
+
+```sh
+terraform {
+  required_version = ">= 0.14"
+  required_providers {
+    proxmox = {
+      source  = "telmate/proxmox"
+    }
+  }
+}
+
+provider "proxmox" {
+  # 配置选项
+    pm_tls_insecure = true
+    pm_api_url = "https://localhost:8006/api2/json"
+    pm_user = "root@pam"
+    pm_password = "passwd"
+    pm_otp = ""
+}
+
+# 创建VM
+resource "proxmox_vm_qemu" "cloudinit-test" {
+    name = "terraform-test-vm"
+    desc = "A test for using terraform and cloudinit"
+
+    #节点名称必须与集群内的名称相同
+    #这可能不包括 FQDN
+    target_node = "pve"
+
+    #新虚拟机的目标资源池
+    pool = "pool0"
+
+    #从中克隆这个虚拟机的模板名称
+    clone = "node0"
+
+    #为这个虚拟机激活 QEMU 代理
+    agent = 1
+
+    os_type = "cloud-init"
+    cores = 2
+    sockets = 1
+    vcpus = 0
+    cpu = "host"
+    memory = 2048
+    scsihw = "lsi"
+
+    #设置磁盘
+    disk {
+        size = 32
+        type = "virtio"
+        storage = "local-lvm"
+        storage_type = "lvmthin"
+        iothread = 1
+        ssd = 1
+        discard = "on"
+    }
+
+    #设置网络接口并分配一个 vlan 标签：256
+    network {
+        model = "virtio"
+        bridge = "vmbr0"
+        tag = 256
+    }
+}
+
+```
+
+2. 运行terrafrom
+```sh
+# 初始化
+terraform init
+# 查看产生的变更
+terraform plan
+# 运行
+terraform apply
 ```
 
 ## 配置

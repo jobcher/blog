@@ -2,7 +2,7 @@
 title: "rsync 文件同步"
 date: 2021-12-20
 draft: true
-author: "sjtfreaks"
+author: "jobcher"
 tags: ["daliy","rsync"]
 categories: ["日常"]
 series: ["日常系列"]
@@ -31,6 +31,7 @@ rsync -r source destination
 ```
 远程同步
 ```sh
-rsync -av -e 'ssh -p 2234' source/ user@remote_host:/destination
+rsync -av <源地址>/ <用户名>@<ip地址>:/<目标地址>
 ```
 
+1. 友情地址：[mysql迁移](https://www.jobcher.com/mysqldump/)
