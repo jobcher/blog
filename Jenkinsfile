@@ -10,14 +10,8 @@ pipeline {
         }
         stage ('部署镜像'){
             steps {
-                echo "生成 docker 构建"
-                try{
-                    sh 'docker stop docker-hugo'
-                    sh 'docker rm docker-hugo'
-                    sh 'docker run --name docker-hugo -d -p 4312:80 --restart=always docker-hugo:latest'
-                }catch(exc){
-                    sh 'docker run --name docker-hugo -d -p 4312:80 --restart=always docker-hugo:latest'
-                }
+                echo "部署镜像"
+                sh 'docker run --name docker-hugo -d -p 4312:80 --restart=always docker-hugo:latest'
                 echo "结束 end"
             }
         }
