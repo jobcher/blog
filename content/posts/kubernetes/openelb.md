@@ -28,3 +28,11 @@ kubectl get ns
 ```
 
 ## 配置 OpenELB
+```sh
+kubectl edit configmap kube-proxy -n kube-system
+
+# 修改 网卡
+ipvs:
+  strictARP: true
+  
+```
