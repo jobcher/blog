@@ -17,5 +17,13 @@ pipeline {
                 echo "结束 end"
             }
         }
+        stage ('上传制品库'){
+            steps {
+                echo "上传镜像到制品库"
+                sh 'docker tag docker-hugo:latest hub.jobcher.com/blog/hugo:latest'
+                sh 'docker push hub.jobcher.com/blog/hugo:latest'
+                echo "结束 end"
+            }
+        }
     }
 }
