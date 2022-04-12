@@ -26,3 +26,5 @@ kubectl delete -f https://raw.githubusercontent.com/openelb/openelb/master/deplo
 ```sh
 kubectl get ns
 ```
+
+## 配置 OpenELB
