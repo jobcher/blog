@@ -25,11 +25,5 @@ pipeline {
                 echo "结束 end"
             }
         }
-        stage ('触发k8s部署'){
-            steps {
-                echo "触发k8s部署"
-                sh 'sleep 60'
-            }
-        }
     }
 }
