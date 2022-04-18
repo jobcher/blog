@@ -88,3 +88,67 @@ func main() {
 	fmt.Println(name_3, age_1)
 }
 ```
+
+## 变量声明
+### 单个变量声明
+第一种：var 变量名称 数据类型 = 变量值  
+如果不赋值，使用的是该数据类型的默认值。  
+第二种：var 变量名称 = 变量值  
+根据变量值，自行判断数据类型。  
+第三种：变量名称 := 变量值  
+省略了 var 和数据类型，变量名称一定要是未声明过的。  
+### 多个变量声明
+第一种：var 变量名称,变量名称 ... ,数据类型 = 变量值,变量值 ...  
+第二种：var 变量名称,变量名称 ... = 变量值,变量值 ...  
+第三种：变量名称,变量名称 ... := 变量值,变量值 ...  
+### 代码
+```go
+//demo_2.go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var age_1 uint8 = 31
+	var age_2 = 32
+	age_3 := 33
+	fmt.Println(age_1, age_2, age_3)
+
+	var age_4, age_5, age_6 int = 31, 32, 33
+	fmt.Println(age_4, age_5, age_6)
+
+	var name_1, age_7 = "Tom", 30
+	fmt.Println(name_1, age_7)
+
+	name_2, is_boy, height := "Jay", true, 180.66
+	fmt.Println(name_2, is_boy, height)
+}
+```
+
+## 输出方法
+fmt.Print：输出到控制台（仅只是输出）  
+  
+fmt.Println：输出到控制台并换行  
+  
+fmt.Printf：仅输出格式化的字符串和字符串变量（整型和整型变量不可以）  
+  
+fmt.Sprintf：格式化并返回一个字符串，不输出。  
+### 代码
+```go
+//demo_3.go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Print("输出到控制台不换行")
+	fmt.Println("---")
+	fmt.Println("输出到控制台并换行")
+	fmt.Printf("name=%s,age=%d\n", "Tom", 30)
+	fmt.Printf("name=%s,age=%d,height=%v\n", "Tom", 30, fmt.Sprintf("%.2f", 180.567))
+}
+```
