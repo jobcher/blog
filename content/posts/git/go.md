@@ -3,7 +3,7 @@ title: "Golang go build 编译不同版本"
 date: 2022-04-17
 draft: true
 author: "jobcher"
-tags: ["ansible"]
+tags: ["golang"]
 categories: ["gitlab"]
 series: ["git入门系列"]
 ---
