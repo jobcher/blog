@@ -4,8 +4,8 @@ date: 2022-04-17
 draft: true
 author: "jobcher"
 tags: ["golang"]
-categories: ["gitlab"]
-series: ["git入门系列"]
+categories: ["go"]
+series: ["go系列"]
 ---
 # Golang go build 编译不同系统下的可执行文件
 
