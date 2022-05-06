@@ -48,14 +48,11 @@ pipeline {
                                 '',
                                 '---',
                                 jenkinsbranch,
-                                '',
                                 jenkinsuser,
-                                '',
+                                jenkinstime,
                                 '#### 更新内容',
                                 '',
                                 jenkinscommitmessage,
-                                '',
-                                jenkinstime
                             ],
                             at: [
                                 '13250936269'
