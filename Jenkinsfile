@@ -28,23 +28,25 @@ pipeline {
                 success {
 
                     script {
+                        env.DATETIME = sh(script:"date '+%c'", returnStdout: true).trim()
                         env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B' ${GIT_COMMIT}", returnStdout: true).trim()
-                        def jenkinsid = """构建: ${BUILD_DISPLAY_NAME}"""
+                        def jenkinsid = """构建: 第 ${BUILD_DISPLAY_NAME} 执行"""
                         def jenkinscommitmessage = """构建说明: ${env.COMMIT_MESSAGE}"""
                         def jenkinsbuildid ="""${BUILD_ID}"""
+                        def jenkinstime="""执行日期： ${env.DATETIME}"""
                         dingtalk (
                             robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
                             type: 'MARKDOWN',
                             title: '流水线执行成功',
                             text: [
-                                jenkinsbuildid,
+                                '# jobcher-blog-github-CI 流水线',
                                 jenkinsid,
                                 '![logo](https://www.jobcher.com/images/sj.png)',
                                 '',
                                 '---',
-                                jenkinsbuildid,
                                 '#### 更新内容',
-                                jenkinscommitmessage
+                                jenkinscommitmessage,
+                                jenkinstime
                             ],
                             at: [
                                 '13250936269'
