@@ -30,7 +30,7 @@ pipeline {
                     script {
                         env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B' ${GIT_COMMIT}", returnStdout: true).trim()
                         def message = """
-                            # 构建 ${BUILD_DISPLAY_NAME}
+                            构建 ${BUILD_DISPLAY_NAME}
                             构建说明: ${env.COMMIT_MESSAGE}
                         """
 
@@ -39,7 +39,16 @@ pipeline {
                             type: 'MARKDOWN',
                             title: '流水线执行成功',
                             text: [
-                                message
+                                ${BUILD_DISPLAY_NAME},
+                                message,
+                                ${BUILD_ID},
+                                '![logo](https://www.jobcher.com/images/sj.png)',
+                                '',
+                                '---',
+                                '更新内容',
+                                '> 执行流水线：jobcher-blog-github-CI',
+                                '#### 执行内容',
+                                ${env.COMMIT_MESSAGE}
                             ],
                             at: [
                                 '13250936269'
