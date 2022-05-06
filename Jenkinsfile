@@ -29,21 +29,21 @@ pipeline {
 
                     script {
                         env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B' ${GIT_COMMIT}", returnStdout: true).trim()
-                        def jenkins_id = """构建: ${BUILD_DISPLAY_NAME}"""
-                        def jenkins_commit_message = """构建说明: ${env.COMMIT_MESSAGE}"""
-                        def jenkins_build_id ="""${BUILD_ID}"""
+                        def jenkinsid = """构建: ${BUILD_DISPLAY_NAME}"""
+                        def jenkinscommitmessage = """构建说明: ${env.COMMIT_MESSAGE}"""
+                        def jenkinsbuildid ="""${BUILD_ID}"""
                         dingtalk (
                             robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
                             type: 'MARKDOWN',
                             title: '流水线执行成功',
                             text: [
-                                '# 'jenkins_build_id,
-                                jenkins_id'  ',
+                                '# 'jenkinsbuildid,
+                                jenkinsid'  ',
                                 '![logo](https://www.jobcher.com/images/sj.png)',
                                 '',
                                 '---',
                                 '更新内容',
-                                '> 'jenkins_build_id'',
+                                '> 'jenkinsbuildid'',
                                 '#### 更新内容',
                                 message
                             ],
