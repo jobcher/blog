@@ -33,7 +33,7 @@ pipeline {
                         text: [
                             '# 流水线执行成功',
                             '执行流水线：jobcher-blog-github-CI  ',
-                            '![logo](https://home.sanjiang.com/skin2017/images/logo.png)',
+                            '![logo](https://www.jobcher.com/images/sj.png)',
                             '',
                             '---',
                             '更新内容',
