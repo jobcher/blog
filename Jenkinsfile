@@ -28,7 +28,7 @@ pipeline {
                 success {
 
                     script {
-                        env.BRANCH = sh(script:'git branch | grep '*' | awk '{print $2}'', returnStdout: true).trim()
+                        env.BRANCH = sh(script:'git branch | grep "*" | awk "{print $2}"S', returnStdout: true).trim()
                         env.DATETIME = sh(script:"date '+%Y年%m月%d日  %H:%M %Z'", returnStdout: true).trim()
                         env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B' ${GIT_COMMIT}", returnStdout: true).trim()
                         def jenkinsid = """构建:  第 ${BUILD_DISPLAY_NAME} 执行"""
@@ -36,7 +36,6 @@ pipeline {
                         def jenkinsbuildid ="""${BUILD_ID}"""
                         def jenkinstime="""执行日期： ${env.DATETIME}"""
                         def jenkinsbranch="""构建分支： ${env.BRANCH}"""
-                        def jenkinsuser="""执行者： ${BUILD_USER}"""
                         dingtalk (
                             robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
                             type: 'MARKDOWN',
@@ -47,8 +46,6 @@ pipeline {
                                 '',
                                 '---',
                                 jenkinsbranch,
-                                '',
-                                jenkinsuser,
                                 '',
                                 '#### 更新内容',
                                 '',
