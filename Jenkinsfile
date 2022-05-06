@@ -42,7 +42,7 @@ pipeline {
                                 '# jobcher-blog-github-CI 流水线',
                                 jenkinsid,
                                 '',
-                                '![logo](https://home.sanjiang.com/img/aboutsj/2(2).jpg)',
+                                '![logo](https://www.jobcher.com/images/sj.png)',
                                 '',
                                 '---',
                                 '#### 更新内容',
