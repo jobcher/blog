@@ -44,7 +44,7 @@ pipeline {
                                 '---',
                                 jenkinsbuildid,
                                 '#### 更新内容',
-                                message
+                                jenkinscommitmessage
                             ],
                             at: [
                                 '13250936269'
