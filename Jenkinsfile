@@ -26,27 +26,28 @@ pipeline {
             }
             post {
                 success {
-                    dingtalk (
-                        robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
-                        type: 'MARKDOWN',
-                        title: '流水线执行成功',
-                        text: [
-                            '# 流水线执行成功',
-                            '执行流水线：jobcher-blog-github-CI  ',
-                            '![logo](https://www.jobcher.com/images/sj.png)',
-                            '',
-                            '---',
-                            '更新内容',
-                            '> 执行流水线：jobcher-blog-github-CI',
-                            '#### 执行内容',
-                            '- 编译镜像',
-                            '- 部署镜像',
-                            '- 上传制品库'
-                        ],
-                        at: [
-                          '13250936269'
-                        ]
-                    )
+
+                    script {
+                        env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B' ${GIT_COMMIT}", returnStdout: true).trim()
+                        def message = """
+                            # 构建 ${BUILD_DISPLAY_NAME}
+                            构建说明: ${env.COMMIT_MESSAGE}
+                        """
+
+                        dingtalk (
+                            robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
+                            type: 'MARKDOWN',
+                            title: '流水线执行成功',
+                            text: [
+                                message
+                            ],
+                            at: [
+                                '13250936269'
+                            ]
+                        )
+                    }
+            
+
                 }
             }
         }
