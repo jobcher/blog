@@ -28,7 +28,7 @@ pipeline {
                 success {
 
                     script {
-                        env.DATETIME = sh(script:"date '+%c'", returnStdout: true).trim()
+                        env.DATETIME = sh(script:"date '+%Y年%m月%d日  %H:%M %Z'", returnStdout: true).trim()
                         env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B' ${GIT_COMMIT}", returnStdout: true).trim()
                         def jenkinsid = """构建: 第 ${BUILD_DISPLAY_NAME} 执行"""
                         def jenkinscommitmessage = """构建说明: ${env.COMMIT_MESSAGE}"""
