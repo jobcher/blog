@@ -42,8 +42,7 @@ pipeline {
                                 '![logo](https://www.jobcher.com/images/sj.png)',
                                 '',
                                 '---',
-                                '更新内容',
-                                '> 'jenkinsbuildid'',
+                                jenkinsbuildid,
                                 '#### 更新内容',
                                 message
                             ],
