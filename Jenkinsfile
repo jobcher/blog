@@ -28,7 +28,7 @@ pipeline {
                 success {
 
                     script {
-                        env.BRANCH = sh(script:'git branch | grep "*" | awk "{print $2}"S', returnStdout: true).trim()
+                        env.BRANCH = sh(script:"git branch | grep '*' | awk '{print $2}' ", returnStdout: true).trim()
                         env.DATETIME = sh(script:"date '+%Y年%m月%d日  %H:%M %Z'", returnStdout: true).trim()
                         env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B' ${GIT_COMMIT}", returnStdout: true).trim()
                         def jenkinsid = """构建:  第 ${BUILD_DISPLAY_NAME} 执行"""
