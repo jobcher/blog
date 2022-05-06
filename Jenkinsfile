@@ -37,8 +37,8 @@ pipeline {
                             type: 'MARKDOWN',
                             title: '流水线执行成功',
                             text: [
-                                '# 'jenkinsbuildid,
-                                jenkinsid'  ',
+                                jenkinsbuildid,
+                                jenkinsid,
                                 '![logo](https://www.jobcher.com/images/sj.png)',
                                 '',
                                 '---',
