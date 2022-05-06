@@ -35,9 +35,9 @@ pipeline {
                         def jenkinsid = """构建:  第 ${BUILD_DISPLAY_NAME} 执行"""
                         def jenkinscommitmessage = """构建说明:  ${env.COMMIT_MESSAGE}"""
                         def jenkinsbuildid ="""${BUILD_ID}"""
-                        def jenkinstime="""> 提交日期： ${env.DATETIME}"""
-                        def jenkinsbranch="""> 构建分支： ${env.BRANCH}"""
-                        def jenkinsuser="""> 提交者： ${env.USER}"""
+                        def jenkinstime="""> 提交日期： ${env.DATETIME}  """
+                        def jenkinsbranch="""> 构建分支： ${env.BRANCH}  """
+                        def jenkinsuser="""> 提交者： ${env.USER}  """
                         dingtalk (
                             robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
                             type: 'MARKDOWN',
