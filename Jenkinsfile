@@ -34,8 +34,8 @@ pipeline {
                         def jenkinscommitmessage = """构建说明:  ${env.COMMIT_MESSAGE}"""
                         def jenkinsbuildid ="""${BUILD_ID}"""
                         def jenkinstime="""执行日期： ${env.DATETIME}"""
-                        def jenkinsstatus="""构建状态： ${BUILD_STATUS}"""
-                        def jenkinsuser="""执行者： ${CAUSE}"""
+                        def jenkinsbranch="""构建分支： ${branch}"""
+                        def jenkinsuser="""执行者： ${BUILD_USER}"""
                         dingtalk (
                             robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
                             type: 'MARKDOWN',
@@ -45,7 +45,7 @@ pipeline {
                                 jenkinsid,
                                 '',
                                 '---',
-                                jenkinsstatus,
+                                jenkinsbranch,
                                 '',
                                 jenkinsuser,
                                 '',
