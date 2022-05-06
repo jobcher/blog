@@ -47,7 +47,7 @@ pipeline {
                                 jenkinsid,
                                 '',
                                 '---',
-                                '<font color=green>成功</font>',
+                                '## <font color=green>成功</font>',
                                 '',
                                 jenkinsbranch,
                                 jenkinsuser,
