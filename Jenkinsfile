@@ -28,14 +28,16 @@ pipeline {
                 success {
 
                     script {
-                        env.BRANCH = sh(script:"git branch | grep '*' | awk '{print $2}' ", returnStdout: true).trim()
-                        env.DATETIME = sh(script:"date '+%Y年%m月%d日  %H:%M %Z'", returnStdout: true).trim()
-                        env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B' ${GIT_COMMIT}", returnStdout: true).trim()
+                        env.USER = sh(script:"git --no-pager show -s -n 1 --format='%cn'", returnStdout: true).trim()
+                        env.BRANCH = sh(script:"git --no-pager show -s -n 1 --format='%D' | awk '{print $2}'", returnStdout: true).trim()
+                        env.DATETIME = sh(script:"git --no-pager show -s -n 1 --format='%ci'", returnStdout: true).trim()
+                        env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B'", returnStdout: true).trim()
                         def jenkinsid = """构建:  第 ${BUILD_DISPLAY_NAME} 执行"""
                         def jenkinscommitmessage = """构建说明:  ${env.COMMIT_MESSAGE}"""
                         def jenkinsbuildid ="""${BUILD_ID}"""
-                        def jenkinstime="""执行日期： ${env.DATETIME}"""
-                        def jenkinsbranch="""构建分支： ${env.BRANCH}"""
+                        def jenkinstime="""> 提交日期： ${env.DATETIME}"""
+                        def jenkinsbranch="""> 构建分支： ${env.BRANCH}"""
+                        def jenkinsuser="""> 提交者： ${env.USER}"""
                         dingtalk (
                             robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
                             type: 'MARKDOWN',
@@ -46,6 +48,8 @@ pipeline {
                                 '',
                                 '---',
                                 jenkinsbranch,
+                                '',
+                                jenkinsuser,
                                 '',
                                 '#### 更新内容',
                                 '',
