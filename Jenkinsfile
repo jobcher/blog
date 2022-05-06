@@ -32,7 +32,8 @@ pipeline {
                         title: '流水线执行成功',
                         text: [
                             '# 流水线执行成功',
-                            '执行流水线：jobcher-blog-github-CI',
+                            '执行流水线：jobcher-blog-github-CI  ',
+                            '![logo](https://jobcher.github.io/avatar1.png)',
                             '',
                             '---',
                             '更新内容',
@@ -40,8 +41,7 @@ pipeline {
                             '#### 执行内容',
                             '- 编译镜像',
                             '- 部署镜像',
-                            '- 上传制品库',
-                            '![logo](https://jobcher.github.io/avatar1.png)'
+                            '- 上传制品库'
                         ],
                         at: [
                           '13250936269'
