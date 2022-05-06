@@ -30,10 +30,12 @@ pipeline {
                     script {
                         env.DATETIME = sh(script:"date '+%Y年%m月%d日  %H:%M %Z'", returnStdout: true).trim()
                         env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B' ${GIT_COMMIT}", returnStdout: true).trim()
-                        def jenkinsid = """构建: 第 ${BUILD_DISPLAY_NAME} 执行"""
-                        def jenkinscommitmessage = """构建说明: ${env.COMMIT_MESSAGE}"""
+                        def jenkinsid = """构建:  第 ${BUILD_DISPLAY_NAME} 执行"""
+                        def jenkinscommitmessage = """构建说明:  ${env.COMMIT_MESSAGE}"""
                         def jenkinsbuildid ="""${BUILD_ID}"""
                         def jenkinstime="""执行日期： ${env.DATETIME}"""
+                        def jenkinsstatus="""构建状态： ${BUILD_STATUS}"""
+                        def jenkinsuser="""执行者： ${CAUSE}"""
                         dingtalk (
                             robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
                             type: 'MARKDOWN',
@@ -43,6 +45,10 @@ pipeline {
                                 jenkinsid,
                                 '',
                                 '---',
+                                jenkinsstatus,
+                                '',
+                                jenkinsuser,
+                                '',
                                 '#### 更新内容',
                                 '',
                                 jenkinscommitmessage,
