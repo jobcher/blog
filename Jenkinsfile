@@ -41,11 +41,14 @@ pipeline {
                             text: [
                                 '# jobcher-blog-github-CI 流水线',
                                 jenkinsid,
+                                '',
                                 '![logo](https://www.jobcher.com/images/sj.png)',
                                 '',
                                 '---',
                                 '#### 更新内容',
+                                '',
                                 jenkinscommitmessage,
+                                '',
                                 jenkinstime
                             ],
                             at: [
