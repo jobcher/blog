@@ -29,7 +29,7 @@ pipeline {
 
                     script {
                         env.USER = sh(script:"git --no-pager show -s -n 1 --format='%cn'", returnStdout: true).trim()
-                        env.BRANCH = sh(script:"git --no-pager show -s -n 1 --format='%D' | awk '{print $2}'", returnStdout: true).trim()
+                        env.BRANCH = sh(script:"git --no-pager show -s -n 1 --format='%D' | awk "'{print $2}'"", returnStdout: true).trim()
                         env.DATETIME = sh(script:"git --no-pager show -s -n 1 --format='%ci'", returnStdout: true).trim()
                         env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B'", returnStdout: true).trim()
                         def jenkinsid = """构建:  第 ${BUILD_DISPLAY_NAME} 执行"""
