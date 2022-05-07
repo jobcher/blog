@@ -47,7 +47,7 @@ pipeline {
                                 jenkinsid,
                                 '',
                                 '---',
-                                '## <font color=green>成功</font>',
+                                '![success](https://i.ibb.co/hgRznG7/chenggong.png)',
                                 '',
                                 jenkinsbranch,
                                 jenkinsuser,
@@ -62,6 +62,10 @@ pipeline {
                         )
                     }
             
+
+                }
+
+                failure{
 
                 }
             }
