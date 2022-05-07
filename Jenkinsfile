@@ -61,12 +61,6 @@ pipeline {
                             ]
                         )
                     }
-            
-
-                }
-
-                failure{
-
                 }
             }
         }
