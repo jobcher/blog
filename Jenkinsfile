@@ -47,7 +47,7 @@ pipeline {
                                 jenkinsid,
                                 '',
                                 '---',
-                                '![success](https://i.ibb.co/hgRznG7/chenggong.png)',
+                                '![success](https://i.ibb.co/92NBBtb/Chenggong.png) 成功',
                                 '',
                                 jenkinsbranch,
                                 jenkinsuser,
