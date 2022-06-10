@@ -37,7 +37,7 @@ pipeline {
                 def jen_date = "> 执行时间： ${env.DATETIME}"
 
                 dingtalk (
-                    robot: 'e3999649-d3f8-449a-a221-4c57333a327b',
+                    robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
                     type: 'MARKDOWN',
                     title: job_name,
                     text: [
@@ -68,7 +68,7 @@ pipeline {
                 def jen_date = "> 执行时间： ${env.DATETIME}"
 
                 dingtalk (
-                    robot: 'e3999649-d3f8-449a-a221-4c57333a327b',
+                    robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
                     type: 'MARKDOWN',
                     title: job_name,
                     text: [
