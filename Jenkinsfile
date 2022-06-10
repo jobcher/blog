@@ -24,44 +24,68 @@ pipeline {
                 sh 'docker push hub.jobcher.com/blog/hugo:latest'
                 echo "结束 end"
             }
-            post {
-                success {
+        }
+    }
+    post {
+        success {
+            script {
+                env.DATETIME = sh(script:"date", returnStdout: true).trim()
+                def job_name = "# ${JOB_NAME} 流水线 执行成功"
+                def jenkinsid = """构建:  第 ${BUILD_ID} 次执行"""
+                def JEN_production = "> 部署节点： k8s"
+                def build_url = "> 部署详情： [详情](${BUILD_URL})"
+                def jen_date = "> 执行时间： ${env.DATETIME}"
 
-                    script {
-                        env.USER = sh(script:"git --no-pager show -s -n 1 --format='%cn'", returnStdout: true).trim()
-                        env.BRANCH = sh(script:"git --no-pager show -s -n 1 --format='%D'", returnStdout: true).trim()
-                        env.DATETIME = sh(script:"git --no-pager show -s -n 1 --format='%ci'", returnStdout: true).trim()
-                        env.COMMIT_MESSAGE = sh(script:"git --no-pager show -s -n 1 --format='%B'", returnStdout: true).trim()
-                        def jenkinsid = """构建:  第 ${BUILD_DISPLAY_NAME} 执行"""
-                        def jenkinscommitmessage = """构建说明:  ${env.COMMIT_MESSAGE}"""
-                        def jenkinsbuildid ="""${BUILD_ID}"""
-                        def jenkinstime="""> 提交日期： ${env.DATETIME}  """
-                        def jenkinsbranch="""> 构建分支： ${env.BRANCH}  """
-                        def jenkinsuser="""> 提交者： ${env.USER}  """
-                        dingtalk (
-                            robot: '23bec93a-babe-486e-8f2f-f9486a6aac91',
-                            type: 'MARKDOWN',
-                            title: '流水线执行成功',
-                            text: [
-                                '# jobcher-blog-github-CI 流水线',
-                                jenkinsid,
-                                '',
-                                '---',
-                                '![success](https://i.ibb.co/92NBBtb/Chenggong.png) 成功',
-                                '',
-                                jenkinsbranch,
-                                jenkinsuser,
-                                jenkinstime,
-                                '#### 更新内容',
-                                '',
-                                jenkinscommitmessage,
-                            ],
-                            at: [
-                                '13250936269'
-                            ]
-                        )
-                    }
-                }
+                dingtalk (
+                    robot: 'e3999649-d3f8-449a-a221-4c57333a327b',
+                    type: 'MARKDOWN',
+                    title: job_name,
+                    text: [
+                        job_name,
+                        jenkinsid,
+                        '',
+                        '---',
+                        JEN_production,
+                        '',
+                        build_url,
+                        '',
+                        jen_date
+                        ],
+                    at: [
+                        '13250936269'
+                        ]
+                )            
+            }
+        }
+        
+        failure {
+            script {
+                env.DATETIME = sh(script:"date", returnStdout: true).trim()
+                def job_name = "# ${JOB_NAME} 流水线 执行失败"
+                def jenkinsid = """构建:  第 ${BUILD_ID} 次执行"""
+                def JEN_production = "> 部署节点： k8s"
+                def build_url = "> 部署详情： [详情](${BUILD_URL})"
+                def jen_date = "> 执行时间： ${env.DATETIME}"
+
+                dingtalk (
+                    robot: 'e3999649-d3f8-449a-a221-4c57333a327b',
+                    type: 'MARKDOWN',
+                    title: job_name,
+                    text: [
+                        job_name,
+                        jenkinsid,
+                        '',
+                        '---',
+                        JEN_production,
+                        '',
+                        build_url,
+                        '',
+                        jen_date
+                        ],
+                    at: [
+                        '13250936269'
+                        ]
+                )            
             }
         }
     }
