@@ -18,7 +18,8 @@ systemctl start docker
 # docker检查
 docker version
 # 运行博客
-sh updatedocker.sh
+docker build -t docker-hugo:latest .
+docker run --name docker-hugo -d -p 4312:80 --restart=always docker-hugo:latest
 ```
 ## 代码结构
 ```sh
