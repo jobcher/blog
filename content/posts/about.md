@@ -22,6 +22,3 @@ draft: true
 ## 最近看的书：
 《荒野求生》  
   
-## 微信：
-  
-![wechat](/images/wechat.jpg)
