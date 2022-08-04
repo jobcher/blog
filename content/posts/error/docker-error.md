@@ -10,15 +10,14 @@ series: ["问题库系列"]
 ### docker 无法启动
   
 打开服务器输入`docker ps`,输出错误  
-```sh
-Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
-```
-怀疑是不是docker.services 部署没成功，`systemctl start docker` 启动docker，结果服务器还是报错  
-```sh
-Job for docker.service failed because the control process exited with error code.
-See "systemctl status docker.service" and "journalctl -xe" for details.
-```
-systemctl status docker.service 日志
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?  
+  
+怀疑是不是`docker.services` 部署没成功，`systemctl start docker` 启动docker，结果服务器还是报错  
+  
+Job for docker.service failed because the control process exited with error code.  
+See "systemctl status docker.service" and "journalctl -xe" for details.  
+  
+`systemctl status docker.service` 输出日志：
 ```sh
 ● docker.service - Docker Application Container Engine
      Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
@@ -34,7 +33,7 @@ Aug 04 11:43:05 master01 systemd[1]: docker.service: Start request repeated too 
 Aug 04 11:43:05 master01 systemd[1]: docker.service: Failed with result 'exit-code'.
 Aug 04 11:43:05 master01 systemd[1]: Failed to start Docker Application Container Engine.
 ```
-journalctl -xe 日志
+`journalctl -xe` 输出日志：
 ```sh
 Aug 04 11:46:49 master01 systemd[1]: Starting Docker Socket for the API.
 -- Subject: A start job for unit docker.socket has begun execution
@@ -87,9 +86,10 @@ Aug 04 11:46:49 master01 sudo[30535]: pam_unix(sudo:session): session closed for
 ```
 我运行了:  
 >sudo dockerd --debug  
-```sh
+  
+输出日志：  
 unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF
-```
+  
 - 解决方法：  
 ```sh
 #如果 /etc/docker/daemon.json 为空
