@@ -1,5 +1,5 @@
 ---
-title: "skywalking 安装和配置"
+title: "skywalking APM 监控"
 date: 2022-07-25
 draft: true
 author: "jobcher"
@@ -7,8 +7,19 @@ tags: ["skywalking"]
 categories: ["监控"]
 series: ["运维监控系列"]
 ---
-# skywalking 安装和配置
-使用docker-compose安装
+# skywalking 
+基于OpenTracing规范，专门为微服务架构以及云原生服务。
+## APM 监控
+一个基于微服务架构的电商系统  
+![shop](/images/skywalkning.png)  
+`APM `(Application Performance Management) 即应用性能管理，属于IT运维管理（ITOM)范畴.  
+分为一下三个方面：  
+
+- Logging
+- Metrics
+- Tracing
+
+## 使用docker-compose安装
 ```yml
 version: "3"
 services:
