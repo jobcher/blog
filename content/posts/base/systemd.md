@@ -10,7 +10,7 @@ series: ["基础知识系列"]
 ## 介绍
 systemd 是linux中用来启动守护进程，Linux最早一直采用init进程  
   
-![systemd](/static/images/systemd.png)  
+![systemd](/images/systemd.png)  
 (systemd 架构图)  
 ## systemd 命令
 systemd 不是一个具体的命令，而是一组命令，用于系统管理的各个方面  
