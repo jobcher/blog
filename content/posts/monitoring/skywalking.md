@@ -11,7 +11,7 @@ series: ["运维监控系列"]
 基于OpenTracing规范，专门为微服务架构以及云原生服务。
 ## APM 监控
 一个基于微服务架构的电商系统  
-![shop](/images/skywalkning.png)  
+<img src="https://www.jobcher.com/images/skywalkning.png" width="100%">  
 `APM `(Application Performance Management) 即应用性能管理，属于IT运维管理（ITOM)范畴.  
 分为一下三个方面：  
 
