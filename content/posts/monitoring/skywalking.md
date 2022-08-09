@@ -22,10 +22,10 @@ series: ["运维监控系列"]
 - Tracing  
 在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。  
   
-APM监控交互图  
+> APM监控交互图  
 <img src="https://www.jobcher.com/images/skywalking2.svg" width="70%">  
-APM监控加载时间图  
-<img src="https://www.jobcher.com/images/skywalking3.svg" width="70%">  
+> APM监控加载时间图  
+<img src="https://www.jobcher.com/images/skywalking3.svg" width="100%">  
 
 ## 使用docker-compose安装
 ```yml
