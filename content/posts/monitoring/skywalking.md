@@ -22,10 +22,35 @@ series: ["运维监控系列"]
 - Tracing  
 在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。  
   
-> APM监控交互图  
+>   `系统交互图`  
 <img src="https://www.jobcher.com/images/skywalking2.svg" width="70%">  
-> APM监控加载时间图  
+  
+>   `系统加载图`
 <img src="https://www.jobcher.com/images/skywalking3.svg" width="100%">  
+
+## 目前流行的`APM监控`
+- Zipkin
+  - 对web.xml 进行修改，代码侵入
+  - twitter开源
+- Cat  
+  - 支持Java、C/C++、Node.Js、Python、go
+  - 代码侵入，埋点
+  - 美团开源
+- Pinpoint  
+  - 基于字节码注入技术，代码无侵入
+  - 韩国公司开发，社区交流滞后
+  - 只支持hbase
+  - 颗粒度更细
+- Skywalking  
+  观测性分析平台
+  - 基于字节码注入技术，代码无侵入
+  - 服务、服务实例、端点指标分析
+  - 服务拓扑图分析
+  - 服务、服务实例和端点（Endpont）SLA分析
+  - 支持es，h2,mysql,TiDb,sharding-sphere
+
+# skywalking 整体框架
+<img src="https://www.jobcher.com/images/skywalking4.jpg" width="100%">
 
 ## 使用docker-compose安装
 ```yml
