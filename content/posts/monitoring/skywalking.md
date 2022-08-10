@@ -1,6 +1,6 @@
 ---
 title: "skywalking APM 监控"
-date: 2022-08-08
+date: 2022-08-10
 draft: true
 author: "jobcher"
 tags: ["skywalking"]
@@ -50,27 +50,62 @@ series: ["运维监控系列"]
   - 支持es，h2,mysql,TiDb,sharding-sphere
 
 # skywalking 整体框架
-<img src="https://www.jobcher.com/images/skywalking4.jpg" width="100%">
+<img src="https://www.jobcher.com/images/skywalking4.jpg" width="100%">  
+  
+- 上部分 `Agent` ：负责从应用中，收集链路信息，发送给 SkyWalking OAP 服务器。目前支持 SkyWalking、Zikpin、Jaeger 等提供的 Tracing 数据信息。而我们目前采用的是，SkyWalking Agent 收集 SkyWalking Tracing 数据，传递给服务器。
+- 下部分 `SkyWalking OAP` ：负责接收 Agent 发送的 Tracing 数据信息，然后进行分析(Analysis Core) ，存储到外部存储器( Storage )，最终提供查询( Query )功能。
+- 右部分 `Storage` ：Tracing 数据存储。目前支持 ES、MySQL、Sharding Sphere、TiDB、H2 多种存储器。而我们目前采用的是 ES ，主要考虑是 SkyWalking 开发团队自己的生产环境采用 ES 为主。
+- 左部分 `SkyWalking UI` ：负责提供控台，查看链路等等。
+
+## skywalking 配置
+
 
 ## 使用docker-compose安装
+使用mysql作为存储  
+下载 `mysql-connector-java-8.0.30.jar`  
+```sh
+mkdir ./libs/
+mv mysql-connector-java-8.0.30.jar ./libs/
+```
+  
+创建带mysql驱动的基础镜像  
+```Dockerfile
+FROM apache/skywalking-oap-server:9.1.0
+LABEL maintainer="nb@nbtyfood.com"
+COPY ./libs/* /skywalking/oap-libs
+```
+  
+上传dockerhub或者自己的镜像仓库，这里我是上传到自己的仓库  
+1. 创建镜像  
+> docker build -t skywalking-mysql-server:v1.0 .
+2. 打tag，选择上传位置  
+> docker tag skywalking-mysql-server:v1.0 <仓库地址>/blog/skywalking-mysql-server:v1.0
+3. 上传镜像  
+> docker push <仓库地址>/blog/skywalking-mysql-server:v1.0
+  
 ```yml
 version: "3"
 services:
   skywalking-oap-server:
-    image: "apache/skywalking-oap-server:9.1.0"
+    image: "hub.docker.com/jobcher/skywalking-mysql-server:v1.0" #docker iamge 地址
     container_name: "oap-server"
     restart: "always"
+    environment:
+      - SW_STORAGE=mysql
+      - SW_JDBC_URL="jdbc:mysql://10.12.12.4:3306/sk"
+      - SW_DATA_SOURCE_USER=user # mysql用户名
+      - SW_DATA_SOURCE_PASSWORD=password # mysql密码
     ports:
-      - "10.12.12.4:12800:12800"
-      - "10.12.12.4:1234:1234"
-      - "10.12.12.4:11800:11800"
+      - "10.12.12.16:12800:12800"
+      - "10.12.12.16:1234:1234"
+      - "10.12.12.16:11800:11800"
 
-  skywalking-oap-ui:
+  skywalking-oap-ui: #UI界面
     image: "apache/skywalking-ui:9.1.0"
     container_name: "oap-ui"
     restart: "always"
     environment:
-      - SW_OAP_ADDRESS=http://10.12.12.4:12800
+      - SW_OAP_ADDRESS=http://10.12.12.16:12800
     ports:
       - "8180:8080"
 ```
