@@ -103,7 +103,7 @@ cat > broker-a-s.conf <<EOF
 #集群名称
 brokerClusterName=DefaultCluster
 #broker名称
-brokerName=broker-a-s
+brokerName=broker-a
 #brokerId master用0 slave用其他
 brokerId=1
 #清理时机
@@ -153,7 +153,7 @@ cat > broker-b-s.conf <<EOF
 #集群名称
 brokerClusterName=DefaultCluster
 #broker名称
-brokerName=broker-b-s
+brokerName=broker-b
 #brokerId master用0 slave用其他
 brokerId=1
 #清理时机
@@ -203,7 +203,7 @@ cat > broker-c-s.conf <<EOF
 #集群名称
 brokerClusterName=DefaultCluster
 #broker名称
-brokerName=broker-c-s
+brokerName=broker-c
 #brokerId master用0 slave用其他
 brokerId=1
 #清理时机
@@ -253,7 +253,7 @@ cat > broker-d-s.conf <<EOF
 #集群名称
 brokerClusterName=DefaultCluster
 #broker名称
-brokerName=broker-d-s
+brokerName=broker-d
 #brokerId master用0 slave用其他
 brokerId=1
 #清理时机
