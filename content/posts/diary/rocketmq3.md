@@ -759,6 +759,457 @@ spec:
     path: /data/storage/k8s/rocketmq/broker-b
     server: 193.0.40.171
 ```
+broker-c-s.yaml
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: broker-c-s
+  name: broker-c-s
+  namespace: sanjiang
+spec:
+  ports:
+  - port: 20911
+    targetPort: 20911
+    name: broker-port
+  selector:
+    app: broker-c-s
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: broker-c-s
+  namespace: sanjiang
+spec:
+  serviceName: broker-c-s
+  replicas: 1
+  selector:
+    matchLabels:
+      app: broker-c-s
+  template:
+    metadata:
+     labels:
+       app: broker-c-s
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - broker-c-s
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: broker-c-s
+        image: liuyi71sinacom/rocketmq-4.8.0
+        imagePullPolicy: IfNotPresent
+        command: ["sh","-c","mqbroker  -c /usr/local/rocketmq-4.8.0/conf/broker-c-s.properties"]
+        env:
+        - name: JAVA_OPT
+          value: "-server -XX:ParallelGCThreads=1 -Xms1g -Xmx1g -Xmn512m"
+          #value: "-XX:MaxRAMPercentage=80.0"
+        volumeMounts:
+          - mountPath: /root/logs
+            name: rocketmq-data
+            subPath: mq-brokeroptlogs
+          - mountPath: /data/rocketmq
+            name: rocketmq-data
+            subPath: mq-brokeroptstore
+          - name: broker-config
+            mountPath: /usr/local/rocketmq-4.8.0/conf/broker-c-s.properties
+            subPath: broker-c-s.properties
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh","-c","touch /tmp/health"]
+        livenessProbe:
+          exec:
+            command: ["test","-e","/tmp/health"]
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: 20911
+          initialDelaySeconds: 15
+          timeoutSeconds: 5
+          periodSeconds: 20
+      volumes:
+      - name: broker-config
+        configMap:
+          name: rocketmq-config
+          items:
+          - key: broker-c-s.properties
+            path: broker-c-s.properties
+  volumeClaimTemplates:
+  - metadata:
+      name: rocketmq-data
+      namespace: sanjiang
+      annotations:
+        volume.beta.kubernetes.io/storage-class: "rocketmq-nfs-storage"
+    spec:
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name:  broker-c-s-pv
+  namespace: sanjiang
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 2Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: rocketmq-nfs-storage
+  nfs:
+    path: /data/storage/k8s/rocketmq/broker-c-s
+    server: 193.0.40.171
+```
+broker-c.yaml
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: broker-c
+  name: broker-c
+  namespace: sanjiang
+spec:
+  ports:
+  - port: 20911
+    targetPort: 20911
+    name: broker-port
+  selector:
+    app: broker-c
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: broker-c
+  namespace: sanjiang
+spec:
+  serviceName: broker-c
+  replicas: 1
+  selector:
+    matchLabels:
+      app: broker-c
+  template:
+    metadata:
+     labels:
+       app: broker-c
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - broker-c
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: broker-c
+        image: liuyi71sinacom/rocketmq-4.8.0
+        imagePullPolicy: IfNotPresent
+        command: ["sh","-c","mqbroker  -c /usr/local/rocketmq-4.8.0/conf/broker-c.properties"]
+        env:
+        - name: JAVA_OPT
+          value: "-server -XX:ParallelGCThreads=1 -Xms1g -Xmx1g -Xmn512m"
+          #value: "-XX:MaxRAMPercentage=80.0"
+        volumeMounts:
+          - mountPath: /root/logs
+            name: rocketmq-data
+            subPath: mq-brokeroptlogs
+          - mountPath: /data/rocketmq
+            name: rocketmq-data
+            subPath: mq-brokeroptstore
+          - name: broker-config
+            mountPath: /usr/local/rocketmq-4.8.0/conf/broker-c.properties
+            subPath: broker-c.properties
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh","-c","touch /tmp/health"]
+        livenessProbe:
+          exec:
+            command: ["test","-e","/tmp/health"]
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: 20911
+          initialDelaySeconds: 15
+          timeoutSeconds: 5
+          periodSeconds: 20
+      volumes:
+      - name: broker-config
+        configMap:
+          name: rocketmq-config
+  volumeClaimTemplates:
+  - metadata:
+      name: rocketmq-data
+      namespace: sanjiang
+      annotations:
+        volume.beta.kubernetes.io/storage-class: "rocketmq-nfs-storage"
+    spec:
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name:  broker-c-pv
+  namespace: sanjiang
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 2Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: rocketmq-nfs-storage
+  nfs:
+    path: /data/storage/k8s/rocketmq/broker-c
+    server: 193.0.40.171
+```
+broker-d-s.yaml
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: broker-d-s
+  name: broker-d-s
+  namespace: sanjiang
+spec:
+  ports:
+  - port: 20911
+    targetPort: 20911
+    name: broker-port
+  selector:
+    app: broker-d-s
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: broker-d-s
+  namespace: sanjiang
+spec:
+  serviceName: broker-d-s
+  replicas: 1
+  selector:
+    matchLabels:
+      app: broker-d-s
+  template:
+    metadata:
+     labels:
+       app: broker-d-s
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - broker-d-s
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: broker-d-s
+        image: liuyi71sinacom/rocketmq-4.8.0
+        imagePullPolicy: IfNotPresent
+        command: ["sh","-c","mqbroker  -c /usr/local/rocketmq-4.8.0/conf/broker-d-s.properties"]
+        env:
+        - name: JAVA_OPT
+          value: "-server -XX:ParallelGCThreads=1 -Xms1g -Xmx1g -Xmn512m"
+          #value: "-XX:MaxRAMPercentage=80.0"
+        volumeMounts:
+          - mountPath: /root/logs
+            name: rocketmq-data
+            subPath: mq-brokeroptlogs
+          - mountPath: /data/rocketmq
+            name: rocketmq-data
+            subPath: mq-brokeroptstore
+          - name: broker-config
+            mountPath: /usr/local/rocketmq-4.8.0/conf/broker-d-s.properties
+            subPath: broker-d-s.properties
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh","-c","touch /tmp/health"]
+        livenessProbe:
+          exec:
+            command: ["test","-e","/tmp/health"]
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: 20911
+          initialDelaySeconds: 15
+          timeoutSeconds: 5
+          periodSeconds: 20
+      volumes:
+      - name: broker-config
+        configMap:
+          name: rocketmq-config
+          items:
+          - key: broker-d-s.properties
+            path: broker-d-s.properties
+  volumeClaimTemplates:
+  - metadata:
+      name: rocketmq-data
+      namespace: sanjiang
+      annotations:
+        volume.beta.kubernetes.io/storage-class: "rocketmq-nfs-storage"
+    spec:
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name:  broker-d-s-pv
+  namespace: sanjiang
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 2Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: rocketmq-nfs-storage
+  nfs:
+    path: /data/storage/k8s/rocketmq/broker-d-s
+    server: 193.0.40.171
+```
+broker-d.yaml
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: broker-d
+  name: broker-d
+  namespace: sanjiang
+spec:
+  ports:
+  - port: 20911
+    targetPort: 20911
+    name: broker-port
+  selector:
+    app: broker-d
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: broker-d
+  namespace: sanjiang
+spec:
+  serviceName: broker-d
+  replicas: 1
+  selector:
+    matchLabels:
+      app: broker-d
+  template:
+    metadata:
+     labels:
+       app: broker-d
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - broker-d
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: broker-d
+        image: liuyi71sinacom/rocketmq-4.8.0
+        imagePullPolicy: IfNotPresent
+        command: ["sh","-c","mqbroker  -c /usr/local/rocketmq-4.8.0/conf/broker-d.properties"]
+        env:
+        - name: JAVA_OPT
+          value: "-server -XX:ParallelGCThreads=1 -Xms1g -Xmx1g -Xmn512m"
+          #value: "-XX:MaxRAMPercentage=80.0"
+        volumeMounts:
+          - mountPath: /root/logs
+            name: rocketmq-data
+            subPath: mq-brokeroptlogs
+          - mountPath: /data/rocketmq
+            name: rocketmq-data
+            subPath: mq-brokeroptstore
+          - name: broker-config
+            mountPath: /usr/local/rocketmq-4.8.0/conf/broker-d.properties
+            subPath: broker-d.properties
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh","-c","touch /tmp/health"]
+        livenessProbe:
+          exec:
+            command: ["test","-e","/tmp/health"]
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: 20911
+          initialDelaySeconds: 15
+          timeoutSeconds: 5
+          periodSeconds: 20
+      volumes:
+      - name: broker-config
+        configMap:
+          name: rocketmq-config
+  volumeClaimTemplates:
+  - metadata:
+      name: rocketmq-data
+      namespace: sanjiang
+      annotations:
+        volume.beta.kubernetes.io/storage-class: "rocketmq-nfs-storage"
+    spec:
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name:  broker-d-pv
+  namespace: sanjiang
+spec:
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 2Gi
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: rocketmq-nfs-storage
+  nfs:
+    path: /data/storage/k8s/rocketmq/broker-d
+    server: 193.0.40.171
+```
+
 console.yaml
 ```yaml
 apiVersion: apps/v1
