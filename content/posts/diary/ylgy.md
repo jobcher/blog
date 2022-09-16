@@ -41,5 +41,5 @@ series: ["日常系列"]
 ```
 之后打开游戏，仅需要完成4次第一关九宫格样式即可加入羊群！  
   
-![finish](/images/ylgy-finish.jpg)  
+![finish](/images/ylgy-finish.png)  
 
