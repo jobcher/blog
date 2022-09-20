@@ -36,13 +36,6 @@ jobs:
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
           tree
       
-      - name: Install Hugo theme
-        run: |
-          cd /home/runner/work/blog/blog/themes/
-          wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz"
-          tar -zxvf loveit.tar.gz
-          mv LoveIt-${LOVEIT_THEME_VERSION} LoveIt
-      
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -51,6 +44,13 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
+
+      - name: Install Hugo theme
+        run: |
+          cd /home/runner/work/blog/blog/themes/
+          wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz"
+          tar -zxvf loveit.tar.gz
+          mv LoveIt-${LOVEIT_THEME_VERSION} LoveIt
 
       - name: Build with Hugo
         env:
