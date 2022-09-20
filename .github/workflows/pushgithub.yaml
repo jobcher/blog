@@ -46,6 +46,7 @@ jobs:
 
       - name: 初始化
         run: |
+          cd ..
           hugo new site blog
           pwd
           tree
