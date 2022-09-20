@@ -28,18 +28,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.102.3
+      LOVEIT_THEME_VERSION: 0.2.10
     steps:
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       
-      - name: Install Hugo theme
-        run: |
-          wget -O /home/runner/work/blog/blog/themes/loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v0.2.10.tar.gz" \
-          && tar -zxvf /home/runner/work/blog/blog/themes/loveit.tar.gz \
-          && mv /home/runner/work/blog/blog/themes/LoveIt-0.2.10 /home/runner/work/blog/blog/themes/LoveIt
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -48,7 +43,13 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
-      
+
+      - name: Install Hugo theme
+        run: |
+          wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz" \
+          && tar -zxvf loveit.tar.gz \
+          && mv LoveIt-${LOVEIT_THEME_VERSION} /home/runner/work/blog/blog/themes/LoveIt
+
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
