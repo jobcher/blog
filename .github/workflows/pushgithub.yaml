@@ -38,7 +38,7 @@ jobs:
         run: |
           wget -O ${{ runner.temp }}/loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v0.2.10.tar.gz" \
           && tar -zxvf ${{ runner.temp }}/loveit.tar.gz \
-          && mv LoveIt-0.2.10 ${{ runner.temp }}/blog/blog/themes/LoveIt
+          && mv LoveIt-0.2.10 /home/runner/work/blog/blog/themes/LoveIt
 
       - name: Checkout
         uses: actions/checkout@v3
