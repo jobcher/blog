@@ -52,8 +52,8 @@ jobs:
       - name: Install Hugo theme
         run: |
           wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz" \
-          && tar -zxvf loveit.tar.gz \
-          && mv LoveIt-${LOVEIT_THEME_VERSION} /home/runner/work/blog/blog/themes/LoveIt
+          && tar -zxvf loveit.tar.gz -C /home/runner/work/blog/blog/themes/ \
+          && mv /home/runner/work/blog/blog/themes/LoveIt-${LOVEIT_THEME_VERSION} /home/runner/work/blog/blog/themes/LoveIt
 
       
       # Deployment job
