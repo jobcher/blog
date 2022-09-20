@@ -35,7 +35,14 @@ jobs:
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
           tree
-
+      
+      - name: Install Hugo theme
+        run: |
+          cd /home/runner/work/blog/blog/themes/
+          wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz"
+          tar -zxvf loveit.tar.gz
+          mv LoveIt-${LOVEIT_THEME_VERSION} LoveIt
+      
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -45,17 +52,20 @@ jobs:
         id: pages
         uses: actions/configure-pages@v2
 
-      - name: Install Hugo theme
+      - name: Build with Hugo
+        env:
+          # For maximum backward compatibility with Hugo modules
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
         run: |
-          cd /home/runner/work/blog/blog/themes/
-          wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz"
-          tar -zxvf loveit.tar.gz
-          mv LoveIt-${LOVEIT_THEME_VERSION} LoveIt
-      - name: 检查
-        run: |
-          pwd
-          tree
-      
+          hugo \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./public
+
       # Deployment job
   deploy:
     environment:
