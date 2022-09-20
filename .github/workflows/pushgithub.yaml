@@ -36,8 +36,8 @@ jobs:
       
       - name: Install Hugo theme
         run: |
-          wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v0.2.10.tar.gz" \
-          && tar -zxvf loveit.tar.gz \
+          wget -O ${{ runner.temp }}/loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v0.2.10.tar.gz" \
+          && tar -zxvf ${{ runner.temp }}/loveit.tar.gz \
           && mv ${{ runner.temp }}/LoveIt-0.2.10 ${{ runner.temp }}/blog/blog/themes/LoveIt
 
       - name: Checkout
