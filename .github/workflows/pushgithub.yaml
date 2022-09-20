@@ -2,9 +2,9 @@ name: Push jobcher.github.com mywebui
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
   workflow_dispatch:
 
 # Sets to GitHub Pages
@@ -34,6 +34,12 @@ jobs:
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       
+      - name: Install Hugo theme
+        run: |
+          wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v0.2.10.tar.gz" \
+          && tar -zxvf loveit.tar.gz \
+          && mv ${{ runner.temp }}/LoveIt-0.2.10 ${{ runner.temp }}/blog/blog/themes/LoveIt
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
