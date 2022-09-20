@@ -70,7 +70,6 @@ jobs:
       - name: Deploy Web
         uses: peaceiris/actions-gh-pages@v3
         with:
-            PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
             EXTERNAL_REPOSITORY: jobcher/jobcher.github.io
             PUBLISH_BRANCH: master
             PUBLISH_DIR: ./public
