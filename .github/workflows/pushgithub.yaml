@@ -45,16 +45,16 @@ jobs:
         id: pages
         uses: actions/configure-pages@v2
 
-      #- name: Install Hugo theme
-      #  run: |
-      #    wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz" \
-      #    && tar -zxvf loveit.tar.gz -C /home/runner/work/blog/blog/themes/ \
-      #    && mv /home/runner/work/blog/blog/themes/LoveIt-${LOVEIT_THEME_VERSION} /home/runner/work/blog/blog/themes/LoveIt
+      - name: Install Hugo theme
+        run: |
+          cd /home/runner/work/blog/blog/themes/
+          wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz"
+          tar -zxvf loveit.tar.gz
+          mv LoveIt-${LOVEIT_THEME_VERSION} LoveIt
       - name: 检查
         run: |
           pwd
           tree
-          cd .. && tree
       
       # Deployment job
   deploy:
