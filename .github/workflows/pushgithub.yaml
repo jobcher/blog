@@ -74,6 +74,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+      - name: Deploy Web
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+            PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+            EXTERNAL_REPOSITORY: jobcher/jobcher.github.io
+            PUBLISH_BRANCH: master
+            PUBLISH_DIR: ./public
+            commit_message: ${{ github.event.head_commit.message }}
