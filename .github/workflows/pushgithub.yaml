@@ -57,16 +57,7 @@ jobs:
           hugo
           pwd
           tree
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./public
 
-# Deployment job
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Deploy Web
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -75,3 +66,8 @@ jobs:
             PUBLISH_BRANCH: main
             PUBLISH_DIR: ./public
             commit_message: ${{ github.event.head_commit.message }}
+            
+      - name: 测试
+        run: |
+          pwd
+          tree
