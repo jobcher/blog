@@ -355,17 +355,17 @@ theme = "LoveIt"
       # Disqus 评论系统设置
       [params.page.comment.disqus]
         # LoveIt 新增 | 0.1.1
-        enable = true
+        enable = false
         # Disqus 的 shortname，用来在文章中启用 Disqus 评论系统
         shortname = ""
       # Gitalk 评论系统设置
       [params.page.comment.gitalk]
         # LoveIt 新增 | 0.1.1
-        enable = false
-        owner = ""
-        repo = ""
-        clientId = ""
-        clientSecret = ""
+        enable = true
+        owner = "jobcher"
+        repo = "www.jobcher.com"
+        clientId = "88e1a85118e234eadd73"
+        clientSecret = "70f10426ec677efad0c699b9ddfcb928d235d6f9"
       # Valine 评论系统设置
       [params.page.comment.valine]
         enable = false
