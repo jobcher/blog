@@ -1,6 +1,6 @@
 ---
 title: "hugo 添加视频测试"
-date: 2021-12-27
+date: 2022-09-26
 draft: true
 author: "jobcher"
 tags: ["运维"]
