@@ -1,5 +1,5 @@
 ---
-title: "hugo 添加视频测试"
+title: "hugo 添加视频测试2"
 date: 2021-12-27
 draft: true
 author: "jobcher"
@@ -9,7 +9,7 @@ series: ["基础知识系列"]
 ---
 # hugo 添加视频测试
 
-## bilibili
-B站测试  
-{{< bilibili BV1rY4y1N7Zp >}}  
+## youtube  
+油管测试  
+{{< youtube ROEaPaSSQRc >}}  
   
