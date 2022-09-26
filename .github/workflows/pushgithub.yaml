@@ -52,7 +52,8 @@ jobs:
           tar -zxvf loveit.tar.gz
           mv LoveIt-${LOVEIT_THEME_VERSION} LoveIt
           mv -f /home/runner/work/blog/blog/header.html ./LoveIt/layouts/partials/header.html
-
+          mv -f /home/runner/work/blog/blog/bilibili.html ./LoveIt/layouts/shortcodes/bilibili.html
+          mv -f /home/runner/work/blog/blog/youtube.html ./LoveIt/layouts/shortcodes/youtube.html
       - name: Build with Hugo
         run: |
           hugo -t LoveIt -D
