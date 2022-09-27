@@ -362,10 +362,10 @@ theme = "LoveIt"
       [params.page.comment.gitalk]
         # LoveIt 新增 | 0.1.1
         enable = false
-        owner = " "
-        repo = " "
-        clientId = " "
-        clientSecret = " "
+        owner = ""
+        repo = ""
+        clientId = ""
+        clientSecret = ""
       # Valine 评论系统设置
       [params.page.comment.valine]
         enable = false
