@@ -24,3 +24,25 @@ go语言由google公司推出。
 - 区块链开发
 
 ## 环境安装
+### 安装环境
+安装包下载  
+https://golang.google.cn/dl/  
+  
+### windows 部署
+```sh
+wget https://golang.google.cn/dl/go1.19.1.windows-amd64.msi
+# 直接安装
+```
+### GOPATH 设置
+在环境变量 `PATH` 上直接配置安装地址
+
+## 编写第一个程序
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello World!")
+}
+```
