@@ -69,10 +69,10 @@ jobs:
       - name: IPFS Pinata deploy GitHub action
         uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
         with:
-          pin-name: 'github'
-          path: './public'
-          pinata-api-key: 8031d439f81ea9da9a88
-          pinata-secret-api-key: 3f397e154d9168327dd809c720baee9d2f78d633d27aba023bc78563dd01357b
+          pin-name: github
+          path: ./public
+          pinata-api-key: 1cbf9460a7210995034d
+          pinata-secret-api-key: 0dc9ef09fa293476339d7cd8df628db67709a893b55e7a7541565d5c5c964a8b
           verbose: true
           remove-old: false
 
