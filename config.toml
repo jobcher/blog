@@ -363,7 +363,7 @@ theme = "LoveIt"
         # LoveIt 新增 | 0.1.1
         enable = true
         owner = "jobcher"
-        repo = "gittalk"
+        repo = "jobcher.github.io"
         clientId = "88e1a85118e234eadd73"
         clientSecret = "72be6766b77c522a0ddbb9e47fdeeca976da2cd3"
       # Valine 评论系统设置
