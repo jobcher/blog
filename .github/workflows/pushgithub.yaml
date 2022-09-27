@@ -66,14 +66,15 @@ jobs:
             PUBLISH_BRANCH: main
             PUBLISH_DIR: ./public
             commit_message: ${{ github.event.head_commit.message }}
-      - name: IPFS Pinata deploy GitHub action
-        uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
-        with:
-          pin-name: github
-          path: ./public
-          pinata-api-key: 1cbf9460a7210995034d
-          pinata-secret-api-key: 0dc9ef09fa293476339d7cd8df628db67709a893b55e7a7541565d5c5c964a8b
-          verbose: true
-          remove-old: false
+
+      #- name: IPFS Pinata deploy GitHub action
+      #  uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
+      #  with:
+      #    pin-name: github
+      #    path: ./public
+      #    pinata-api-key: 1cbf9460a7210995034d
+      #    pinata-secret-api-key: 0dc9ef09fa293476339d7cd8df628db67709a893b55e7a7541565d5c5c964a8b
+      #    verbose: true
+      #    remove-old: false
 
 
