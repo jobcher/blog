@@ -361,11 +361,11 @@ theme = "LoveIt"
       # Gitalk 评论系统设置
       [params.page.comment.gitalk]
         # LoveIt 新增 | 0.1.1
-        enable = true
-        owner = "jobcher"
-        repo = "jobcher.github.io"
-        clientId = "88e1a85118e234eadd73"
-        clientSecret = "72be6766b77c522a0ddbb9e47fdeeca976da2cd3"
+        enable = false
+        owner = " "
+        repo = " "
+        clientId = " "
+        clientSecret = " "
       # Valine 评论系统设置
       [params.page.comment.valine]
         enable = false
@@ -409,9 +409,9 @@ theme = "LoveIt"
         enable = false
       # LoveIt 新增 | 0.2.5 Utterances 评论系统设置
       [params.page.comment.utterances]
-        enable = false
+        enable = ture
         # owner/repo
-        repo = ""
+        repo = "jobcher/jobcher.github.io"
         issueTerm = "pathname"
         label = ""
         lightTheme = "github-light"
