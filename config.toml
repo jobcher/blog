@@ -409,7 +409,7 @@ theme = "LoveIt"
         enable = false
       # LoveIt 新增 | 0.2.5 Utterances 评论系统设置
       [params.page.comment.utterances]
-        enable = ture
+        enable = true
         # owner/repo
         repo = "jobcher/jobcher.github.io"
         issueTerm = "pathname"
