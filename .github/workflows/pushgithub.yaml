@@ -72,7 +72,7 @@ jobs:
         with:
           pin-name: github
           path: ./public
-          pinata-api-key: 1cbf9460a7210995034d
-          pinata-secret-api-key: 0dc9ef09fa293476339d7cd8df628db67709a893b55e7a7541565d5c5c964a8b
+          pinatakey: 1cbf9460a7210995034d
+          pinatasecret: 0dc9ef09fa293476339d7cd8df628db67709a893b55e7a7541565d5c5c964a8b
 
 
