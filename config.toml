@@ -70,7 +70,7 @@ theme = "LoveIt"
   # LoveIt 新增 | 0.2.0 应用图标配置
   [params.app]
     # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
-    title = "LoveIt"
+    title = "jobcher"
     # 是否隐藏网站图标资源链接
     noFavicon = false
     # 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件
