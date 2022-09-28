@@ -67,12 +67,12 @@ jobs:
             PUBLISH_DIR: ./public
             commit_message: ${{ github.event.head_commit.message }}
 
-      - name: IPFS Pinata deploy GitHub action
+      - name: IPFS Filebase deploy GitHub action
         uses: aquiladev/ipfs-action@master
         with:
           path: ./public
           service: filebase
-          pinName: 'ipfs-action'
+          pinName: 'jobcher'
           filebaseBucket: jobcher
           filebaseKey: 4CCEBEDFA36106BC6B79
           filebaseSecret: WAXdc4fHD9LCpt7TNGvVUfKAkDQuJfYP8otB2vmn
