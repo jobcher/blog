@@ -70,9 +70,9 @@ jobs:
       - name: IPFS Pinata deploy GitHub action
         uses: aquiladev/ipfs-action@master
         with:
-          pin-name: github
           path: ./public
-          pinatakey: 1cbf9460a7210995034d
-          pinatasecret: 0dc9ef09fa293476339d7cd8df628db67709a893b55e7a7541565d5c5c964a8b
+          service: pinata
+          pinataKey: 1cbf9460a7210995034d
+          pinataSecret: 0dc9ef09fa293476339d7cd8df628db67709a893b55e7a7541565d5c5c964a8b
 
 
