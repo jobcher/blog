@@ -71,6 +71,7 @@ jobs:
         uses: aquiladev/ipfs-action@master
         with:
           path: ./public
+          pinName: blog
           service: pinata
           pinataKey: 698a271623c2c2c466fd
           pinataSecret: fc19bd059c813a373c4bd71d048e14d5edc36e0b1f46686a6fe52410e2c42c16
