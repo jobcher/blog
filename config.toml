@@ -7,7 +7,8 @@ languageCode = "zh-CN"
 hasCJKLanguage = true
 # 网站标题
 title = "打工人日志 - jobcher"
-
+# 相对地址
+relativeURLs = true
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = "LoveIt"
 
