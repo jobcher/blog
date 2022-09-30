@@ -57,6 +57,7 @@ jobs:
       - name: Build with Hugo
         run: |
           hugo -t LoveIt -D
+          mv -f ./ads.txt /home/runner/work/blog/blog/public/.
 
       - name: Deploy Web
         uses: peaceiris/actions-gh-pages@v3
