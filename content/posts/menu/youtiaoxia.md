@@ -9,4 +9,4 @@ series: ["美食家常菜系列"]
 ---
 
 # 菠萝油条虾
-{{<bilibili BV1CJ411K7LV >}}
+{{< bilibili BV1CJ411K7LV >}}
