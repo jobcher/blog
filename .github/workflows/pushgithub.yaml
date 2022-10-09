@@ -95,6 +95,6 @@ jobs:
           DNSLINK="dnslink=$DNSTXT"
           curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONES_ID/dns_records/$CLOUDFLARE_DNS_ID" \
           -H "Content-Type:application/json" \
-          -H "X-Auth-Key:$secrets.CLOUDFLARE_AUTH_KEY" \
-          -H "X-Auth-Email:$secrets.CLOUDFLARE_EMAIL" \
+          -H "X-Auth-Key:$CLOUDFLARE_AUTH_KEY" \
+          -H "X-Auth-Email:$CLOUDFLARE_EMAIL" \
           --data '{"type":"txt","name":"_dnslink.ipfs.jobcher.com","content":"'$DNSLINK'","ttl":1,"proxied":false}'
