@@ -86,7 +86,7 @@ jobs:
       CLOUDFLARE_AUTH_KEY: ${{ secrets.CLOUDFLARE_AUTH_KEY }}
       CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
       CLOUDFLARE_ZONES_ID: ${{ secrets.CLOUDFLARE_ZONES_ID }}
-      CLOUDFLARE_DNS_ID: ${{ CLOUDFLARE_DNS_ID }}
+      CLOUDFLARE_DNS_ID: ${{ secrets.CLOUDFLARE_DNS_ID }}
     steps:
       - name: Update IPFS DNS
         run: |
