@@ -78,3 +78,6 @@ jobs:
           filebaseKey: 4CCEBEDFA36106BC6B79
           filebaseSecret: WAXdc4fHD9LCpt7TNGvVUfKAkDQuJfYP8otB2vmn
 
+      - name: update IPFS dns
+        run: |
+          sh cloudflare.sh
