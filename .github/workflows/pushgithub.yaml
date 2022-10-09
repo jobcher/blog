@@ -78,7 +78,7 @@ jobs:
           filebaseKey: ${{ secrets.FILEBASE_KEY }}
           filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
   
-  pdatedns:
+  updatedns:
     runs-on: ubuntu-latest
     needs: build
     steps:
