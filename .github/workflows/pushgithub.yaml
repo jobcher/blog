@@ -78,6 +78,13 @@ jobs:
           filebaseKey: 4CCEBEDFA36106BC6B79
           filebaseSecret: WAXdc4fHD9LCpt7TNGvVUfKAkDQuJfYP8otB2vmn
 
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
       - name: update IPFS dns
         run: |
-          sudo sh /home/runner/work/blog/blog/cloudflare.sh
+          ./home/runner/work/blog/blog/cloudflare.sh
