@@ -75,5 +75,5 @@ jobs:
           service: filebase
           pinName: 'jobcher'
           filebaseBucket: jobcher
-          filebaseKey: 4CCEBEDFA36106BC6B79
-          filebaseSecret: WAXdc4fHD9LCpt7TNGvVUfKAkDQuJfYP8otB2vmn
+          filebaseKey: ${{ secrets.FILEBASE_KEY }}
+          filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
