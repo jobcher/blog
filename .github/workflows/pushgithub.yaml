@@ -69,7 +69,7 @@ jobs:
             commit_message: ${{ github.event.head_commit.message }}
 
       - name: IPFS Filebase deploy GitHub action
-        uses: aquiladev/ipfs-action@master
+        uses: aquiladev/ipfs-action@v0.2.1
         with:
           path: ./public
           service: filebase
