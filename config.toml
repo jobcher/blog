@@ -48,6 +48,14 @@ theme = "LoveIt"
     url = "/about/"
     title = ""
     weight = 4
+  [[menu.main]]
+    identifier = "nav"
+    pre = ""
+    post = ""
+    name = "导航"
+    url = "https://nav.jobcher.com/"
+    title = ""
+    weight = 5
 
 [params]
   # LoveIt 更改 | 0.2.0 LoveIt 主题版本
