@@ -77,7 +77,11 @@ jobs:
           filebaseBucket: jobcher
           filebaseKey: ${{ secrets.FILEBASE_KEY }}
           filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
-
+  
+  pdatedns:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Update IPFS DNS
         run: |
           curl https://api.filebase.io/v1/ipfs/pins -H "Authorization: Bearer NENDRUJFREZBMzYxMDZCQzZCNzk6V0FYZGM0ZkhEOUxDcHQ3VE5HdlZVZktBa0RRdUpmWVA4b3RCMnZtbjpqb2JjaGVy" > filebase.txt
