@@ -114,7 +114,7 @@ theme = "LoveIt"
     # LoveIt 新增 | 0.2.0 页面头部导航栏标题配置
     [params.header.title]
       # LOGO 的 URL
-      logo = "https://www.jobcher.com/avatar1.png"
+      logo = "/avatar1.png"
       # 标题名称
       name = "打工人日志"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
@@ -462,7 +462,7 @@ theme = "LoveIt"
     # 图片 URL
     image = "https://www.jobcher.com/images/image.gif"
     # 缩略图 URL
-    thumbnailUrl = "https://www.jobcher.com/avatar1.png"
+    thumbnailUrl = "/avatar1.png"
 
   # LoveIt 新增 | 0.2.0 网站分析配置
   [params.analytics]
