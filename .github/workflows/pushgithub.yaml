@@ -57,7 +57,7 @@ jobs:
           mv -f ./ads.txt /home/runner/work/blog/blog/public/.
 
       - name: Deploy Web
-        uses: peaceiris/actions-gh-pages@main
+        uses: peaceiris/actions-gh-pages@v3.8.0
         with:
             PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
             EXTERNAL_REPOSITORY: jobcher/jobcher.github.io
