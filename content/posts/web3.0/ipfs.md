@@ -19,14 +19,14 @@ series: ["web3.0"]
 [下载MAC](https://github.com/ipfs/ipfs-desktop/releases/download/v0.24.0/IPFS-Desktop-0.24.0.dmg)  
 ### 安装
 1. 运行 .exe 文件开始安装，选择是要为您自己还是为计算机上的所有用户安装应用程序。点击下一步：  
-![ipfs](/images/install-windows-install-options.93daddc8.png)
+![ipfs](/images/install-windows-install-options.93daddc8.png)  
 2. 选择应用程序的安装位置。默认位置通常很好。点击下一步：  
-![ipfs](/images/install-windows-install-location.6b405e91.png)
-3. 等待安装完成，然后单击完成：
-![ipfs](/images/install-windows-install-finish.0b8dd163.png)
-4. 您现在可以在状态栏中找到 IPFS 图标：
-![ipfs](/images/install-windows-ipfs-desktop-status-bar.bb794c27.png)
-
+![ipfs](/images/install-windows-install-location.6b405e91.png)  
+3. 等待安装完成，然后单击完成：  
+![ipfs](/images/install-windows-install-finish.0b8dd163.png)  
+4. 您现在可以在状态栏中找到 IPFS 图标：  
+![ipfs](/images/install-windows-ipfs-desktop-status-bar.bb794c27.png)  
+  
 ## 使用
 1. 打开软件
 ![ipfs](/images/IPFS-open.png)
