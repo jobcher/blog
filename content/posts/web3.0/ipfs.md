@@ -33,6 +33,6 @@ series: ["web3.0"]
 可以`正常使用`了！是不是很简单接下来浏览器直接查看web3.0站点
 ## 站点
 我的 `web3.0` blog： [ipfs.jobcher.com](ipfs.jobcher.com)  
-对标youdTube的视频网站: [d.tube](https://ipfs.io/ipfs/QmbMtArYSo3DPjVFiyPdiJu1wsWFeFAEMikD8EMGwdNZwt/)
-Orbit，QQ 在 IPFS上的替代者: [orbit.chat](orbit.chat)
-Akasha，对标 facebook，微信等社交工具：[akasha.world](akasha.world)
+对标youdTube的视频网站: [d.tube](https://ipfs.io/ipfs/QmbMtArYSo3DPjVFiyPdiJu1wsWFeFAEMikD8EMGwdNZwt/)  
+Orbit，QQ 在 IPFS上的替代者: [orbit.chat](orbit.chat)  
+Akasha，对标 facebook，微信等社交工具：[akasha.world](akasha.world)  
