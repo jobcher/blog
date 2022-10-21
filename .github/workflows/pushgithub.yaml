@@ -37,13 +37,10 @@ jobs:
           tree
       
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.1.0
         with:
           submodules: recursive
       
-      #- name: Setup Pages
-      #  id: pages
-      #  uses: actions/configure-pages@v2
 
       - name: Install Hugo theme
         run: |
@@ -60,7 +57,7 @@ jobs:
           mv -f ./ads.txt /home/runner/work/blog/blog/public/.
 
       - name: Deploy Web
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@main
         with:
             PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
             EXTERNAL_REPOSITORY: jobcher/jobcher.github.io
