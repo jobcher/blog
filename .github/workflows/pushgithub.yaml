@@ -55,6 +55,12 @@ jobs:
         run: |
           hugo -t LoveIt -D
           mv -f ./ads.txt /home/runner/work/blog/blog/public/.
+          curl \
+          -H "Title: www.jobcher.com 更新" \
+          -H "Priority: urgent" \
+          -H "Tags: update" \
+          -d "www.jobcher.com 博客更新内容：${{ github.event.head_commit.message }}" \
+          ntfy.sh/jobcher
 
       - name: Deploy Web
         uses: peaceiris/actions-gh-pages@v3.8.0

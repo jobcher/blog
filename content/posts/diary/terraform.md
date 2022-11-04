@@ -39,6 +39,10 @@ sudo apt-get update && sudo apt-get install terraform
 #验证安装
 terraform -help
 ```
+```sh
+wget -O- https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo | sudo tee /etc/yum.repos.d/hashicorp.repo
+sudo yum install terraform -y
+```
 
 ## terrafrom 控制proxmox虚拟机
 来源：https://github.com/Telmate/terraform-provider-proxmox  
