@@ -6,3 +6,4 @@ RUN cd /blog \
 FROM nginx:1.21
 LABEL maintainer="nb@nbtyfood.com"
 COPY --from=build /blog/public/ /usr/share/nginx/html
+COPY ./ads.txt /usr/share/nginx/html

@@ -1,0 +1,97 @@
+name: Build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+# Sets to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+# Default to bash
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.102.3
+      LOVEIT_THEME_VERSION: 0.2.10
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+          tree
+      
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+        with:
+          submodules: recursive
+      
+
+      - name: Install Hugo theme
+        run: |
+          cd /home/runner/work/blog/blog/themes/
+          wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz"
+          tar -zxvf loveit.tar.gz
+          mv LoveIt-${LOVEIT_THEME_VERSION} LoveIt
+          mv -f /home/runner/work/blog/blog/header.html ./LoveIt/layouts/partials/header.html
+          mv -f /home/runner/work/blog/blog/bilibili.html ./LoveIt/layouts/shortcodes/bilibili.html
+          mv -f /home/runner/work/blog/blog/youtube.html ./LoveIt/layouts/shortcodes/youtube.html
+      - name: Build with Hugo
+        run: |
+          hugo -t LoveIt -D
+          mv -f ./ads.txt /home/runner/work/blog/blog/public/.
+          curl \
+          -H "Title: www.jobcher.com 更新" \
+          -H "Priority: urgent" \
+          -H "Tags: update" \
+          -d "www.jobcher.com 博客更新内容：${{ github.event.head_commit.message }}" \
+          ntfy.sh/jobcher
+
+      - name: Deploy Web
+        uses: peaceiris/actions-gh-pages@v3.8.0
+        with:
+            PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+            EXTERNAL_REPOSITORY: jobcher/jobcher.github.io
+            PUBLISH_BRANCH: main
+            PUBLISH_DIR: ./public
+            commit_message: ${{ github.event.head_commit.message }}
+
+      - name: IPFS Filebase deploy GitHub action
+        uses: aquiladev/ipfs-action@master
+        with:
+          path: ./public
+          service: filebase
+          pinName: 'jobcher'
+          filebaseBucket: jobcher
+          filebaseKey: ${{ secrets.FILEBASE_KEY }}
+          filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
+  
+  updatedns:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Update IPFS DNS
+        run: |
+          curl https://api.filebase.io/v1/ipfs/pins -H "Authorization: Bearer ${{ secrets.FILEBASE_ID }} " > filebase.txt
+          DNSTXT=$(cat filebase.txt | sed 's/,/\n/g' | grep "cid" | sed 's/:/\n/g' | sed -n '3p' |sed 's/"//g')
+          DNSLINK="dnslink=$DNSTXT"
+          curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONES_ID }}/dns_records/${{ secrets.CLOUDFLARE_DNS_ID }}" \
+          -H "Content-Type:application/json" \
+          -H "X-Auth-Key:${{ secrets.CLOUDFLARE_AUTH_KEY }}" \
+          -H "X-Auth-Email:${{ secrets.CLOUDFLARE_EMAIL }}" \
+          --data '{"type":"txt","name":"_dnslink.ipfs.jobcher.com","content":"'$DNSLINK'","ttl":1,"proxied":false}'

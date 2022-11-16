@@ -7,11 +7,20 @@ languageCode = "zh-CN"
 hasCJKLanguage = true
 # 网站标题
 title = "打工人日志 - jobcher"
-
+# 相对地址
+relativeURLs = true
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = "LoveIt"
 
 [menu]
+  [[menu.main]]
+    identifier = "nav"
+    pre = ""
+    post = ""
+    name = "导航"
+    url = "https://nav.jobcher.com/"
+    title = ""
+    weight = 1
   [[menu.main]]
     identifier = "posts"
     # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
@@ -22,7 +31,7 @@ theme = "LoveIt"
     url = "/posts/"
     # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
     title = ""
-    weight = 1
+    weight = 2
   [[menu.main]]
     identifier = "tags"
     pre = ""
@@ -30,7 +39,7 @@ theme = "LoveIt"
     name = "标签"
     url = "/tags/"
     title = ""
-    weight = 2
+    weight = 3
   [[menu.main]]
     identifier = "categories"
     pre = ""
@@ -38,7 +47,7 @@ theme = "LoveIt"
     name = "分类"
     url = "/categories/"
     title = ""
-    weight = 3
+    weight = 4
   [[menu.main]]
     identifier = "about"
     pre = ""
@@ -46,15 +55,15 @@ theme = "LoveIt"
     name = "关于"
     url = "/about/"
     title = ""
-    weight = 4
+    weight = 5
 
 [params]
   # LoveIt 更改 | 0.2.0 LoveIt 主题版本
   version = "0.2.X"
   # 网站描述
-  description = "书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……"
+  description = "打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"
   # 网站关键词
-  keywords = ["技术分享", "Hugo"]
+  keywords = ["技术", "k8s","blog","博客","打工人","运维","Kubernetes","docker","监控","工作","打工人日志","web3.0"]
   # 网站默认主题样式 ("light", "dark", "auto")
   defaultTheme = "auto"
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
@@ -70,7 +79,7 @@ theme = "LoveIt"
   # LoveIt 新增 | 0.2.0 应用图标配置
   [params.app]
     # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
-    title = "LoveIt"
+    title = "jobcher"
     # 是否隐藏网站图标资源链接
     noFavicon = false
     # 更现代的 SVG 网站图标, 可替代旧的 .png 和 .ico 文件
@@ -113,7 +122,7 @@ theme = "LoveIt"
     # LoveIt 新增 | 0.2.0 页面头部导航栏标题配置
     [params.header.title]
       # LOGO 的 URL
-      logo = "https://www.jobcher.com/avatar1.png"
+      logo = "/avatar1.png"
       # 标题名称
       name = "打工人日志"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
@@ -173,7 +182,7 @@ theme = "LoveIt"
       # LoveIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
       title = "打工人日志"
       # 主页显示的网站副标题
-      subtitle = "人间规则奈吾何,风起大江扬洪波"
+      subtitle = "keep simple, keep stupid"
       # 是否为副标题显示打字机动画
       typeit = true
       # 是否显示社交账号
@@ -275,7 +284,7 @@ theme = "LoveIt"
     # 是否在文章页面显示原始 Markdown 文档链接
     linkToMarkdown = true
     # LoveIt 新增 | 0.2.4 是否在 RSS 中显示全文内容
-    rssFullText = false
+    rssFullText = true
     # LoveIt 新增 | 0.2.0 目录配置
     [params.page.toc]
       # 是否使用目录
@@ -355,7 +364,7 @@ theme = "LoveIt"
       # Disqus 评论系统设置
       [params.page.comment.disqus]
         # LoveIt 新增 | 0.1.1
-        enable = true
+        enable = false
         # Disqus 的 shortname，用来在文章中启用 Disqus 评论系统
         shortname = ""
       # Gitalk 评论系统设置
@@ -409,9 +418,9 @@ theme = "LoveIt"
         enable = false
       # LoveIt 新增 | 0.2.5 Utterances 评论系统设置
       [params.page.comment.utterances]
-        enable = false
+        enable = true
         # owner/repo
-        repo = ""
+        repo = "jobcher/jobcher.github.io"
         issueTerm = "pathname"
         label = ""
         lightTheme = "github-light"
@@ -461,7 +470,7 @@ theme = "LoveIt"
     # 图片 URL
     image = "https://www.jobcher.com/images/image.gif"
     # 缩略图 URL
-    thumbnailUrl = "https://www.jobcher.com/avatar1.png"
+    thumbnailUrl = "/avatar1.png"
 
   # LoveIt 新增 | 0.2.0 网站分析配置
   [params.analytics]

@@ -15,26 +15,33 @@ series: ["基础知识系列"]
 ## 云原生平台基础
 1. `Docker、Docker Compose`：容器化技术
 2. `Kubernetes`：大规模容器编排
-3. Helm：云原生应用商店
-4. Rancher： 易用的容器管理平台
-5. KubeSphere：一站式容器云平台
-6. OpenTracing：云原生链路追踪标准
-7. Jaeger：云原生链路追踪实现产品
-8. Istio：ServiceMesh下的服务流量治理
-9. `Jenkins`、JenkinsX、Jenkins-BlueOcean：老牌的CI/CD平台
+3. `Helm`：云原生应用商店
+4. `Rancher`： 易用的容器管理平台
+5. `KubeSphere`：一站式容器云平台
+6. `OpenTracing`：云原生链路追踪标准
+7. `Jaeger`：云原生链路追踪实现产品
+8. `Istio`：ServiceMesh下的服务流量治理
+9. `Jenkins`、`JenkinsX`、`Jenkins-BlueOcean`：老牌的CI/CD平台
 10. `Gtilab/hub-CICD`：Gitlab/hub自带的CICD
-11. Argo：kubernetes声明式持续集成
-12. Nexus：Maven私库
-13. Harbor：Docker私库
-14. Prometheus+Granfana：监控与可视化平台
-15. ElasticSearch+Fluentd+Kibana：日志与可视化方案
-16. Serverless：无服务器上云方案（不用去管服务器，不是不需要服务器）
-17. SpringCloud Kubernetes：微服务上云方案  
+11. `Argo`：kubernetes声明式持续集成
+12. `Nexus`：Maven私库
+13. `Harbor`：Docker私库
+14. `Prometheus`+`Granfana`：监控与可视化平台
+15. `ElasticSearch`+`Fluentd`+`Kibana`：日志与可视化方案
+16. `Serverless`：无服务器上云方案（不用去管服务器，不是不需要服务器）
+17. `SpringCloud Kubernetes`：微服务上云方案  
   
 熟练掌握docker和k8s技术
 devops掌握jenkins和gitlab
 
 ## 应用12要素
+在现代，软件通常作为服务交付：称为`Web 应用程序`或`软件即服务`。十二因素应用程序是一种构建软件即服务应用程序的方法，它：  
+- 使用`声明格式`进行设置自动化，以最大限度地减少新开发人员加入项目的时间和成本；
+- 与底层操作系统有一个`干净的合同`，在执行环境之间提供最大的`可移植性`；
+- 适合`部署`在现代`云平台`上，无需服务器和系统管理；
+- `最大限度地减少`开发和生产之间的差异，实现`持续部署`以获得最大的敏捷性；
+- 并且可以在不对工具、架构或开发实践进行重大更改的情况下进行`扩展`。  
+  
 |名称|英文|描述|
 |:----|:----|:----|
 |基准代码|codebase|一份基准代码，多份部署|
