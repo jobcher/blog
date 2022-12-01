@@ -51,6 +51,7 @@ jobs:
           mv -f /home/runner/work/blog/blog/header.html ./LoveIt/layouts/partials/header.html
           mv -f /home/runner/work/blog/blog/bilibili.html ./LoveIt/layouts/shortcodes/bilibili.html
           mv -f /home/runner/work/blog/blog/youtube.html ./LoveIt/layouts/shortcodes/youtube.html
+          mv -f /home/runner/work/blog/blog/style.css ./LoveIt/assets/style.css
       - name: Build with Hugo
         run: |
           hugo -t LoveIt -D
