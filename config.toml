@@ -428,7 +428,8 @@ theme = "LoveIt"
     # LoveIt 新增 | 0.2.7 第三方库配置
     [params.page.library]
       [params.page.library.css]
-        someCSS = "style.css"
+        # 置灰
+        #someCSS = "style.css"
         # 位于 "assets/"
         # 或者
         # someCSS = "https://cdn.example.com/some.css"
