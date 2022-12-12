@@ -1,0 +1,30 @@
+{
+  "package": {
+    "productName": "jobcher",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "windows": [
+      {
+        "url": "https://www.jobcher.com/",
+        "transparent": true,
+        "fullscreen": false,
+        "width": 1200,
+        "height": 728,
+        "resizable": true
+      }
+    ],
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    }
+  },
+  "build": {
+    "devPath": "../dist",
+    "distDir": "../dist",
+    "beforeBuildCommand": "",
+    "beforeDevCommand": ""
+  }
+}
