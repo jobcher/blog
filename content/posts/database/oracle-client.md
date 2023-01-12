@@ -2,6 +2,8 @@
 title: "Oracle Instant Client 安装配置实现远程连接oracle"
 date: 2022-11-15
 draft: true
+featuredImage: "/images/oracle.png"
+featuredImagePreview: "/images/oracle.png"
 author: "jobcher"
 tags: ["oracle"]
 categories: ["数据库"]

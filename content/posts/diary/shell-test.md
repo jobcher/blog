@@ -2,6 +2,8 @@
 title: "shell功能脚本集合"
 date: 2022-11-10
 draft: true
+featuredImage: "/images/linux.webp"
+featuredImagePreview: "/images/linux.webp"
 author: "jobcher"
 tags: ["daliy"]
 categories: ["日常"]
