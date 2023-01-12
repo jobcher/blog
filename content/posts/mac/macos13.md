@@ -2,6 +2,8 @@
 title: "macOS 13 升级 软件失效"
 date: 2022-10-31
 draft: true
+featuredImage: "/images/macOS_13.jpg"
+featuredImagePreview: "/images/macOS_13.jpg"
 author: "jobcher"
 tags: ["brew"]
 categories: ["Mac"]

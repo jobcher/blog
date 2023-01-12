@@ -2,6 +2,8 @@
 title: "zlibary 无法下载 解决方案"
 date: 2022-11-07
 draft: true
+featuredImage: "/images/Z-Library_1.webp"
+featuredImagePreview: "/images/Z-Library_1.webp"
 author: "jobcher"
 tags: ["brew"]
 categories: ["Mac"]

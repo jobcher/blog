@@ -2,6 +2,8 @@
 title: "Logstash 自动重载配置文件"
 date: 2022-10-31
 draft: true
+featuredImage: "/images/lostash.png"
+featuredImagePreview: "/images/lostash.png"
 author: "jobcher"
 tags: ["logstash"]
 categories: ["监控"]
