@@ -2,6 +2,8 @@
 title: "Chrome浏览器启动参数大全（命令行参数）"
 date: 2022-11-29
 draft: true
+featuredImage: "/images/chrome1.png"
+featuredImagePreview: "/images/chrome1.png"
 author: "jobcher"
 tags: ["work"]
 categories: ["work"]

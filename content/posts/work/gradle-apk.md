@@ -2,6 +2,8 @@
 title: "Jenkins 编译Android apk 流水线"
 date: 2022-11-25
 draft: true
+featuredImage: "/images/logo-jenkins.png"
+featuredImagePreview: "/images/logo-jenkins.png"
 author: "jobcher"
 tags: ["work"]
 categories: ["work"]
