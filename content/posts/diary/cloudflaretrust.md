@@ -69,3 +69,5 @@ cloudflared.exe service install <token>
 ## 在cloudflare里配置内网穿透
 ![image](/images/cloudflare2.png)
 
+  
+欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/)

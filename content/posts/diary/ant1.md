@@ -119,3 +119,5 @@ series: ["日常系列"]
 	</target>	
 </project>
 ```
+  
+欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/)

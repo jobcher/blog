@@ -20,3 +20,5 @@ wget -qO- bench.sh | bash
 #或者下面这命令下载执行
 curl -Lso- bench.sh | bash
 ```
+  
+欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/)

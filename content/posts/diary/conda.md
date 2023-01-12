@@ -54,3 +54,5 @@ conda activate jobcher
 conda deactivate
 # 退出当前环境
 ```
+  
+欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/)

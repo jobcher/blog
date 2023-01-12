@@ -47,3 +47,5 @@ navigator.language
   
 IP 判断  
 市场上有很多 IP 判断的，拿 IP 倒是非常好做的一件事；比如我现在可以拿到用户访问本网站时候的 IP；  
+  
+欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/)
