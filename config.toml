@@ -49,13 +49,21 @@ theme = "LoveIt"
     title = ""
     weight = 4
   [[menu.main]]
+    identifier = "k8s"
+    pre = ""
+    post = ""
+    name = "k8s"
+    url = "https://k8s.jobcher.com/"
+    title = ""
+    weight = 5
+  [[menu.main]]
     identifier = "about"
     pre = ""
     post = ""
     name = "关于"
     url = "/about/"
     title = ""
-    weight = 5
+    weight = 6
 
 [params]
   # LoveIt 更改 | 0.2.0 LoveIt 主题版本
