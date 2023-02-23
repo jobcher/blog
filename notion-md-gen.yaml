@@ -1,0 +1,12 @@
+notion:
+  databaseId: 833df553cf7f4c8d81014c40d814d350
+  filterProp: Status
+  filterValue:
+    - Finished
+    - Published
+  publishedValue: Published
+markdown:
+  shortcodeSyntax: vuepress
+  postSavePath: content/posts/notion
+  imageSavePath: static/images/posts
+  imagePublicLink: /images/posts
