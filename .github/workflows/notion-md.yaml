@@ -1,0 +1,22 @@
+name: swap-md
+
+on:
+  schedule:
+    # 每 6 小时，执行一次
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  swap-md:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+        with:
+          submodules: recursive
+
+      - name: swap notion to markdown
+        run: |
+          go install github.com/xujiahua/notion-md
+          notion-md -i ${{ secrets.NOTION_BLOG_ID }} -t ${{ secrets.NOTION_TOKEN }}
+          tree
