@@ -22,6 +22,6 @@ jobs:
 
       - name: swap notion to markdown
         run: |
-          go install github.com/xujiahua/notion-md
+          go install github.com/xujiahua/notion-md@latest
           notion-md -i ${{ secrets.NOTION_BLOG_ID }} -t ${{ secrets.NOTION_TOKEN }}
           tree
