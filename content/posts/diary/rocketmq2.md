@@ -7,29 +7,33 @@ tags: ["RocketMQ"]
 categories: ["日常"]
 series: ["日常系列"]
 ---
-# RocketMQ docker-compose部署 4主4从集群
+
+# RocketMQ docker-compose 部署 4 主 4 从集群
+
 V 4.8.0  
-采用`4主4从`，`同步模式`。HA实现上采用`Master/Slave+Failover`组件方式
-每台主机运行`三个容器`，分别为`NameServer`、`BrokerMaster`、`SlaveMaster`，每个Master和Slave分别存放在不同的机器上
-  
+采用`4主4从`，`同步模式`。HA 实现上采用`Master/Slave+Failover`组件方式
+每台主机运行`三个容器`，分别为`NameServer`、`BrokerMaster`、`SlaveMaster`，每个 Master 和 Slave 分别存放在不同的机器上
+
 ## 架构
+
 ![架构](/images/rocketmq.svg)
-  
-  
-|IP|角色|服务|
-|:----|:----|:----|
-|193.0.40.172|NameServer|-|
-|193.0.40.172|BrokerMaster|broker-a|
-|193.0.40.172|SlaveMaster|broker-d-s|
-|193.0.40.172|BrokerMaster|broker-b|
-|193.0.40.172|SlaveMaster|broker-a-s|
-|193.0.40.172|BrokerMaster|broker-c|
-|193.0.40.172|SlaveMaster|broker-b-s|
-|193.0.40.172|BrokerMaster|broker-d|
-|193.0.40.172|SlaveMaster|broker-c-s|
+
+| IP           | 角色         | 服务       |
+| :----------- | :----------- | :--------- |
+| 193.0.40.172 | NameServer   | -          |
+| 193.0.40.172 | BrokerMaster | broker-a   |
+| 193.0.40.172 | SlaveMaster  | broker-d-s |
+| 193.0.40.172 | BrokerMaster | broker-b   |
+| 193.0.40.172 | SlaveMaster  | broker-a-s |
+| 193.0.40.172 | BrokerMaster | broker-c   |
+| 193.0.40.172 | SlaveMaster  | broker-b-s |
+| 193.0.40.172 | BrokerMaster | broker-d   |
+| 193.0.40.172 | SlaveMaster  | broker-c-s |
 
 ## 部署
-### 安装docker-compose
+
+### 安装 docker-compose
+
 ```sh
 #!/bin/bash
 # 下载安装 v2.4.1 docker-compose
@@ -38,8 +42,11 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 docker-compose --version
 ```
+
 执行 `docker-compose --version` 查看是否安装成功
+
 ### 生成配置文件
+
 ```sh
 #!/bin/bash
 #docker-compose 生成配置文件
@@ -274,12 +281,15 @@ namesrvAddr=193.0.40.172:9876;193.0.40.172:9877
 autoCreateTopicEnable=true
 EOF
 ```
+
 执行`rocker-config.sh`,确认配置文件是否生成
+
 > tree /rocketmq
 
-### 执行docker-compose.yaml 文件
+### 执行 docker-compose.yaml 文件
+
 ```yaml
-version: '3'
+version: "3"
 services:
   rocketmq-namesv1:
     image: apache/rocketmq:4.8.0
@@ -342,7 +352,7 @@ services:
     ports:
       - 11909:10909
       - 11911:11911
-      - 11912:10912    
+      - 11912:10912
     environment:
       TZ: Asia/Shanghai
       NAMESRV_ADDR: "rocketmq-namesv1:9876"
@@ -503,6 +513,7 @@ networks:
     name: rocketmq
     driver: bridge
 ```
-  
-执行docker-compose 部署
->docker-compose up -d
+
+执行 docker-compose 部署
+
+> docker-compose up -d

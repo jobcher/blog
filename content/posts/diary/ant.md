@@ -8,11 +8,13 @@ categories: ["日常"]
 series: ["日常系列"]
 ---
 
-# Ant中如何添加第三方jar包依赖
-如果使用ant进行java项目的编译部署，那怎么添加第三方jar包的依赖呢？方法如下：  
-  
-1. 在项目的根目录下创建lib目录，并把所有需要的第三方jar包放到此目录下。
-2. 在build.xml中依次添加：path、property，并在javac中添加classpath，添加unjar。完整配置如下：
+# Ant 中如何添加第三方 jar 包依赖
+
+如果使用 ant 进行 java 项目的编译部署，那怎么添加第三方 jar 包的依赖呢？方法如下：
+
+1. 在项目的根目录下创建 lib 目录，并把所有需要的第三方 jar 包放到此目录下。
+2. 在 build.xml 中依次添加：path、property，并在 javac 中添加 classpath，添加 unjar。完整配置如下：
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MyTool" default="build" basedir=".">
@@ -72,4 +74,5 @@ series: ["日常系列"]
 </project>
 
 ```
+
 欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/)

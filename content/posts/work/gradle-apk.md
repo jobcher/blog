@@ -9,15 +9,19 @@ tags: ["work"]
 categories: ["work"]
 series: ["问题库系列"]
 ---
-## 背景
-Jenkins 编译Android apk，上传apk包，生成下载二维码，并推送钉钉
 
-## 安装Android 环境
-### 安装JDK
+## 背景
+
+Jenkins 编译 Android apk，上传 apk 包，生成下载二维码，并推送钉钉
+
+## 安装 Android 环境
+
+### 安装 JDK
+
 ```sh
 # 这里使用的是openjdk 1.8.0版本，有需要的话需要到java官网上进行下载对应的JDK版本。
 $ yum install java -y
- 
+
 # 其他版本JDK的安装方式
 $ mv jdk1.8.0_161 /usr/local/
 $ ln -s /usr/local/jdk1.8.0_161 /usr/local/jdk
@@ -29,25 +33,27 @@ $ source /etc/profile    #重新加载系统环境变量
 $ java -version    #查看java版本
 
 ```
-### Android SDK安装
+
+### Android SDK 安装
+
 ```sh
 # 下载sdk工具包
 $ wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
- 
+
 # 创建sdk工具文件夹和解压工具包
 $ mkdir  -p /opt/android/sdk
 $ unzip sdk-tools-linux-3859397.zip -d /opt/android/sdk
- 
+
 # 使用sdkmanager工具配置构建工具和平台版本
 $ cd /opt/android/sdk/tools/bin/
-$ ./sdkmanager "build-tools;29.0.6" "platforms;android-29" "platform-tools" 
+$ ./sdkmanager "build-tools;29.0.6" "platforms;android-29" "platform-tools"
 $ ./sdkmanager --list    #可以查看有哪些版本，自行选择对应的版本
- 
+
 # 增加系统环境变量
 $ vim /etc/profile
 export ANDROID_HOME=/opt/android/sdk
 PATH=$PATH:$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/tools/bin
- 
+
 $ adb version
 Android Debug Bridge version 1.0.41
 Version 29.0.6-6198805
@@ -55,7 +61,8 @@ Installed as /opt/android/sdk/platform-tools/adb
 
 ```
 
-### 安装gradle
+### 安装 gradle
+
 ```sh
 $ wget https://downloads.gradle-dn.com/distributions/gradle-6.3-all.zip
 $ mkdir /opt/gradle
@@ -67,10 +74,10 @@ $ gradle -v
 ------------------------------------------------------------
 Gradle 6.3
 ------------------------------------------------------------
- 
+
 Build time:   2020-03-24 19:52:07 UTC
 Revision:     bacd40b727b0130eeac8855ae3f9fd9a0b207c60
- 
+
 Kotlin:       1.3.70
 Groovy:       2.5.10
 Ant:          Apache Ant(TM) version 1.10.7 compiled on September 1 2019
@@ -79,7 +86,9 @@ OS:           Linux 3.10.0-693.el7.x86_64 amd64
 ```
 
 ## jenkins 流水线配置
+
 ### gradle-jdk.sh 打包脚本
+
 ```sh
 #!/bin/sh
 source /etc/profile
@@ -90,6 +99,7 @@ cd /home/编译目录 && gradle assembleRelease
 ```
 
 ### JenkinsFile 脚本
+
 ```json
 pipeline {
     //使用标签 'master' 的节点
@@ -100,14 +110,14 @@ pipeline {
         JEN_FEATURE = ''
         //日志路径
         JEN_LOG = ''
-    } 
-    
+    }
+
     stages {
         stage ('编译打包'){
             steps {
                 sh 'cd /home/编译目录 && sudo git pull'
                 sh 'sh gradle-apk.sh'
-                
+
             }
         }
 
@@ -120,7 +130,7 @@ pipeline {
         stage ('生成qr'){
             steps {
                 echo "生成test qr"
-                sh "pwd && myqr 'https://www.nginx.com/app-release.apk' -n qrcode-`date +'%Y-%m-%d-%H%M%S'`.png -d /home/code/image" 
+                sh "pwd && myqr 'https://www.nginx.com/app-release.apk' -n qrcode-`date +'%Y-%m-%d-%H%M%S'`.png -d /home/code/image"
                 sh "cd /home/code/image && git add ."
                 sh "cd /home/code/image && git commit -m 'new images'"
                 sh "cd /home/code/image && git push origin main"
@@ -161,10 +171,10 @@ pipeline {
                     at: [
                         '手机号'
                         ]
-                )            
+                )
             }
         }
-        
+
         failure {
             script {
                 env.DATETIME = sh(script:"date", returnStdout: true).trim()
@@ -192,7 +202,7 @@ pipeline {
                     at: [
                         '手机号'
                         ]
-                )            
+                )
             }
         }
     }

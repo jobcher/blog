@@ -9,8 +9,11 @@ series: ["go系列"]
 ---
 
 # go Struct 结构体
-结构体是将零个或多个任意类型的变量，组合在一起的聚合数据类型，也可以看做是`数据的集合`。  
+
+结构体是将零个或多个任意类型的变量，组合在一起的聚合数据类型，也可以看做是`数据的集合`。
+
 ## 声明结构体
+
 ```go
 //demo_11.go
 package main
@@ -35,7 +38,7 @@ func main() {
 
 	p3 := Person{Name:"Aaron", Age:32}
 	fmt.Println("p2 =", p3)
-	
+
 	//匿名结构体
 	p4 := struct {
 		Name string
@@ -46,6 +49,7 @@ func main() {
 ```
 
 ## 生成 JSON
+
 ```go
 //demo_12.go
 package main
@@ -83,6 +87,7 @@ func main() {
 ```
 
 ## 改变数据
+
 ```go
 //demo_13.go
 package main
@@ -102,7 +107,7 @@ func main() {
 	res.Code    = 200
 	res.Message = "success"
 	toJson(&res)
-	
+
 	setData(&res)
 	toJson(&res)
 }

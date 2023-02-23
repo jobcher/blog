@@ -9,28 +9,35 @@ series: ["k8s入门系列"]
 ---
 
 # Harbor 搭建
-Harbor 是一个开源可信的云原生注册表项目，用于存储、签名和扫描内容。用于存储docker image  
+
+Harbor 是一个开源可信的云原生注册表项目，用于存储、签名和扫描内容。用于存储 docker image
 
 ## 要求
-1. Linux主机
+
+1. Linux 主机
 2. docker 17.06.0-ce 以上
 3. docker-compose 1.18.0 以上
 
 [链接跳转：docker 安装](https://www.jobcher.com/docker/)
 
 ## 安装
-1. 下载程序  
 
-在线安装包  
+1. 下载程序
+
+在线安装包
+
 ```sh
 wget https://github.com/goharbor/harbor/releases/download/v1.10.10/harbor-online-installer-v1.10.10.tgz
 ```
-离线安装包  
+
+离线安装包
+
 ```sh
 wget https://github.com/goharbor/harbor/releases/download/v1.10.10/harbor-offline-installer-v1.10.10.tgz
 ```
 
 2. 安装
+
 ```sh
 mkdir -p /data
 cd /data
@@ -39,9 +46,10 @@ cd /harbor
 ./install.sh
 ```
 
-接下来只要安静的等待安装就可以了  
-  
+接下来只要安静的等待安装就可以了
+
 ## 配置
+
 ```yaml
 # Configuration file of Harbor
 
@@ -208,7 +216,4 @@ proxy:
     - core
     - jobservice
     - clair
-
-
 ```
-

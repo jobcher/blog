@@ -8,9 +8,12 @@ categories: ["gitlab"]
 series: ["git入门系列"]
 ---
 
-# git使用方法
-## 一、git安装配置
-1. Debian/Ubuntu  
+# git 使用方法
+
+## 一、git 安装配置
+
+1. Debian/Ubuntu
+
 ```bash
     apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \
     libz-dev libssl-dev
@@ -20,7 +23,9 @@ series: ["git入门系列"]
     git --version
     git version 1.8.1.2
 ```
-2. Centos/RedHat  
+
+2. Centos/RedHat
+
 ```sh
     yum install curl-devel expat-devel gettext-devel \
     openssl-devel zlib-devel
@@ -31,45 +36,55 @@ series: ["git入门系列"]
     git version 1.7.1
 ```
 
-## 二、git拉取异常如何重新拉取
+## 二、git 拉取异常如何重新拉取
+
 ### 1.同一文件有修改，产生冲突。
+
 1. 先将本地修改存储起来
-使用`git stash`命令，这样本地的所有修改就都被暂时存储起来 。其中`stash@{0}`就是刚才保存的标记。后续可以通过此标记访问。
+   使用`git stash`命令，这样本地的所有修改就都被暂时存储起来 。其中`stash@{0}`就是刚才保存的标记。后续可以通过此标记访问。
 2. 再次拉取代码
+
 ```sh
 git pull
 ```
+
 3. 还原暂存的内容
+
 ```sh
 git stash pop stash@{0}
 ```
+
 4. 解决冲突
-在存在冲突的文件中，`Updated upstream` 和`=====`之间的内容为拉取下来的代码，`=====`和`stashed changes`之间的内容就为本地修改的代码。解决完成之后，就可以正常的提交了。
-5.删除`stash`
-使用`git stash drop stash@{0}`命令，如果不加`stash`编号，默认的就是删除最新的，即编号为0的。或者`git stash clear`命令，清除所有`stash`。
+   在存在冲突的文件中，`Updated upstream` 和`=====`之间的内容为拉取下来的代码，`=====`和`stashed changes`之间的内容就为本地修改的代码。解决完成之后，就可以正常的提交了。 5.删除`stash`
+   使用`git stash drop stash@{0}`命令，如果不加`stash`编号，默认的就是删除最新的，即编号为 0 的。或者`git stash clear`命令，清除所有`stash`。
 
 ### 2.想要让某一个文件放弃修改，同步服务器。
+
 ```sh
 git checkout [本地变动文件的路径]
 ```
+
 ### 3.服务器代码完全替换和覆盖本地的代码改动。
+
 ```sh
 git fetch --all
 git reset --hard origin/master
 git pull
 ```
 
-## 三、git命令表格
-|专用名词|含义|
-|:----|:----|
-|Workspace|工作区|
-|Index/Stage|暂存区|
-|Repository|仓库区（或本地仓库）|
-|Remote|远程仓库|
+## 三、git 命令表格
+
+| 专用名词    | 含义                 |
+| :---------- | :------------------- |
+| Workspace   | 工作区               |
+| Index/Stage | 暂存区               |
+| Repository  | 仓库区（或本地仓库） |
+| Remote      | 远程仓库             |
 
 ![git](/images/git2.png)
 
 ### 1.新建代码仓库
+
 ```sh
 # 在当前目录新建一个Git代码库
 $ git init
@@ -82,7 +97,9 @@ $ git clone [url]
 ```
 
 ### 2.配置
-Git的设置文件为`.gitconfig`，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。  
+
+Git 的设置文件为`.gitconfig`，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
+
 ```sh
 # 显示当前的Git配置
 $ git config --list
@@ -96,6 +113,7 @@ $ git config [--global] user.email "[email address]"
 ```
 
 ### 3.增加/删除文件
+
 ```sh
 # 添加指定文件到暂存区
 $ git add [file1] [file2] ...
@@ -121,6 +139,7 @@ $ git mv [file-original] [file-renamed]
 ```
 
 ### 4.代码提交
+
 ```sh
 # 提交暂存区到仓库区
 $ git commit -m [message]
@@ -143,6 +162,7 @@ $ git commit --amend [file1] [file2] ...
 ```
 
 ### 5.分支
+
 ```sh
 # 列出所有本地分支
 $ git branch
@@ -189,6 +209,7 @@ $ git branch -dr [remote/branch]
 ```
 
 ### 6.标签
+
 ```sh
 # 列出所有tag
 $ git tag
@@ -219,6 +240,7 @@ $ git checkout -b [branch] [tag]
 ```
 
 ### 7.查看信息
+
 ```sh
 # 显示有变更的文件
 $ git status
@@ -283,6 +305,7 @@ $ git reflog
 ```
 
 ### 远程同步
+
 ```sh
 # 下载远程仓库的所有变动
 $ git fetch [remote]
@@ -311,6 +334,7 @@ $ git push [remote] --all
 ```
 
 ### 撤销
+
 ```sh
 
 # 恢复暂存区的指定文件到工作区
@@ -347,6 +371,7 @@ $ git stash pop
 ```
 
 ### 其他
+
 ```sh
 # 生成一个可供发布的压缩包
 $ git archive

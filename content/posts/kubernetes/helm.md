@@ -7,8 +7,11 @@ tags: ["k8s"]
 categories: ["k8s"]
 series: ["k8s入门系列"]
 ---
+
 # helm 安装
+
 ## 脚本安装
+
 ```sh
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
@@ -21,6 +24,7 @@ helm help
 ```
 
 ## 二进制安装
+
 ```sh
 wget https://get.helm.sh/helm-v3.7.2-linux-amd64.tar.gz
 tar -zxvf helm-v3.7.2-linux-amd64.tar.gz

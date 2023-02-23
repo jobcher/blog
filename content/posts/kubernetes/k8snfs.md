@@ -8,13 +8,15 @@ categories: ["k8s"]
 series: ["k8s入门系列"]
 ---
 
-# Kubernetes 创建nfs存储类
-首先你需要在别的终端上创建nfs服务并能提供nfs访问  
+# Kubernetes 创建 nfs 存储类
+
+首先你需要在别的终端上创建 nfs 服务并能提供 nfs 访问  
 Kubernetes 不包含内部 NFS 驱动。你需要使用外部驱动为 NFS 创建 StorageClass。  
 https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner  
-安装nfs驱动  
-  
-## 安装nfs驱动
+安装 nfs 驱动
+
+## 安装 nfs 驱动
+
 ```sh
 #安装nfs客户端
 apt-get install nfs-common
@@ -23,9 +25,9 @@ cd nfs-subdir-external-provisioner/deploy
 k3s kubectl create -f rbac.yaml
 vim deployment.yaml
 ```
-  
-1. 编辑 deployment.yaml  
-  
+
+1. 编辑 deployment.yaml
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -69,18 +71,23 @@ spec:
 ```
 
 2. 定义存储类
+
 ```sh
 k3s kubectl create -f deployment.yaml
 k3s kubectl create -f class.yaml
 ```
+
 ## 测试存储是否正常
+
 ```sh
 k3s kubectl create -f test-claim.yaml -f test-pod.yaml
 k3s kubectl delete -f test-claim.yaml -f test-pod.yaml
 ```
 
-## 创建有状态pods（mysql）
-创建mysql-deployment.yaml  
+## 创建有状态 pods（mysql）
+
+创建 mysql-deployment.yaml
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -88,8 +95,8 @@ metadata:
   name: mysql
 spec:
   ports:
-  - port: 3306
-    targetPort: 3306
+    - port: 3306
+      targetPort: 3306
   selector:
     app: mysql
   clusterIP: None
@@ -111,26 +118,26 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: mysql:5.7
-        name: mysql
-        env:
-          # Use secret in real usage
-        - name: MYSQL_ROOT_PASSWORD
-          value: password
-        ports:
-        - containerPort: 3306
+        - image: mysql:5.7
           name: mysql
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
+          env:
+            # Use secret in real usage
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
       volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
-
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
 ```
-  
-创建mysql-pv.yaml  
+
+创建 mysql-pv.yaml
+
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
@@ -157,10 +164,10 @@ spec:
   resources:
     requests:
       storage: 20Gi
-
 ```
 
 ## 部署 mysql
+
 ```yaml
 k3s kubectl apply -f mysql-pv.yaml
 k3s kubectl apply -f mysql-deployment.yaml

@@ -7,15 +7,21 @@ tags: ["mysql"]
 categories: ["数据库"]
 series: ["mysql系列"]
 ---
-# mysql数据库备份迁移
-使用mydumper做数据备份迁移  
+
+# mysql 数据库备份迁移
+
+使用 mydumper 做数据备份迁移
+
 ## 备份数据库
+
 1. 安装
+
 ```sh
 # 安装 centos
 yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el7.x86_64.rpm
 yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el8.x86_64.rpm
 ```
+
 ```sh
 # 安装 ubuntu
 apt-get install libatomic1
@@ -23,7 +29,9 @@ wget https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper_0.1
 dpkg -i mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb
 
 ```
+
 2. 备份
+
 ```sh
 nohup mydumper -h '备份数据库' \
 -u '用户名' \
@@ -34,8 +42,11 @@ nohup mydumper -h '备份数据库' \
 --outputdir=./backup --rows=100000 \
 -L mydumper-logs.log &
 ```
+
 ## 迁移数据库
+
 1. 还原数据
+
 ```sh
 nohup myloader -h '迁移数据库' \
 -u '用户名' \
@@ -47,8 +58,11 @@ nohup myloader -h '迁移数据库' \
 -v 3 \
 -e 2>myloader-logs.log &
 ```
+
 ## mydumper/myloader 参数
+
 1. mydumper
+
 ```sh
 Usage:
   mydumper [OPTION...] multi-threaded MySQL dumping
@@ -66,7 +80,7 @@ Application Options:
   -c, --compress              压缩输出文件
   -e, --build-empty-files     即使表没有数据，也产生一个空文件
   -x, --regex                 正则表达式匹配，如'db.table'
-  -i, --ignore-engines        忽略的存储引擎，用逗号分隔 
+  -i, --ignore-engines        忽略的存储引擎，用逗号分隔
   -m, --no-schemas            不导出表结构
   -d, --no-data               不导出表数据
   -G, --triggers              导出触发器
@@ -80,7 +94,7 @@ Application Options:
   -I, --snapshot-interval     dump快照间隔时间，默认60s，需要在daemon模式下
   -L, --logfile               使用日志文件，默认标准输出到终端
   --tz-utc                    备份的时候允许备份Timestamp，这样会导致不同时区的备份还原会出问题，默认关闭，参数：--skip-tz-utc to disable.
-  --skip-tz-utc               
+  --skip-tz-utc
   --use-savepoints            使用savepoints来减少采集metadata所造成的锁时间，需要SUPER权限
   --success-on-1146           Not increment error count and Warning instead of Critical in case of table doesn't exist
   --lock-all-tables           锁全表，代替FLUSH TABLE WITH READ LOCK
@@ -98,6 +112,7 @@ Application Options:
 ```
 
 2. myloader
+
 ```sh
 Usage:
   myloader [OPTION...] multi-threaded MySQL loader

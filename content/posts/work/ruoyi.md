@@ -7,13 +7,15 @@ tags: ["work"]
 categories: ["work"]
 series: ["问题库系列"]
 ---
+
 ## 基础环境安装
+
 ```sh
 # docker 脚本安装
 curl -sSL https://get.daocloud.io/docker | sh
 
 #docker compose 脚本安装
-curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose 
+curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 
 
 #可执行权限
@@ -24,28 +26,36 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 docker-compose --version
 
 ```
+
 ## 下载安装
+
 ```sh
 git clone https://gitlab.sanjiang.com/it-group/ruoyi-cloud.git
 ```
+
 ## 编译
+
 ```sh
 cd ruoyi-cloud
 mvn clean install -DskipTests
 ```
-## 复制jar包
+
+## 复制 jar 包
+
 ```sh
 cd ./docker
 ./copy.sh
 ```
 
-## 部署docker
+## 部署 docker
+
 ```sh
 ./deploy.sh base
 ./deploy.sh modules
 ```
 
-## 检查docker
+## 检查 docker
+
 ```sh
 docker ps -a | grep ruoyi
 docker logs -f ruoyi-auth

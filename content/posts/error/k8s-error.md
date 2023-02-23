@@ -9,21 +9,26 @@ series: ["问题库系列"]
 ---
 
 # K8S 问题排查：cgroup 内存泄露问题
+
 ```log
 unable to ensure pod container exists: failed to create container for [kubepods besteffort pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b] : mkdir /sys/fs/cgroup/memory/kubepods/besteffort/pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b: cannot allocate memory
 ```
 
-## 查看linux内核
+## 查看 linux 内核
+
 ```sh
 cat /proc/version
 uname -a
 ```
-可以发现 linux版本是3.0版本
+
+可以发现 linux 版本是 3.0 版本
 
 ## 原因
->`cgroup` 的 `kmem account` 特性在 `Linux 3.x` 内核上有内存泄露问题，然后`k8s`用了这个特性，导致后面创建不出新的`pod`来了
+
+> `cgroup` 的 `kmem account` 特性在 `Linux 3.x` 内核上有内存泄露问题，然后`k8s`用了这个特性，导致后面创建不出新的`pod`来了
 
 ## 解决方法
+
 ```sh
 # 修改/etc/default/grub 为
 GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet cgroup.memory=nokmem"
@@ -36,10 +41,13 @@ reboot
 ```
 
 ## 验证
+
 ```sh
 cat /sys/fs/cgroup/memory/kubepods/burstable/pod*/*/memory.kmem.slabinfo
 ```
+
 输出信息
+
 ```sh
 cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/0fdd5d9c16929fd600dbdf313b5c3ebabad912dc0cb076ed6e7799e028b31481/memory.kmem.slabinfo: 输入/输出错误
 cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/aa30198d0c5413b70bf488c9daa350a85c7fc6b677235c5adaf2dde6caf95ec4/memory.kmem.slabinfo: 输入/输出错误

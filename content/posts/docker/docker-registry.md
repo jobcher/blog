@@ -7,8 +7,11 @@ tags: ["docker"]
 categories: ["docker"]
 series: ["docker入门系列"]
 ---
-# 搭建docker registry 镜像仓库
+
+# 搭建 docker registry 镜像仓库
+
 ## 获取镜像
+
 ```sh
 docker pull registry:2.7.1
 ```
@@ -18,6 +21,7 @@ docker pull hyper/docker-registry-web
 ```
 
 ## 容器运行
+
 ```sh
 mkdir -p /opt/data/registry
 docker run -d -p 5000:5000 -v /opt/data/registry:/var/lib/registry --name registry registry:2.7.1
@@ -33,6 +37,7 @@ docker run -d -p 8080:8080 --name registry-web --link registry \
 ```
 
 ## 上传容器
+
 ```sh
 vim /etc/docker/daemon.json
 {

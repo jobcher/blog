@@ -9,12 +9,14 @@ series: ["git入门系列"]
 ---
 
 # Jenkins 安装与使用
-代码在本地修改----》提交到远程gitlab----》触发jenkins整个自动化构建流程（打包，测试，发布，部署）  
-  
-## 安装docker
-[安装docker](https://www.jobcher.com/docker/)
 
-## docker安装jenkins
+代码在本地修改----》提交到远程 gitlab----》触发 jenkins 整个自动化构建流程（打包，测试，发布，部署）
+
+## 安装 docker
+
+[安装 docker](https://www.jobcher.com/docker/)
+
+## docker 安装 jenkins
 
 ```sh
 docker run \
@@ -30,22 +32,27 @@ docker run \
 ```
 
 ## 访问
-http://localhost:8080  
-  
+
+http://localhost:8080
+
 显示初始密码
+
 ```sh
 docker exec -ti <容器名称> sh
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
 ## 工作流程
-1. 先定义一个流水线项目，指定项目的git位置
-2. git位置自动拉取代码
-3. 解析拉取代码里面的Jenkinsfile文件
-4. 按照Jenkinsfile指定的流水线开始加工项目
 
-## Jenkinsfile语法
+1. 先定义一个流水线项目，指定项目的 git 位置
+2. git 位置自动拉取代码
+3. 解析拉取代码里面的 Jenkinsfile 文件
+4. 按照 Jenkinsfile 指定的流水线开始加工项目
+
+## Jenkinsfile 语法
+
 基础语法,在仓库创建一个 `Jenkinsfile` 文件
+
 ```json
 pipeline {
     /* 全部的CICD流程都在这里定义 */
@@ -93,16 +100,18 @@ pipeline {
 ```
 
 ## 构建远程触发
-1. 在jenkins上选择:项目->配置->构建触发器->勾选触发远程构建  
-![远程触发](/images/jenkins.png)  
-  
-2. 新疆gitlab账户，登录新用户并天剑token令牌  
-![远程触发](/images/jenkins1.png)  
-![远程触发](/images/jenkins2.png)  
-  
-3. 找到gitlab 设置->webhook  
-![远程触发](/images/jenkins3.png)  
-网站格式
+
+1. 在 jenkins 上选择:项目->配置->构建触发器->勾选触发远程构建  
+   ![远程触发](/images/jenkins.png)
+
+2. 新疆 gitlab 账户，登录新用户并天剑 token 令牌  
+   ![远程触发](/images/jenkins1.png)  
+   ![远程触发](/images/jenkins2.png)
+
+3. 找到 gitlab 设置->webhook  
+   ![远程触发](/images/jenkins3.png)  
+   网站格式
+
 ```url
 http://<USER>:<TOKENAPI>@<JENKINS-URL>/job/test-blog-demo/build?token=<TOKEN>
 ```

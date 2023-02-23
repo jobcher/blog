@@ -7,9 +7,11 @@ tags: ["k8s"]
 categories: ["k8s"]
 series: ["k8s入门系列"]
 ---
-# k8s 部署loki日志
 
-## helm 拉取loki
+# k8s 部署 loki 日志
+
+## helm 拉取 loki
+
 ```sh
 #加源
 helm repo add grafana https://grafana.github.io/helm-charts

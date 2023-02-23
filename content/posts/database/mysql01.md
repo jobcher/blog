@@ -7,27 +7,39 @@ tags: ["mysql"]
 categories: ["数据库"]
 series: ["mysql系列"]
 ---
+
 # mysql 学习笔记（1）
-本文章不涉及到关于mysql开放上的问题，主要记录关于mysql出现的问题，以及如何去维护mysql数据的日常。  
-  
-## mysql各类信息的收集
+
+本文章不涉及到关于 mysql 开放上的问题，主要记录关于 mysql 出现的问题，以及如何去维护 mysql 数据的日常。
+
+## mysql 各类信息的收集
+
 1. 收集变量信息
+
 ```sql
 show global variables;
 ```
+
 2. 收集进程信息
+
 ```sql
 show PROCESSLIST;
 ```
+
 3. 收集错误日志
+
 ```sql
 show global variables like 'log_error';
 ```
+
 4. 收集慢日志信息
+
 ```sql
 show global variables like 'slow_querry_log_file';
 ```
-5. 收集锁信息，高峰时期运行三次，每次间隔10s
+
+5. 收集锁信息，高峰时期运行三次，每次间隔 10s
+
 ```sql
 SELECT  locked_table,
         locked_index,
@@ -49,7 +61,9 @@ LEFT JOIN INFROMATION_SCHEMA.processlist T2 ON T1.blocking_pid=T2.ID
 LEFT JOIN INFROMATION_SCHEMA.processlist T3 ON T3.ID=T1.waiting_pid;
 
 ```
-6. 收集mysql状态信息
+
+6. 收集 mysql 状态信息
+
 ```sql
 show global status;
 show engine innodb status;
@@ -59,25 +73,31 @@ show engine innodb mutex;
 ## mysql 基础语法
 
 1. 连接数据库
+
 ```sql
 mysql -u <用户名> -p
 ```
-  
+
 2. 创建数据库
+
 ```sql
 CREATE DATABASE <数据库名称>;
 ```
-  
+
 3. 删除数据库
+
 ```sql
 drop database <数据库名称>;
 ```
-  
+
 4. 选择数据库
+
 ```sql
 use <数据库名称>;
 ```
+
 5. 创建表
+
 ```sql
 CREATE table <数据表名> (
     <字段名1> <数据类型> [约束条件],
@@ -93,25 +113,35 @@ CREATE TABLE IF NOT EXISTS `nbtyfood_tbl`(
    PRIMARY KEY ( `nbtyfood_id` )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
+
 6. 删除表
+
 ```sql
 DROP TABLE <数据表名>;
 ```
+
 7. 插入数据
+
 ```sql
 INSERT INTO table_name ( field1, field2,...fieldN )
 VALUES
 value1, value2,...valueN );
 ```
+
 8. 更新数据
+
 ```sql
 UPDATE <数据表名> SET <字段名1>='更新' WHERE <字段名2>=3;
 ```
+
 9. 删除数据
+
 ```sql
 DELETE FROM <数据表名> WHERE <字段名2>=3;
 ```
+
 10. 查询数据
+
 ```sql
 select * from <数据表名>;
 ```

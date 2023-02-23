@@ -7,112 +7,118 @@ tags: ["gitlab"]
 categories: ["gitlab"]
 series: ["git入门系列"]
 ---
-# git技巧
+
+# git 技巧
+
 Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。
 
 下面的内容就是列举了常用的 Git 命令和一些小技巧，可以通过 "页面内查找" 的方式进行快速查询：`Ctrl/Command+f`。
 
 ## 开卷必读
-*如果之前未使用过 Git，可以学习 [Git 小白教程](https://rogerdudler.github.io/git-guide/index.zh.html)入门*
+
+_如果之前未使用过 Git，可以学习 [Git 小白教程](https://rogerdudler.github.io/git-guide/index.zh.html)入门_
 
 1. **一定要先测试命令的效果后**，再用于工作环境中，以防造成不能弥补的后果！**到时候别拿着砍刀来找我**
 2. 所有的命令都在`git version 2.7.4 (Apple Git-66)`下测试通过
 3. 统一概念：
-	- 工作区：改动（增删文件和内容）
-	- 暂存区：输入命令：`git add 改动的文件名`，此次改动就放到了 ‘暂存区’
-	- 本地仓库(简称：本地)：输入命令：`git commit 此次修改的描述`，此次改动就放到了 ’本地仓库’，每个 commit，我叫它为一个 ‘版本’。
-	- 远程仓库(简称：远程)：输入命令：`git push 远程仓库`，此次改动就放到了 ‘远程仓库’（GitHub 等)
-	- commit-id：输出命令：`git log`，最上面那行 `commit xxxxxx`，后面的字符串就是 commit-id
+   - 工作区：改动（增删文件和内容）
+   - 暂存区：输入命令：`git add 改动的文件名`，此次改动就放到了 ‘暂存区’
+   - 本地仓库(简称：本地)：输入命令：`git commit 此次修改的描述`，此次改动就放到了 ’本地仓库’，每个 commit，我叫它为一个 ‘版本’。
+   - 远程仓库(简称：远程)：输入命令：`git push 远程仓库`，此次改动就放到了 ‘远程仓库’（GitHub 等)
+   - commit-id：输出命令：`git log`，最上面那行 `commit xxxxxx`，后面的字符串就是 commit-id
 4. 如果喜欢这个项目，欢迎 Star、提交 Pr、[反馈问题](https://github.com/521xueweihan/git-tips/issues)😊
 
 ## 目录
-* [脑图](#脑图)
-* [展示帮助信息](#展示帮助信息)
-* [回到远程仓库的状态](#回到远程仓库的状态)
-* [重设第一个commit](#重设第一个-commit)
-* [查看冲突文件列表](#查看冲突文件列表)
-* [展示工作区和暂存区的不同](#展示工作区和暂存区的不同)
-* [展示暂存区和最近版本的不同](#展示暂存区和最近版本的不同)
-* [展示暂存区、工作区和最近版本的不同](#展示暂存区工作区和最近版本的不同)
-* [快速切换到上一个分支](#快速切换到上一个分支)
-* [删除已经合并到 master 的分支](#删除已经合并到-master-的分支)
-* [展示本地分支关联远程仓库的情况](#展示本地分支关联远程仓库的情况)
-* [关联远程分支](#关联远程分支)
-* [列出所有远程分支](#列出所有远程分支)
-* [列出本地和远程分支](#列出本地和远程分支)
-* [查看远程分支和本地分支的对应关系](#查看远程分支和本地分支的对应关系)
-* [远程删除了分支本地也想删除](#远程删除了分支本地也想删除)
-* [创建并切换到本地分支](#创建并切换到本地分支)
-* [从远程分支中创建并切换到本地分支](#从远程分支中创建并切换到本地分支)
-* [删除本地分支](#删除本地分支)
-* [删除远程分支](#删除远程分支)
-* [重命名本地分支](#重命名本地分支)
-* [查看标签](#查看标签)
-* [查看标签详细信息](#查看标签详细信息)
-* [本地创建标签](#本地创建标签)
-* [推送标签到远程仓库](#推送标签到远程仓库)
-* [删除本地标签](#删除本地标签)
-* [删除远程标签](#删除远程标签)
-* [切回到某个标签](#切回到某个标签)
-* [放弃工作区的修改](#放弃工作区的修改)
-* [恢复删除的文件](#恢复删除的文件)
-* [以新增一个 commit 的方式还原某一个 commit 的修改](#以新增一个-commit-的方式还原某一个-commit-的修改)
-* [回到某个 commit 的状态，并删除后面的 commit](#回到某个-commit-的状态并删除后面的-commit)
-* [修改上一个 commit 的描述](#修改上一个-commit-的描述)
-* [查看 commit 历史](#查看-commit-历史)
-* [显示本地更新过 HEAD 的 git 命令记录](#显示本地更新过-head-的-git-命令记录)
-* [修改作者名](#修改作者名)
-* [修改远程仓库的 url](#修改远程仓库的-url)
-* [增加远程仓库](#增加远程仓库)
-* [列出所有远程仓库](#列出所有远程仓库)
-* [查看两个星期内的改动](#查看两个星期内的改动)
-* [把 A 分支的某一个 commit，放到 B 分支上](#把-A-分支的某一个-commit放到-B-分支上)
-* [给 git 命令起别名](#给-git-命令起别名)
-* [存储当前的修改，但不用提交 commit](#存储当前的修改但不用提交-commit)
-* [保存当前状态，包括 untracked 的文件](#保存当前状态包括-untracked-的文件)
-* [展示所有 stashes](#展示所有-stashes)
-* [回到某个 stash 的状态](#回到某个-stash-的状态)
-* [回到最后一个 stash 的状态，并删除这个 stash](#回到最后一个-stash-的状态并删除这个-stash)
-* [删除所有的 stash](#删除所有的-stash)
-* [从 stash 中拿出某个文件的修改](#从-stash-中拿出某个文件的修改)
-* [展示所有 tracked 的文件](#展示所有-tracked-的文件)
-* [展示所有 untracked 的文件](#展示所有-untracked-的文件)
-* [展示所有忽略的文件](#展示所有忽略的文件)
-* [强制删除 untracked 的文件](#强制删除-untracked-的文件)
-* [强制删除 untracked 的目录](#强制删除-untracked-的目录)
-* [展示简化的 commit 历史](#展示简化的-commit-历史)
-* [查看某段代码是谁写的](#查看某段代码是谁写的)
-* [把某一个分支导出成一个文件](#把某一个分支导出成一个文件)
-* [从包中导入分支](#从包中导入分支)
-* [执行 rebase 之前自动 stash](#执行-rebase-之前自动-stash)
-* [从远程仓库根据 ID，拉下某一状态，到本地分支](#从远程仓库根据-ID-拉下某一状态-到本地分支)
-* [详细展示一行中的修改](#详细展示一行中的修改)
-* [清除 `.gitignore` 文件中记录的文件](#清除-gitignore-文件中记录的文件)
-* [展示所有 alias 和 configs](#展示所有-alias-和-configs)
-* [展示忽略的文件](#展示忽略的文件)
-* [commit 历史中显示 Branch1 有的，但是 Branch2 没有 commit](#commit-历史中显示-Branch1-有的但是-Branch2-没有-commit)
-* [在 commit log 中显示 GPG 签名](#在-commit-log-中显示-GPG-签名)
-* [删除全局设置](#删除全局设置)
-* [新建并切换到新分支上，同时这个分支没有任何 commit](#新建并切换到新分支上同时这个分支没有任何-commit)
-* [展示任意分支某一文件的内容](#展示任意分支某一文件的内容)
-* [clone 下来指定的单一分支](#clone-下来指定的单一分支)
-* [clone 最新一次提交](#clone-最新一次提交)
-* [忽略某个文件的改动](#忽略某个文件的改动)
-* [忽略文件的权限变化](#忽略文件的权限变化)
-* [以最后提交的顺序列出所有 Git 分支](#以最后提交的顺序列出所有-Git-分支)
-* [在 commit log 中查找相关内容](#在-commit-log-中查找相关内容)
-* [把暂存区的指定 file 放到工作区中](#把暂存区的指定-file-放到工作区中)
-* [强制推送](#强制推送)
-* [git 配置 http 和 socks 代理](#git-配置-http-和-socks-代理)
-* [git 配置 ssh 代理](#git-配置-ssh-代理)
-* [优雅的Commit信息](#优雅的Commit信息)
-* [commit工具](#commit工具)
-* [声明](#声明)
+
+- [脑图](#脑图)
+- [展示帮助信息](#展示帮助信息)
+- [回到远程仓库的状态](#回到远程仓库的状态)
+- [重设第一个 commit](#重设第一个-commit)
+- [查看冲突文件列表](#查看冲突文件列表)
+- [展示工作区和暂存区的不同](#展示工作区和暂存区的不同)
+- [展示暂存区和最近版本的不同](#展示暂存区和最近版本的不同)
+- [展示暂存区、工作区和最近版本的不同](#展示暂存区工作区和最近版本的不同)
+- [快速切换到上一个分支](#快速切换到上一个分支)
+- [删除已经合并到 master 的分支](#删除已经合并到-master-的分支)
+- [展示本地分支关联远程仓库的情况](#展示本地分支关联远程仓库的情况)
+- [关联远程分支](#关联远程分支)
+- [列出所有远程分支](#列出所有远程分支)
+- [列出本地和远程分支](#列出本地和远程分支)
+- [查看远程分支和本地分支的对应关系](#查看远程分支和本地分支的对应关系)
+- [远程删除了分支本地也想删除](#远程删除了分支本地也想删除)
+- [创建并切换到本地分支](#创建并切换到本地分支)
+- [从远程分支中创建并切换到本地分支](#从远程分支中创建并切换到本地分支)
+- [删除本地分支](#删除本地分支)
+- [删除远程分支](#删除远程分支)
+- [重命名本地分支](#重命名本地分支)
+- [查看标签](#查看标签)
+- [查看标签详细信息](#查看标签详细信息)
+- [本地创建标签](#本地创建标签)
+- [推送标签到远程仓库](#推送标签到远程仓库)
+- [删除本地标签](#删除本地标签)
+- [删除远程标签](#删除远程标签)
+- [切回到某个标签](#切回到某个标签)
+- [放弃工作区的修改](#放弃工作区的修改)
+- [恢复删除的文件](#恢复删除的文件)
+- [以新增一个 commit 的方式还原某一个 commit 的修改](#以新增一个-commit-的方式还原某一个-commit-的修改)
+- [回到某个 commit 的状态，并删除后面的 commit](#回到某个-commit-的状态并删除后面的-commit)
+- [修改上一个 commit 的描述](#修改上一个-commit-的描述)
+- [查看 commit 历史](#查看-commit-历史)
+- [显示本地更新过 HEAD 的 git 命令记录](#显示本地更新过-head-的-git-命令记录)
+- [修改作者名](#修改作者名)
+- [修改远程仓库的 url](#修改远程仓库的-url)
+- [增加远程仓库](#增加远程仓库)
+- [列出所有远程仓库](#列出所有远程仓库)
+- [查看两个星期内的改动](#查看两个星期内的改动)
+- [把 A 分支的某一个 commit，放到 B 分支上](#把-A-分支的某一个-commit放到-B-分支上)
+- [给 git 命令起别名](#给-git-命令起别名)
+- [存储当前的修改，但不用提交 commit](#存储当前的修改但不用提交-commit)
+- [保存当前状态，包括 untracked 的文件](#保存当前状态包括-untracked-的文件)
+- [展示所有 stashes](#展示所有-stashes)
+- [回到某个 stash 的状态](#回到某个-stash-的状态)
+- [回到最后一个 stash 的状态，并删除这个 stash](#回到最后一个-stash-的状态并删除这个-stash)
+- [删除所有的 stash](#删除所有的-stash)
+- [从 stash 中拿出某个文件的修改](#从-stash-中拿出某个文件的修改)
+- [展示所有 tracked 的文件](#展示所有-tracked-的文件)
+- [展示所有 untracked 的文件](#展示所有-untracked-的文件)
+- [展示所有忽略的文件](#展示所有忽略的文件)
+- [强制删除 untracked 的文件](#强制删除-untracked-的文件)
+- [强制删除 untracked 的目录](#强制删除-untracked-的目录)
+- [展示简化的 commit 历史](#展示简化的-commit-历史)
+- [查看某段代码是谁写的](#查看某段代码是谁写的)
+- [把某一个分支导出成一个文件](#把某一个分支导出成一个文件)
+- [从包中导入分支](#从包中导入分支)
+- [执行 rebase 之前自动 stash](#执行-rebase-之前自动-stash)
+- [从远程仓库根据 ID，拉下某一状态，到本地分支](#从远程仓库根据-ID-拉下某一状态-到本地分支)
+- [详细展示一行中的修改](#详细展示一行中的修改)
+- [清除 `.gitignore` 文件中记录的文件](#清除-gitignore-文件中记录的文件)
+- [展示所有 alias 和 configs](#展示所有-alias-和-configs)
+- [展示忽略的文件](#展示忽略的文件)
+- [commit 历史中显示 Branch1 有的，但是 Branch2 没有 commit](#commit-历史中显示-Branch1-有的但是-Branch2-没有-commit)
+- [在 commit log 中显示 GPG 签名](#在-commit-log-中显示-GPG-签名)
+- [删除全局设置](#删除全局设置)
+- [新建并切换到新分支上，同时这个分支没有任何 commit](#新建并切换到新分支上同时这个分支没有任何-commit)
+- [展示任意分支某一文件的内容](#展示任意分支某一文件的内容)
+- [clone 下来指定的单一分支](#clone-下来指定的单一分支)
+- [clone 最新一次提交](#clone-最新一次提交)
+- [忽略某个文件的改动](#忽略某个文件的改动)
+- [忽略文件的权限变化](#忽略文件的权限变化)
+- [以最后提交的顺序列出所有 Git 分支](#以最后提交的顺序列出所有-Git-分支)
+- [在 commit log 中查找相关内容](#在-commit-log-中查找相关内容)
+- [把暂存区的指定 file 放到工作区中](#把暂存区的指定-file-放到工作区中)
+- [强制推送](#强制推送)
+- [git 配置 http 和 socks 代理](#git-配置-http-和-socks-代理)
+- [git 配置 ssh 代理](#git-配置-ssh-代理)
+- [优雅的 Commit 信息](#优雅的Commit信息)
+- [commit 工具](#commit工具)
+- [声明](#声明)
 
 ## 展示帮助信息
+
 ```sh
 git help -g
 ```
+
 The command output as below:
 
 ```
@@ -140,6 +146,7 @@ The common Git guides are:
 ## 回到远程仓库的状态
 
 抛弃本地所有的修改，回到远程仓库的状态。
+
 ```sh
 git fetch --all && git reset --hard origin/master
 ```
@@ -155,9 +162,11 @@ git update-ref -d HEAD
 ## 查看冲突文件列表
 
 展示工作区的冲突文件列表
+
 ```sh
 git diff --name-only --diff-filter=U
 ```
+
 ## 展示工作区和暂存区的不同
 
 输出**工作区**和**暂存区**的 different (不同)。
@@ -167,6 +176,7 @@ git diff
 ```
 
 还可以展示本地仓库中任意两个 commit 之间的文件变动：
+
 ```sh
 git diff <commit-id> <commit-id>
 ```
@@ -174,6 +184,7 @@ git diff <commit-id> <commit-id>
 ## 展示暂存区和最近版本的不同
 
 输出**暂存区**和本地最近的版本 (commit) 的 different (不同)。
+
 ```sh
 git diff --cached
 ```
@@ -199,6 +210,7 @@ git branch --merged master | grep -v '^\*\|  master' | xargs -n 1 git branch -d
 ```
 
 ## 展示本地分支关联远程仓库的情况
+
 ```sh
 git branch -vv
 ```
@@ -206,11 +218,13 @@ git branch -vv
 ## 关联远程分支
 
 关联之后，`git branch -vv` 就可以展示关联的远程分支名了，同时推送到远程仓库直接：`git push`，不需要指定远程仓库了。
+
 ```sh
 git branch -u origin/mybranch
 ```
 
 或者在 push 时加上 `-u` 参数
+
 ```sh
 git push origin/mybranch -u
 ```
@@ -218,6 +232,7 @@ git push origin/mybranch -u
 ## 列出所有远程分支
 
 -r 参数相当于：remote
+
 ```sh
 git branch -r
 ```
@@ -225,6 +240,7 @@ git branch -r
 ## 列出本地和远程分支
 
 -a 参数相当于：all
+
 ```sh
 git branch -a
 ```
@@ -242,6 +258,7 @@ git remote prune origin
 ```
 
 ## 创建并切换到本地分支
+
 ```sh
 git checkout -b <branch-name>
 ```
@@ -281,6 +298,7 @@ git branch -m <new-branch-name>
 ```sh
 git tag
 ```
+
 展示当前分支的最近的 tag
 
 ```sh
@@ -300,6 +318,7 @@ git tag <version-number>
 ```
 
 默认 tag 是打在最近的一次 commit 上，如果需要指定 commit 打 tag：
+
 ```sh
 $ git tag -a <version-number> -m "v1.0 发布(描述)" <commit-id>
 ```
@@ -333,21 +352,25 @@ git push origin --delete tag <tagname>
 ## 切回到某个标签
 
 一般上线之前都会打 tag，就是为了防止上线后出现问题，方便快速回退到上一版本。下面的命令是回到某一标签下的状态：
+
 ```sh
 git checkout -b branch_name tag_name
 ```
 
 ## 放弃工作区的修改
+
 ```sh
 git checkout <file-name>
 ```
 
 放弃所有修改：
+
 ```sh
 git checkout .
 ```
 
 ## 恢复删除的文件
+
 ```sh
 git rev-list -n 1 HEAD -- <file_path> #得到 deleting_commit
 
@@ -383,6 +406,7 @@ git commit --amend
 ```
 
 ## 查看 commit 历史
+
 ```sh
 git log
 ```
@@ -429,6 +453,7 @@ git remote
 ```
 
 ## 查看两个星期内的改动
+
 ```sh
 git whatchanged --since='2 weeks ago'
 ```
@@ -456,6 +481,7 @@ git config --global alias.st status
 ## 存储当前的修改，但不用提交 commit
 
 详解可以参考[廖雪峰老师的 git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000)
+
 ```sh
 git stash
 ```
@@ -463,16 +489,19 @@ git stash
 ## 保存当前状态，包括 untracked 的文件
 
 untracked 文件：新建的文件
+
 ```sh
 git stash -u
 ```
 
 ## 展示所有 stashes
+
 ```sh
 git stash list
 ```
 
 ## 回到某个 stash 的状态
+
 ```sh
 git stash apply <stash@{n}>
 ```
@@ -490,16 +519,19 @@ git stash clear
 ```
 
 ## 从 stash 中拿出某个文件的修改
+
 ```sh
 git checkout <stash@{n}> -- <file-path>
 ```
 
 ## 展示所有 tracked 的文件
+
 ```sh
 git ls-files -t
 ```
 
 ## 展示所有 untracked 的文件
+
 ```sh
 git ls-files --others
 ```
@@ -513,6 +545,7 @@ git ls-files --others -i --exclude-standard
 ## 强制删除 untracked 的文件
 
 可以用来删除新建的文件。如果不指定文件文件名，则清空所有工作的 untracked 文件。`clean` 命令，**注意两点**：
+
 1. clean 后，删除的文件无法找回
 2. 不会影响 tracked 的文件的改动，只会删除 untracked 的文件
 
@@ -529,11 +562,13 @@ git clean <directory-name> -df
 ```
 
 ## 展示简化的 commit 历史
+
 ```sh
 git log --pretty=oneline --graph --decorate --all
 ```
 
 ## 把某一个分支导出成一个文件
+
 ```sh
 git bundle create <file> <branch-name>
 ```
@@ -580,16 +615,19 @@ git config --global --list (全局)
 ```
 
 ## 展示忽略的文件
+
 ```sh
 git status --ignored
 ```
 
 ## commit 历史中显示 Branch1 有的，但是 Branch2 没有 commit
+
 ```sh
 git log Branch1 ^Branch2
 ```
 
 ## 在 commit log 中显示 GPG 签名
+
 ```sh
 git log --show-signature
 ```
@@ -615,6 +653,7 @@ git show <branch-name>:<file-name>
 ```
 
 ## clone 下来指定的单一分支
+
 ```sh
 git clone -b <branch-name> --single-branch https://github.com/user/repo.git
 ```
@@ -661,7 +700,6 @@ git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
 
 通过 grep 查找，given-text：所需要查找的字段
 
-
 ```sh
 git log --all --grep='<given-text>'
 ```
@@ -696,40 +734,39 @@ Host gitlab.com
 ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p    # 直接使用 shadowsocks 提供的 socks5 代理端口
 
 Host github.com
-ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p    
+ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p
 ```
-
 
 ## 脑图
 
 ![](./assets/git.png)
 
-## 优雅的Commit信息
+## 优雅的 Commit 信息
 
-使用[Angular团队提交规范](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines)
+使用[Angular 团队提交规范](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines)
 
 主要有以下组成
 
-* 标题行: 必填, 描述主要修改类型和内容
-* 主题内容: 描述为什么修改, 做了什么样的修改, 以及开发的思路等等
-* 页脚注释: 放 Breaking Changes 或 Closed Issues
+- 标题行: 必填, 描述主要修改类型和内容
+- 主题内容: 描述为什么修改, 做了什么样的修改, 以及开发的思路等等
+- 页脚注释: 放 Breaking Changes 或 Closed Issues
 
 常用的修改项
 
-* type: commit 的类型
-* feat: 新特性
-* fix: 修改问题
-* refactor: 代码重构
-* docs: 文档修改
-* style: 代码格式修改, 注意不是 css 修改
-* test: 测试用例修改
-* chore: 其他修改, 比如构建流程, 依赖管理.
-* scope: commit 影响的范围, 比如: route, component, utils, build...
-* subject: commit 的概述
-* body: commit 具体修改内容, 可以分为多行
-* footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.
+- type: commit 的类型
+- feat: 新特性
+- fix: 修改问题
+- refactor: 代码重构
+- docs: 文档修改
+- style: 代码格式修改, 注意不是 css 修改
+- test: 测试用例修改
+- chore: 其他修改, 比如构建流程, 依赖管理.
+- scope: commit 影响的范围, 比如: route, component, utils, build...
+- subject: commit 的概述
+- body: commit 具体修改内容, 可以分为多行
+- footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.
 
-## commit工具
+## commit 工具
 
 可以使用[cz-cli](https://github.com/commitizen/cz-cli)工具代替 `git commit`
 
@@ -740,9 +777,9 @@ npm install -g commitizen cz-conventional-changelog
 
 echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
+
 全局安装后使用 `git cz` 代替 `git commit`就可以了,如下图
 
 ![](./assets/gitcz.png)
-
 
 **[⬆ 返回顶部](#目录)**

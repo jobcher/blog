@@ -9,9 +9,11 @@ series: ["问题库系列"]
 ---
 
 # Nodejs 安装编译
-Node.js平台是在后端运行JavaScript代码，必须首先在本机安装Node环境。
-## 安装Node.js
 
+Node.js 平台是在后端运行 JavaScript 代码，必须首先在本机安装 Node 环境。
 
-## 安装npm
-npm其实是Node.js的包管理工具（package manager）。  
+## 安装 Node.js
+
+## 安装 npm
+
+npm 其实是 Node.js 的包管理工具（package manager）。
