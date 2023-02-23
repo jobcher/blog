@@ -15,13 +15,15 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Set up Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: '1.20.x'
+      - name: notion-md-gen
+        uses: bonaysoft/notion-md-gen@master
+        env:
+          NOTION_SECRET : ${{ secrets.NOTION_TOKEN }}
 
-      - name: swap notion to markdown
-        run: |
-          go install github.com/xujiahua/notion-md@latest
-          notion-md -i ${{ secrets.NOTION_BLOG_ID }} -t ${{ secrets.NOTION_TOKEN }}
-          tree
+      - name: Format documents
+        uses: creyD/prettier_action@v3.1
+        with:
+          prettier_options: --write ./content/posts/**/*.md
+          commit_message: 'notion-md-gen: update articles (auto)'
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
