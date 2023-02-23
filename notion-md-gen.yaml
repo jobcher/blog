@@ -6,7 +6,7 @@ notion:
     - Published
   publishedValue: Published
 markdown:
-  shortcodeSyntax: vuepress
+  shortcodeSyntax: hugo
   postSavePath: ./content/posts/notion
   imageSavePath: ./static/images/posts
   imagePublicLink: /images/posts
