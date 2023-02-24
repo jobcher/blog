@@ -19,6 +19,10 @@ jobs:
         uses: bonaysoft/notion-md-gen@master
         env:
           NOTION_SECRET : ${{ secrets.NOTION_TOKEN }}
+
+      - name: test
+        run: |
+          tree
           
       - name: Format documents
         uses: creyD/prettier_action@v3.1
