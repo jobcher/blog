@@ -15,14 +15,15 @@ jobs:
         with:
           submodules: recursive
 
-      - name: notion-md-swap
-        uses: mohuishou/notion-blog-actions@main
+      - name: notion-md-gen
+        uses: bonaysoft/notion-md-gen@master
+        env:
+          NOTION_SECRET : ${{ secrets.NOTION_TOKEN }}
+          
+      - name: Format documents
+        uses: creyD/prettier_action@v3.1
         with:
-          notion_secret: ${{ secrets.NOTION_TOKEN }}
-          database_id: "4713dac6d4984330aaa43132ca6d33aa"
-          output: "./content/posts/notion/"
-          prefix: "/images/"
-
-      - name: test
-        run: |
-          tree
+          prettier_options: --write ./content/posts/notion/*.md
+          commit_message: 'notion-md-gen: update articles (auto)'
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
