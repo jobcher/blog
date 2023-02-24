@@ -19,7 +19,7 @@ jobs:
         uses: mohuishou/notion-blog-actions@main
         with:
           notion_secret: ${{ secrets.NOTION_TOKEN }}
-          database_id: "833df553cf7f4c8d81014c40d814d350"
+          database_id: "4713dac6d4984330aaa43132ca6d33aa"
           output: "./content/posts/notion/"
           prefix: "/images/"
 
