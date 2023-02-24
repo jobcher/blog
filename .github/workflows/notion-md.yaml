@@ -20,14 +20,14 @@ jobs:
         env:
           NOTION_SECRET : ${{ secrets.NOTION_TOKEN }}
 
-      - name: test
+      - name: test point
         run: |
           tree
           
-      - name: Format documents
-        uses: creyD/prettier_action@v3.1
-        with:
-          prettier_options: --write ./content/posts/notion/*.md
-          commit_message: 'notion-md-gen: update articles (auto)'
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+      # - name: Format documents
+      #   uses: creyD/prettier_action@v3.1
+      #   with:
+      #     prettier_options: --write ./content/posts/**/*.md
+      #     commit_message: 'notion-md-gen: update articles (auto)'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
