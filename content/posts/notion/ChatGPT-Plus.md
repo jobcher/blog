@@ -39,7 +39,7 @@ iOS需要外区账号
 
 安卓用户直接下载apk安装即可
 
-![Untitled](/images/ChatGPT-Plus/Untitled 1.png)
+![Untitled](/images/ChatGPT-Plus/Untitled%201.png)
 
 下载安装完app，使用账号登录，点击申请卡，然后根据自己的情况进行选择卡片类型
 
