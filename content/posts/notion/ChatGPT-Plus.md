@@ -2,8 +2,8 @@
 title: "ChatGPT Plus开通教程攻略"
 date: 2023-02-28
 draft: true
-featuredImage: "/images/chatgpt.webp"
-featuredImagePreview: "/images/chatgpt.webp"
+featuredImage: "/images/ChatGPT-Plus/chatgpt.webp"
+featuredImagePreview: "/images/ChatGPT-Plus/chatgpt.webp"
 author: "jobcher"
 tags: ["ChatGPT"]
 categories: ["人工智能"]
@@ -18,7 +18,7 @@ series: ["人工智能系列"]
 
 而且这卡还可以绑定美区的Apple ID作为付款方式，虽然美区Apple ID可以使用支付宝或者购买礼品卡进行充值，况且我已经绑定了Paypal，这卡还可以绑定国内微信支付宝进行消费，挺不错的。ChatGPT Plus开通攻略
 
-![Untitled](/images/Untitled.png)
+![Untitled](/images/ChatGPT-Plus/Untitled.png)
 
 ### 1、硬性条件
 
@@ -39,7 +39,7 @@ iOS需要外区账号
 
 安卓用户直接下载apk安装即可
 
-![Untitled](/images/Untitled 1.png)
+![Untitled](/images/ChatGPT-Plus/Untitled 1.png)
 
 下载安装完app，使用账号登录，点击申请卡，然后根据自己的情况进行选择卡片类型
 
@@ -48,13 +48,13 @@ iOS需要外区账号
 
 我选择的是免费开卡-标准卡，根据提示提交信息进行认证即可（大佬可以直接充钱免认证，看个人）
 
-![Untitled](/images/Untitled 2.png)
+![Untitled](/images/ChatGPT-Plus/Untitled 2.png)
 
 ### 3、钱包充值
 
 目前激活该卡片需要充值USDT，而且仅支持USDT-TRC20方式进行充值
 
-![Untitled](/images/Untitled 3.png)
+![Untitled](/images/ChatGPT-Plus/Untitled 3.png)
 
 我不是高级玩家，可以通过[OKX](https://cnouyi.care/join/12916698)、[Bitop](https://www.bitop.com/?ru=uQw4R5)等等交易市场进行USDT-TRC20充值即可
 
@@ -62,7 +62,7 @@ iOS需要外区账号
 
 不过发现我是新账号，需要7天才可以提币（不知道是不是针对我的，我也是小白）
 
-![Untitled](/images/Untitled 4.png)
+![Untitled](/images/ChatGPT-Plus/Untitled 4.png)
 
 于是没有等，喊朋友直接转到我钱包了，身边没有朋友使用的，可以使用[OKX](https://cnouyi.care/join/12916698)试试
 
@@ -74,27 +74,27 @@ iOS需要外区账号
 
 等待到账号，点击充值，然后把收到的USDT充值到卡片进行激活信用卡，然后会提示余额不足，提示你把USDT兑换成USD，按要求操作即可
 
-![Untitled](/images/Untitled 5.png)
+![Untitled](/images/ChatGPT-Plus/Untitled 5.png)
 
 ### 5、订阅开通ChatGPT Plus
 
 激活完信用卡后，[登录你的ChatGPT账号](https://chat.openai.com/chat)，点击Upgrade to Plus，然后点击Upgrade plan
 
-![Untitled](/images/Untitled 6.png)
+![Untitled](/images/ChatGPT-Plus/Untitled 6.png)
 
 然后填写卡片信息和账单信息
 
 卡片信息点击信用卡app 旁边的CVV安全码获取
 
-![Untitled](/images/Untitled 7.png)
+![Untitled](/images/ChatGPT-Plus/Untitled 7.png)
 
 账单地址可以使用 [虚拟美国人信息生成器](https://www.ahhhhfs.com/38074/)获取，需要是免税州的地址，不然有额外的费用，账单地址不会填的可以抄我的。
 
-![Untitled](/images/Untitled 8.png)
+![Untitled](/images/ChatGPT-Plus/Untitled 8.png)
 
 填写完信息，点击订阅/Subscribe 等待验证即可成功订阅开通ChatGPT Plus。
 
-![Untitled](/images/Untitled 9.png)
+![Untitled](/images/ChatGPT-Plus/Untitled 9.png)
 
 {{< admonition type=success title="关注">}}
 欢迎关注我的博客  
