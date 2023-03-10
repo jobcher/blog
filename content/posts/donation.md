@@ -9,5 +9,5 @@ series: ["打赏"]
 ---
 ##### 如果你觉得这个项目对你有帮助，并且情况允许的话，可以给我一点点支持，支持我维护下去  
 
-![zhifu](/images/0e63e584823a8206d9c65250b0a22e1.jpg)
+![zhifu](/images/awxyv-sq69b.webp)
 
