@@ -15,16 +15,16 @@ series: ["问题库系列"]
 #### 要使用Scrapy-Redis实现增量爬取，可以采取以下步骤：
 1. 在Scrapy项目中安装Scrapy-Redis插件。可以使用pip安装：pip install scrapy-redis
 2. 在Scrapy的settings.py中添加如下配置：  
-```python
+{{< admonition type=success title="python" open=true >}}
 # 使用Redis调度器
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 # 使用Redis去重过滤器
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 # 允许暂停、恢复爬取
 SCHEDULER_PERSIST = True
-```
+{{< /admonition >}}
 3. 将Spider的爬取链接放入Redis队列中。可以在Spider中重载start_requests()方法，从Redis队列中获取链接开始爬取。
-```python
+{{< admonition type=success title="python" open=true >}}
 import scrapy
 from scrapy_redis.spiders import RedisSpider
 
@@ -35,9 +35,9 @@ class MySpider(RedisSpider):
     def parse(self, response):
         # 处理响应
         pass
-```
+{{< /admonition >}}
 4. 在Spider中实现增量爬取。可以通过重载Spider中的`start_requests()`方法或者使用`SpiderMiddleware`来实现增量爬取。这里提供一种通过修改Redis队列来实现增量爬取的方法。
-```python
+{{< admonition type=success title="python" open=true >}}
 import scrapy
 import redis
 from scrapy_redis.spiders import RedisSpider
@@ -79,7 +79,7 @@ class MySpider(RedisSpider):
         # 处理响应
         pass
 
-```
+{{< /admonition >}}
 以上代码实现了在Spider启动时获取最新的链接列表，并将最新的链接放入Redis队列中，从而实现增量爬取。需要注意的是，这种方法仅适用于Spider启动时获取最新链接的情况。如果需要实时获取最新链接，可以使用`SpiderMiddleware`来实现。这里提供一种使用`SpiderMiddleware`实现增量爬取的方法。
 ### SpiderMiddleware实现增量爬取的方法
 1. 创建一个`Middleware`，并在`process_request()`方法中判断请求是否需要进行增量处理。如果需要，则修改请求的链接，将增量参数添加到链接中。示例代码如下：
