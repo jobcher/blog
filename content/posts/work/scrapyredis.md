@@ -83,7 +83,7 @@ class MySpider(RedisSpider):
 以上代码实现了在Spider启动时获取最新的链接列表，并将最新的链接放入Redis队列中，从而实现增量爬取。需要注意的是，这种方法仅适用于Spider启动时获取最新链接的情况。如果需要实时获取最新链接，可以使用`SpiderMiddleware`来实现。这里提供一种使用`SpiderMiddleware`实现增量爬取的方法。
 ### SpiderMiddleware实现增量爬取的方法
 1. 创建一个`Middleware`，并在`process_request()`方法中判断请求是否需要进行增量处理。如果需要，则修改请求的链接，将增量参数添加到链接中。示例代码如下：
-```python
+{{< admonition type=success title="python" open=true >}}
 import time
 import scrapy
 from scrapy import Request
@@ -103,9 +103,9 @@ class MyMiddleware:
             # 修改请求链接
             request = Request(url, callback=request.callback, headers=request.headers, meta=request.meta)
         return request
-```
+{{< /admonition >}}
 2. 在`Spider`中添加一个增量参数，并在`start_requests()`方法中设置增量参数。示例代码如下：
-```python
+{{< admonition type=success title="python" open=true >}}
 import scrapy
 from myproject.middleware import MyMiddleware
 
@@ -134,9 +134,9 @@ class MySpider(scrapy.Spider):
     def get_incremental_param(self):
         # 获取最新的增量参数
         return int(time.time())
-```
+{{< /admonition >}}
 3. 在SpiderMiddleware中判断响应是否需要进行增量处理。如果需要，则使用yield生成一个新的请求，将增量参数添加到链接中。示例代码如下：
-```python
+{{< admonition type=success title="python" open=true >}}
 import time
 import scrapy
 from scrapy import Request
@@ -165,7 +165,7 @@ class MySpiderMiddleware:
         # 判断响应是否需要进行增量处理
         return True # TODO: 根据实际情况进行判断
 
-```
+{{< /admonition >}}
 以上代码实现了使用SpiderMiddleware实现增量爬取。需要注意的是这里只是一个示例实现，需要根据实际情况进行修改。以下是一些需要注意的事项：  
 
 - 增量参数的生成方式可以根据实际情况进行修改。这里使用了当前时间戳作为增量参数，可以根据需要使用其他方式生成增量参数，例如使用数据库中的记录时间作为增量参数。  
