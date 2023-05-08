@@ -54,6 +54,7 @@ jobs:
         #   mv -f /home/runner/work/blog/blog/style.css ./LoveIt/assets/style.css
         run: |
           git clone https://github.com/vimux/binario themes/binario
+          tree
 
       - name: Build with Hugo
         # run: |
