@@ -43,31 +43,19 @@ jobs:
       
 
       - name: Install Hugo theme
-        # run: |
-        #   cd /home/runner/work/blog/blog/themes/
-        #   wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz"
-        #   tar -zxvf loveit.tar.gz
-        #   mv LoveIt-${LOVEIT_THEME_VERSION} LoveIt
-        #   mv -f /home/runner/work/blog/blog/header.html ./LoveIt/layouts/partials/header.html
-        #   mv -f /home/runner/work/blog/blog/bilibili.html ./LoveIt/layouts/shortcodes/bilibili.html
-        #   mv -f /home/runner/work/blog/blog/youtube.html ./LoveIt/layouts/shortcodes/youtube.html
-        #   mv -f /home/runner/work/blog/blog/style.css ./LoveIt/assets/style.css
         run: |
-          git clone https://github.com/vimux/binario themes/binario
-          tree
+          cd /home/runner/work/blog/blog/themes/
+          wget -O loveit.tar.gz "https://github.com/dillonzq/LoveIt/archive/refs/tags/v${LOVEIT_THEME_VERSION}.tar.gz"
+          tar -zxvf loveit.tar.gz
+          mv LoveIt-${LOVEIT_THEME_VERSION} LoveIt
+          mv -f /home/runner/work/blog/blog/header.html ./LoveIt/layouts/partials/header.html
+          mv -f /home/runner/work/blog/blog/bilibili.html ./LoveIt/layouts/shortcodes/bilibili.html
+          mv -f /home/runner/work/blog/blog/youtube.html ./LoveIt/layouts/shortcodes/youtube.html
+          mv -f /home/runner/work/blog/blog/style.css ./LoveIt/assets/style.css
 
       - name: Build with Hugo
-        # run: |
-        #   hugo -t LoveIt -D
-        #   mv -f ./ads.txt /home/runner/work/blog/blog/public/.
-        #   curl \
-        #   -H "Title: www.jobcher.com 更新" \
-        #   -H "Priority: urgent" \
-        #   -H "Tags: update" \
-        #   -d "www.jobcher.com 博客更新内容：${{ github.event.head_commit.message }}" \
-        #   ntfy.sh/jobcher
         run: |
-          hugo -t binario -D
+          hugo -t LoveIt -D
           mv -f ./ads.txt /home/runner/work/blog/blog/public/.
           curl \
           -H "Title: www.jobcher.com 更新" \
