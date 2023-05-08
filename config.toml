@@ -15,63 +15,10 @@ theme = "binario"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
-[menu]
-  [[menu.main]]
-    identifier = "nav"
-    pre = ""
-    post = ""
-    name = "导航"
-    url = "https://nav.jobcher.com/"
-    title = ""
-    weight = 1
-  [[menu.main]]
-    identifier = "posts"
-    # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-    pre = ""
-    # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-    post = ""
-    name = "文章"
-    url = "/posts/"
-    # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
-    title = ""
-    weight = 2
-  [[menu.main]]
-    identifier = "tags"
-    pre = ""
-    post = ""
-    name = "标签"
-    url = "/tags/"
-    title = ""
-    weight = 3
-  [[menu.main]]
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "分类"
-    url = "/categories/"
-    title = ""
-    weight = 4
-  [[menu.main]]
-    identifier = "k8s"
-    pre = ""
-    post = ""
-    name = "k8s"
-    url = "https://k8s.jobcher.com/zh-cn/"
-    title = ""
-    weight = 5
-  [[menu.main]]
-    identifier = "about"
-    pre = ""
-    post = ""
-    name = "关于"
-    url = "/about/"
-    title = ""
-    weight = 6
-
 [Author] # Used in authorbox
   name = "jobcher"
   bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer."
-  avatar = "images/avatar1.png"
+  avatar = "img/avatar.png"
 
 [Params]
   description = "Responsive card-based & code-light Hugo theme" # Site Description. Used in meta description
