@@ -96,9 +96,9 @@ iOS需要外区账号
 
 ![Untitled](/images/ChatGPT-Plus/Untitled%209.png)
 
-{{< admonition type=success title="关注">}}
+```
 欢迎关注我的博客  
 [www.jobcher.com](https://www.jobcher.com/)
-{{< /admonition >}}
+```
 
 ### 转载自（[https://www.ahhhhfs.com/](https://www.ahhhhfs.com/)）
