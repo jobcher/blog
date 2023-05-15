@@ -4,6 +4,8 @@ date: 2023-05-15
 draft: true
 author: "jobcher"
 tags: ["运维"]
+featuredImage: "/images/appium-logo-horiz.png"
+featuredImagePreview: "/images/appium-logo-horiz.png"
 categories: ["基础"]
 series: ["基础知识系列"]
 ---
