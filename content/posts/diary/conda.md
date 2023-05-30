@@ -12,13 +12,13 @@ series: ["日常系列"]
 
 ## 背景
 
-```
+
 很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：
 
 - [x] 如何安装 conda;
 - [x] 如何更换 conda 的下载源;
 - [x] 如何使用 canda;
-      ```
+
 
 ## 安装 conda
 
@@ -71,6 +71,6 @@ conda deactivate
 # 退出当前环境
 ```
 
-```
-欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/)
-```
+
+>欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/)
+
