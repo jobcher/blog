@@ -4,7 +4,7 @@ date: 2021-01-01
 draft: true
 ---
 # 关于
-![logo](/avatar1.png)  
+![logo](/bear2.png)  
 
 #### 后台就是花式curd工程师  
 #### 前端就是抠图工程师  

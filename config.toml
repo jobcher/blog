@@ -82,7 +82,7 @@ theme = "LoveIt"
   # LoveIt 新增 | 0.2.0 日期格式
   dateFormat = "2006-01-02"
   # 网站图片, 用于 Open Graph 和 Twitter Cards
-  images = ["/avatar1.png"]
+  images = ["/bear2.png"]
 
   # LoveIt 新增 | 0.2.0 应用图标配置
   [params.app]
@@ -130,7 +130,7 @@ theme = "LoveIt"
     # LoveIt 新增 | 0.2.0 页面头部导航栏标题配置
     [params.header.title]
       # LOGO 的 URL
-      logo = "/avatar1.png"
+      logo = "/bear2.png"
       # 标题名称
       name = "打工人日志"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
@@ -186,7 +186,7 @@ theme = "LoveIt"
       # Gravatar 邮箱，用于优先在主页显示的头像
       gravatarEmail = ""
       # 主页显示头像的 URL
-      avatarURL = "/avatar1.png"
+      avatarURL = "/bear2.png"
       # LoveIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
       title = "打工人日志"
       # 主页显示的网站副标题
@@ -479,7 +479,7 @@ theme = "LoveIt"
     # 图片 URL
     image = "https://www.jobcher.com/images/image.gif"
     # 缩略图 URL
-    thumbnailUrl = "/avatar1.png"
+    thumbnailUrl = "/bear2.png"
 
   # LoveIt 新增 | 0.2.0 网站分析配置
   [params.analytics]
