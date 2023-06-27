@@ -74,7 +74,7 @@ func main() {
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf("### 排名 %d:", i+1)
 		content += fmt.Sprintf("%s\n", title)
-		content += fmt.Sprintf("- 描述: %s\n", desc)
+		content += fmt.Sprintf("- Description: %s\n", desc)
 		content += fmt.Sprintf("- URL: https://github.com%s\n", url)
 		content += fmt.Sprintf("- 作者: %s\n\n", author)
 
