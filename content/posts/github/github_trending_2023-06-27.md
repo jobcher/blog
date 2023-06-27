@@ -3,158 +3,160 @@ title: 2023-06-27 GitHub 热门榜单
 date: 2023-06-27
 draft: true
 author: 'jobcher'
+featuredImage: '/images/github.png'
+featuredImagePreview: '/images/github.png'
 tags: ['github']
 categories: ['github']
 series: ['github']
 ---
 
-### Repository 1:
-- Title: /CASIA-IVA-Lab/FastSAM
-- Description: Fast Segment Anything
+### 排名 1:
+- 标题: /CASIA-IVA-Lab/FastSAM
+- 描述: Fast Segment Anything
 - URL: https://github.com/CASIA-IVA-Lab/FastSAM
-- Author: CASIA-IVA-Lab /
+- 作者: CASIA-IVA-Lab /
 
-### Repository 2:
-- Title: /sveltejs/svelte
-- Description: Cybernetically enhanced web apps
+### 排名 2:
+- 标题: /sveltejs/svelte
+- 描述: Cybernetically enhanced web apps
 - URL: https://github.com/sveltejs/svelte
-- Author: sveltejs /
+- 作者: sveltejs /
 
-### Repository 3:
-- Title: /chat2db/Chat2DB
-- Description: 🔥 🔥 🔥 An intelligent and versatile general-purpose SQL client and reporting tool for databases which integrates ChatGPT capabilities.(智能的通用数据库SQL客户端和报表工具)
+### 排名 3:
+- 标题: /chat2db/Chat2DB
+- 描述: 🔥 🔥 🔥 An intelligent and versatile general-purpose SQL client and reporting tool for databases which integrates ChatGPT capabilities.(智能的通用数据库SQL客户端和报表工具)
 - URL: https://github.com/chat2db/Chat2DB
-- Author: chat2db /
+- 作者: chat2db /
 
-### Repository 4:
-- Title: /Stability-AI/generative-models
-- Description: Generative Models by Stability AI
+### 排名 4:
+- 标题: /Stability-AI/generative-models
+- 描述: Generative Models by Stability AI
 - URL: https://github.com/Stability-AI/generative-models
-- Author: Stability-AI /
+- 作者: Stability-AI /
 
-### Repository 5:
-- Title: /ggerganov/ggml
-- Description: Tensor library for machine learning
+### 排名 5:
+- 标题: /ggerganov/ggml
+- 描述: Tensor library for machine learning
 - URL: https://github.com/ggerganov/ggml
-- Author: ggerganov /
+- 作者: ggerganov /
 
-### Repository 6:
-- Title: /Stability-AI/stablediffusion
-- Description: High-Resolution Image Synthesis with Latent Diffusion Models
+### 排名 6:
+- 标题: /Stability-AI/stablediffusion
+- 描述: High-Resolution Image Synthesis with Latent Diffusion Models
 - URL: https://github.com/Stability-AI/stablediffusion
-- Author: Stability-AI /
+- 作者: Stability-AI /
 
-### Repository 7:
-- Title: /1Panel-dev/1Panel
-- Description: 🔥 🔥 🔥 现代化、开源的 Linux 服务器运维管理面板。
+### 排名 7:
+- 标题: /1Panel-dev/1Panel
+- 描述: 🔥 🔥 🔥 现代化、开源的 Linux 服务器运维管理面板。
 - URL: https://github.com/1Panel-dev/1Panel
-- Author: 1Panel-dev /
+- 作者: 1Panel-dev /
 
-### Repository 8:
-- Title: /spacedriveapp/spacedrive
-- Description: Spacedrive is an open source cross-platform file explorer, powered by a virtual distributed filesystem written in Rust.
+### 排名 8:
+- 标题: /spacedriveapp/spacedrive
+- 描述: Spacedrive is an open source cross-platform file explorer, powered by a virtual distributed filesystem written in Rust.
 - URL: https://github.com/spacedriveapp/spacedrive
-- Author: spacedriveapp /
+- 作者: spacedriveapp /
 
-### Repository 9:
-- Title: /sadmann7/skateshop
-- Description: An open source e-commerce skateshop build with everything new in Next.js 13.
+### 排名 9:
+- 标题: /sadmann7/skateshop
+- 描述: An open source e-commerce skateshop build with everything new in Next.js 13.
 - URL: https://github.com/sadmann7/skateshop
-- Author: sadmann7 /
+- 作者: sadmann7 /
 
-### Repository 10:
-- Title: /github/docs
-- Description: The open-source repo for docs.github.com
+### 排名 10:
+- 标题: /github/docs
+- 描述: The open-source repo for docs.github.com
 - URL: https://github.com/github/docs
-- Author: github /
+- 作者: github /
 
-### Repository 11:
-- Title: /ggerganov/llama.cpp
-- Description: Port of Facebook's LLaMA model in C/C++
+### 排名 11:
+- 标题: /ggerganov/llama.cpp
+- 描述: Port of Facebook's LLaMA model in C/C++
 - URL: https://github.com/ggerganov/llama.cpp
-- Author: ggerganov /
+- 作者: ggerganov /
 
-### Repository 12:
-- Title: /ventoy/Ventoy
-- Description: A new bootable USB solution.
+### 排名 12:
+- 标题: /ventoy/Ventoy
+- 描述: A new bootable USB solution.
 - URL: https://github.com/ventoy/Ventoy
-- Author: ventoy /
+- 作者: ventoy /
 
-### Repository 13:
-- Title: /ykdojo/kaguya
-- Description: A ChatGPT plugin that allows you to load and edit your local files in a controlled way, as well as run any Python, JavaScript, and bash script.
+### 排名 13:
+- 标题: /ykdojo/kaguya
+- 描述: A ChatGPT plugin that allows you to load and edit your local files in a controlled way, as well as run any Python, JavaScript, and bash script.
 - URL: https://github.com/ykdojo/kaguya
-- Author: ykdojo /
+- 作者: ykdojo /
 
-### Repository 14:
-- Title: /sindresorhus/awesome
-- Description: 😎 Awesome lists about all kinds of interesting topics
+### 排名 14:
+- 标题: /sindresorhus/awesome
+- 描述: 😎 Awesome lists about all kinds of interesting topics
 - URL: https://github.com/sindresorhus/awesome
-- Author: sindresorhus /
+- 作者: sindresorhus /
 
-### Repository 15:
-- Title: /a16z-infra/ai-getting-started
-- Description: A Javascript AI getting started stack for weekend projects, including image/text models, vector stores, auth, and deployment configs
+### 排名 15:
+- 标题: /a16z-infra/ai-getting-started
+- 描述: A Javascript AI getting started stack for weekend projects, including image/text models, vector stores, auth, and deployment configs
 - URL: https://github.com/a16z-infra/ai-getting-started
-- Author: a16z-infra /
+- 作者: a16z-infra /
 
-### Repository 16:
-- Title: /papers-we-love/papers-we-love
-- Description: Papers from the computer science community to read and discuss.
+### 排名 16:
+- 标题: /papers-we-love/papers-we-love
+- 描述: Papers from the computer science community to read and discuss.
 - URL: https://github.com/papers-we-love/papers-we-love
-- Author: papers-we-love /
+- 作者: papers-we-love /
 
-### Repository 17:
-- Title: /codecrafters-io/build-your-own-x
-- Description: Master programming by recreating your favorite technologies from scratch.
+### 排名 17:
+- 标题: /codecrafters-io/build-your-own-x
+- 描述: Master programming by recreating your favorite technologies from scratch.
 - URL: https://github.com/codecrafters-io/build-your-own-x
-- Author: codecrafters-io /
+- 作者: codecrafters-io /
 
-### Repository 18:
-- Title: /binpash/try
-- Description: "Do, or do not. There is no try." We're setting out to change that: `try cmd` and commit---or not.
+### 排名 18:
+- 标题: /binpash/try
+- 描述: "Do, or do not. There is no try." We're setting out to change that: `try cmd` and commit---or not.
 - URL: https://github.com/binpash/try
-- Author: binpash /
+- 作者: binpash /
 
-### Repository 19:
-- Title: /sb-ocr/diy-spacemouse
-- Description: A DIY navigation device for Fusion360
+### 排名 19:
+- 标题: /sb-ocr/diy-spacemouse
+- 描述: A DIY navigation device for Fusion360
 - URL: https://github.com/sb-ocr/diy-spacemouse
-- Author: sb-ocr /
+- 作者: sb-ocr /
 
-### Repository 20:
-- Title: /embedchain/embedchain
-- Description: Framework to easily create LLM powered bots over any dataset.
+### 排名 20:
+- 标题: /embedchain/embedchain
+- 描述: Framework to easily create LLM powered bots over any dataset.
 - URL: https://github.com/embedchain/embedchain
-- Author: embedchain /
+- 作者: embedchain /
 
-### Repository 21:
-- Title: /XingangPan/DragGAN
-- Description: Official Code for DragGAN (SIGGRAPH 2023)
+### 排名 21:
+- 标题: /XingangPan/DragGAN
+- 描述: Official Code for DragGAN (SIGGRAPH 2023)
 - URL: https://github.com/XingangPan/DragGAN
-- Author: XingangPan /
+- 作者: XingangPan /
 
-### Repository 22:
-- Title: /SizheAn/PanoHead
-- Description: Code Repository for CVPR 2023 Paper "PanoHead: Geometry-Aware 3D Full-Head Synthesis in 360 degree"
+### 排名 22:
+- 标题: /SizheAn/PanoHead
+- 描述: Code Repository for CVPR 2023 Paper "PanoHead: Geometry-Aware 3D Full-Head Synthesis in 360 degree"
 - URL: https://github.com/SizheAn/PanoHead
-- Author: SizheAn /
+- 作者: SizheAn /
 
-### Repository 23:
-- Title: /microsoft/AI-For-Beginners
-- Description: 12 Weeks, 24 Lessons, AI for All!
+### 排名 23:
+- 标题: /microsoft/AI-For-Beginners
+- 描述: 12 Weeks, 24 Lessons, AI for All!
 - URL: https://github.com/microsoft/AI-For-Beginners
-- Author: microsoft /
+- 作者: microsoft /
 
-### Repository 24:
-- Title: /adrianhajdin/project_nextjs13_flexibble
-- Description: 
+### 排名 24:
+- 标题: /adrianhajdin/project_nextjs13_flexibble
+- 描述: 
 - URL: https://github.com/adrianhajdin/project_nextjs13_flexibble
-- Author: adrianhajdin /
+- 作者: adrianhajdin /
 
-### Repository 25:
-- Title: /lensterxyz/lenster
-- Description: Lenster is a decentralized and permissionless social media app built with Lens Protocol 🌿
+### 排名 25:
+- 标题: /lensterxyz/lenster
+- 描述: Lenster is a decentralized and permissionless social media app built with Lens Protocol 🌿
 - URL: https://github.com/lensterxyz/lenster
-- Author: lensterxyz /
+- 作者: lensterxyz /
 
