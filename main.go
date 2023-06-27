@@ -34,14 +34,14 @@ func main() {
 	md_name := "github_trending_" + today + ".md"
 
 	//判断文件具体目录是否存在
-	_, err = os.Stat("content/posts/github" + md_name)
+	_, err = os.Stat("content/posts/github/" + md_name)
 	if err == nil {
 		//文件存在
 		os.Remove(md_name)
 	}
 
 	// 创建 Markdown 文件
-	file, err := os.Create("content/posts/github" + md_name)
+	file, err := os.Create("content/posts/github/" + md_name)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -69,11 +69,11 @@ func main() {
 		fmt.Printf("Author: %s\n\n", author)
 
 		// 将信息以 Markdown 格式写入文件
-		content := fmt.Sprintf("### Repository %d:\n", i+1)
-		content += fmt.Sprintf("- Title: %s\n", title)
-		content += fmt.Sprintf("- Description: %s\n", desc)
+		content := fmt.Sprintf("### 排名 %d:\n", i+1)
+		content += fmt.Sprintf("- 标题: %s\n", title)
+		content += fmt.Sprintf("- 描述: %s\n", desc)
 		content += fmt.Sprintf("- URL: https://github.com%s\n", url)
-		content += fmt.Sprintf("- Author: %s\n\n", author)
+		content += fmt.Sprintf("- 作者: %s\n\n", author)
 
 		_, err = file.WriteString(content)
 		if err != nil {
