@@ -56,7 +56,7 @@ func main() {
 	// 查找所有的 trending repository
 	doc.Find(".Box .Box-row").Each(func(i int, s *goquery.Selection) {
 		// 提取标题和作者,title 去除span标签
-		title := strings.TrimSpace(s.Find("h1.h3 a").Contents().Not("span").Text())
+		title := strings.TrimSpace(s.Find("h1.h3 a").Not("span").Text())
 		author := strings.TrimSpace(s.Find("span.text-normal").First().Text())
 		url := strings.TrimSpace(s.Find("h2.h3 a").AttrOr("href", ""))
 		desc := strings.TrimSpace(s.Find("p.col-9").Text())
