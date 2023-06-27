@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"os/exec"
 	"strings"
 	"time"
 
@@ -49,7 +48,7 @@ func main() {
 	defer file.Close()
 
 	// 写入 Markdown 文件头部
-	_, err = file.WriteString("---\ntitle: " + today + " GitHub 热门榜单\ndate: " + today + "\ndraft: true\nauthor: 'jobcher'\ntags: ['github']\ncategories: ['github']\nseries: ['github']\n---\n\n")
+	_, err = file.WriteString("---\ntitle: " + today + " GitHub 热门榜单\ndate: " + today + "\ndraft: true\nauthor: 'jobcher'\nfeaturedImage: '/images/github.png'\nfeaturedImagePreview: '/images/github.png'\ntags: ['github']\ncategories: ['github']\nseries: ['github']\n---\n\n")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -82,12 +81,5 @@ func main() {
 		}
 
 	})
-	fmt.Println("Done.")
-
-	//使用go 提交本地代码
-	cmd := exec.Command("git add . && git commit -m 'update' && git push origin master")
-	cmd.Output()
-	cmd.Run()
-	fmt.Println("提交成功")
-
+	fmt.Println("成功生成文件")
 }
