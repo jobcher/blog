@@ -56,10 +56,13 @@ func main() {
 	// 查找所有的 trending repository
 	doc.Find(".Box .Box-row").Each(func(i int, s *goquery.Selection) {
 		// 提取标题和作者
-		title := strings.TrimSpace(s.Find("h2.h3 a").AttrOr("href", ""))
+		title := strings.TrimSpace(s.Find("h2.h3 a").Text())
 		author := strings.TrimSpace(s.Find("span.text-normal").First().Text())
 		url := strings.TrimSpace(s.Find("h2.h3 a").AttrOr("href", ""))
 		desc := strings.TrimSpace(s.Find("p.col-9").Text())
+
+		// 去除斜杠
+		author = strings.Replace(author, "/", "", -1)
 
 		// 输出标题和作者
 		fmt.Printf("Repository %d:\n", i+1)
@@ -70,7 +73,7 @@ func main() {
 
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf("### 排名 %d:", i+1)
-		content += fmt.Sprintf("标题: %s\n", title)
+		content += fmt.Sprintf("%s\n", title)
 		content += fmt.Sprintf("- 描述: %s\n", desc)
 		content += fmt.Sprintf("- URL: https://github.com%s\n", url)
 		content += fmt.Sprintf("- 作者: %s\n\n", author)
