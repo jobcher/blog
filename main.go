@@ -18,7 +18,7 @@ func translate(desc string) string {
 	// 谷歌翻译API网址
 	url := "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-CN&dt=t&q=" + url.QueryEscape(desc)
 
-	fmt.Println(url)
+	fmt.Println("url:" + url)
 
 	// 发起GET请求
 	resp, err := http.Get(url)
@@ -36,17 +36,15 @@ func translate(desc string) string {
 	}
 
 	// 解析JSON响应体
-	var result map[string]interface{}
+	var result []map[string]interface{}
 	if err := json.Unmarshal(body, &result); err != nil {
 		fmt.Println(err)
 		return ""
 	}
 
 	// 提取翻译后的文本
-	translations := result["sentences"].([]interface{})
-	fmt.Print(translations)
-	translation := translations[0].(map[string]interface{})["trans"].(string)
-	fmt.Print(translation)
+	translation := result[0]["trans"].(string)
+	fmt.Print("translation:" + translation)
 	return translation
 }
 
@@ -102,7 +100,7 @@ func main() {
 
 		// 去除斜杠
 		author = strings.Replace(author, "/", "", -1)
-		fmt.Println(desc)
+		fmt.Println("pre_desc:" + desc)
 		desc = translate(desc)
 
 		// 输出标题和作者
