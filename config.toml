@@ -385,9 +385,9 @@ theme = "LoveIt"
         clientSecret = ""
       # Valine 评论系统设置
       [params.page.comment.valine]
-        enable = false
-        appId = ""
-        appKey = ""
+        enable = true
+        appId = "iXQwHqReT14uFjkp67LiYshu-MdYXbMMI"
+        appKey = "qi3v6v5dUwXzqRfWv64VjdMJ"
         placeholder = ""
         avatar = "mp"
         meta= ""
@@ -423,7 +423,7 @@ theme = "LoveIt"
         outlined = false
       # LoveIt 新增 | 0.2.0 Commento 评论系统设置
       [params.page.comment.commento]
-        enable = true
+        enable = false
       # LoveIt 新增 | 0.2.5 Utterances 评论系统设置
       [params.page.comment.utterances]
         enable = false
