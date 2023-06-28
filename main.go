@@ -1,52 +1,15 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"net/url"
 	"os"
 	"strings"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
 )
-
-func translate(desc string) string {
-	// 谷歌翻译API网址
-	url := "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-CN&dt=t&q=" + url.QueryEscape(desc)
-
-	fmt.Println("url:" + url)
-
-	// 发起GET请求
-	resp, err := http.Get(url)
-	if err != nil {
-		fmt.Println(err)
-		return ""
-	}
-	defer resp.Body.Close()
-
-	// 读取响应体
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Println(err)
-		return ""
-	}
-
-	// 解析JSON响应体
-	var result []map[string]interface{}
-	if err := json.Unmarshal(body, &result); err != nil {
-		fmt.Println(err)
-		return ""
-	}
-
-	// 提取翻译后的文本
-	translation := result[0]["trans"].(string)
-	fmt.Print("translation:" + translation)
-	return translation
-}
 
 func main() {
 	// 发起 HTTP GET 请求
@@ -100,20 +63,18 @@ func main() {
 
 		// 去除斜杠
 		author = strings.Replace(author, "/", "", -1)
-		fmt.Println("pre_desc:" + desc)
-		desc = translate(desc)
 
 		// 输出标题和作者
-		fmt.Printf("### 排名 %d:", i+1)
-		fmt.Printf("%s\n", title)
-		fmt.Printf("简介: %s\n", desc)
-		// fmt.Printf("URL: https://github.com%s\n", url)
-		// fmt.Printf("作者: %s\n\n", author)
+		fmt.Printf("Repository %d:\n", i+1)
+		fmt.Printf("Title: %s\n", title)
+		fmt.Printf("Description: %s\n", desc)
+		fmt.Printf("URL: https://github.com%s\n", url)
+		fmt.Printf("Author: %s\n\n", author)
 
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf("### 排名 %d:", i+1)
 		content += fmt.Sprintf("%s\n", title)
-		content += fmt.Sprintf("- 简介: %s\n", desc)
+		content += fmt.Sprintf("- Description: %s\n", desc)
 		content += fmt.Sprintf("- URL: https://github.com%s\n", url)
 		content += fmt.Sprintf("- 作者: %s\n\n", author)
 
