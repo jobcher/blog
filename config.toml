@@ -423,10 +423,10 @@ theme = "LoveIt"
         outlined = false
       # LoveIt 新增 | 0.2.0 Commento 评论系统设置
       [params.page.comment.commento]
-        enable = false
+        enable = true
       # LoveIt 新增 | 0.2.5 Utterances 评论系统设置
       [params.page.comment.utterances]
-        enable = true
+        enable = false
         # owner/repo
         repo = "jobcher/jobcher.github.io"
         issueTerm = "pathname"
