@@ -18,6 +18,8 @@ func translate(desc string) string {
 	// 谷歌翻译API网址
 	url := "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=zh-CN&dt=t&q=" + url.QueryEscape(desc)
 
+	fmt.Println(url)
+
 	// 发起GET请求
 	resp, err := http.Get(url)
 	if err != nil {
@@ -42,8 +44,9 @@ func translate(desc string) string {
 
 	// 提取翻译后的文本
 	translations := result["sentences"].([]interface{})
+	fmt.Print(translations)
 	translation := translations[0].(map[string]interface{})["trans"].(string)
-
+	fmt.Print(translation)
 	return translation
 }
 
@@ -99,14 +102,15 @@ func main() {
 
 		// 去除斜杠
 		author = strings.Replace(author, "/", "", -1)
+		fmt.Println(desc)
 		desc = translate(desc)
 
 		// 输出标题和作者
 		fmt.Printf("### 排名 %d:", i+1)
 		fmt.Printf("%s\n", title)
 		fmt.Printf("简介: %s\n", desc)
-		fmt.Printf("URL: https://github.com%s\n", url)
-		fmt.Printf("作者: %s\n\n", author)
+		// fmt.Printf("URL: https://github.com%s\n", url)
+		// fmt.Printf("作者: %s\n\n", author)
 
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf("### 排名 %d:", i+1)
