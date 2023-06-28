@@ -100,10 +100,10 @@ series: ['github']
 - URL: https://github.com/sveltejs/svelte
 - 作者: sveltejs 
 
-### 排名 19:/Zeqiang-Lai/DragGAN
+### 排名 19:/OpenGVLab/DragGAN
 - Description: Unofficial Implementation of DragGAN - "Drag Your GAN: Interactive Point-based Manipulation on the Generative Image Manifold" （DragGAN 全功能实现，在线Demo，本地部署试用，代码、模型已全部开源，支持Windows, macOS, Linux）
-- URL: https://github.com/Zeqiang-Lai/DragGAN
-- 作者: Zeqiang-Lai 
+- URL: https://github.com/OpenGVLab/DragGAN
+- 作者: OpenGVLab 
 
 ### 排名 20:/OpenDriveLab/UniAD
 - Description: [CVPR 2023 Best Paper] Planning-oriented Autonomous Driving
