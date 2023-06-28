@@ -397,7 +397,7 @@ theme = "LoveIt"
         recordIP = true
         highlight = true
         enableQQ = false
-        serverURLs = "https://ixqwhqre.api.lncldglobal.com"
+        serverURLs = "https://comment.jobcher.com"
         # LoveIt 新增 | 0.2.6 emoji 数据文件名称, 默认是 "google.yml"
         # ("apple.yml", "google.yml", "facebook.yml", "twitter.yml")
         # 位于 "themes/LoveIt/assets/data/emoji/" 目录
