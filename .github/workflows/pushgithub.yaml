@@ -5,6 +5,12 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  # github_trend 执行完之后执行
+  workflow_run:
+    workflows: ["github_trend"]
+    branches: [ "master" ]
+    types:
+      - completed
   workflow_dispatch:
 
 # Sets to GitHub Pages
