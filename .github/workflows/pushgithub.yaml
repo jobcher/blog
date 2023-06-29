@@ -73,27 +73,27 @@ jobs:
             PUBLISH_DIR: ./public
             commit_message: ${{ github.event.head_commit.message }}
 
-      - name: IPFS Filebase deploy GitHub action
-        uses: aquiladev/ipfs-action@master
-        with:
-          path: ./public
-          service: filebase
-          pinName: 'jobcher'
-          filebaseBucket: jobcher
-          filebaseKey: ${{ secrets.FILEBASE_KEY }}
-          filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
+  #     - name: IPFS Filebase deploy GitHub action
+  #       uses: aquiladev/ipfs-action@master
+  #       with:
+  #         path: ./public
+  #         service: filebase
+  #         pinName: 'jobcher'
+  #         filebaseBucket: jobcher
+  #         filebaseKey: ${{ secrets.FILEBASE_KEY }}
+  #         filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
   
-  updatedns:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Update IPFS DNS
-        run: |
-          curl https://api.filebase.io/v1/ipfs/pins -H "Authorization: Bearer ${{ secrets.FILEBASE_ID }} " > filebase.txt
-          DNSTXT=$(cat filebase.txt | sed 's/,/\n/g' | grep "cid" | sed 's/:/\n/g' | sed -n '3p' |sed 's/"//g')
-          DNSLINK="dnslink=$DNSTXT"
-          curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONES_ID }}/dns_records/${{ secrets.CLOUDFLARE_DNS_ID }}" \
-          -H "Content-Type:application/json" \
-          -H "X-Auth-Key:${{ secrets.CLOUDFLARE_AUTH_KEY }}" \
-          -H "X-Auth-Email:${{ secrets.CLOUDFLARE_EMAIL }}" \
-          --data '{"type":"txt","name":"_dnslink.ipfs.jobcher.com","content":"'$DNSLINK'","ttl":1,"proxied":false}'
+  # updatedns:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Update IPFS DNS
+  #       run: |
+  #         curl https://api.filebase.io/v1/ipfs/pins -H "Authorization: Bearer ${{ secrets.FILEBASE_ID }} " > filebase.txt
+  #         DNSTXT=$(cat filebase.txt | sed 's/,/\n/g' | grep "cid" | sed 's/:/\n/g' | sed -n '3p' |sed 's/"//g')
+  #         DNSLINK="dnslink=$DNSTXT"
+  #         curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONES_ID }}/dns_records/${{ secrets.CLOUDFLARE_DNS_ID }}" \
+  #         -H "Content-Type:application/json" \
+  #         -H "X-Auth-Key:${{ secrets.CLOUDFLARE_AUTH_KEY }}" \
+  #         -H "X-Auth-Email:${{ secrets.CLOUDFLARE_EMAIL }}" \
+  #         --data '{"type":"txt","name":"_dnslink.ipfs.jobcher.com","content":"'$DNSLINK'","ttl":1,"proxied":false}'
