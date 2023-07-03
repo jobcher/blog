@@ -84,19 +84,14 @@ func get_github(md_name string) {
 		// 去除斜杠
 		author = strings.Replace(author, "/", "", -1)
 
-		// 输出标题和作者
-		fmt.Printf("Repository %d:\n", i+1)
-		fmt.Printf("Title: %s\n", title)
-		fmt.Printf("Description: %s\n", desc)
-		fmt.Printf("URL: https://github.com%s\n", url)
-		fmt.Printf("Author: %s\n\n", author)
-
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf("### 排名 %d:", i+1)
 		content += fmt.Sprintf("%s\n", title)
 		content += fmt.Sprintf("- Description: %s\n", desc)
 		content += fmt.Sprintf("- URL: https://github.com%s\n", url)
 		content += fmt.Sprintf("- 作者: %s\n\n", author)
+
+		fmt.Println(content)
 
 		// 写入 Markdown 文件
 		file, err := os.OpenFile("content/posts/github/"+md_name, os.O_APPEND|os.O_WRONLY, 0644)
