@@ -36,18 +36,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	//写入标题
-	_, err = file.WriteString("## " + today + " GitHub 热门榜单\n\n")
-	if err != nil {
-		log.Fatal(err)
-	}
 	// 获取github热门
 	get_github(md_name)
-
-	_, err = file.WriteString("## " + today + " v2ex 热门榜单\n\n")
-	if err != nil {
-		log.Fatal(err)
-	}
 	// 获取v2ex热门
 	get_v2ex(md_name)
 
@@ -56,6 +46,13 @@ func main() {
 
 // 传入 md_name 参数
 func get_github(md_name string) {
+	//写入标题
+	file, err := os.OpenFile("content/posts/github/"+md_name, os.O_APPEND|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	file.WriteString("## GitHub 热门榜单\n\n")
 
 	res, err := http.Get("https://www.github.com/trending")
 	if err != nil {
@@ -104,6 +101,14 @@ func get_github(md_name string) {
 }
 
 func get_v2ex(md_name string) {
+	//写入标题
+	file, err := os.OpenFile("content/posts/github/"+md_name, os.O_APPEND|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	file.WriteString("## v2ex 热门帖子\n\n")
+
 	// 发起 HTTP GET 请求
 	res, err := http.Get("https://www.v2ex.com/?tab=hot")
 	if err != nil {
