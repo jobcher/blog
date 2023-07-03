@@ -36,8 +36,18 @@ func main() {
 		log.Fatal(err)
 	}
 
+	//写入标题
+	_, err = file.WriteString("## " + today + " GitHub 热门榜单\n\n")
+	if err != nil {
+		log.Fatal(err)
+	}
 	// 获取github热门
 	get_github(md_name)
+
+	_, err = file.WriteString("## " + today + " v2ex 热门榜单\n\n")
+	if err != nil {
+		log.Fatal(err)
+	}
 	// 获取v2ex热门
 	get_v2ex(md_name)
 
@@ -96,7 +106,6 @@ func get_github(md_name string) {
 		defer file.Close()
 		file.WriteString(content)
 	})
-
 }
 
 func get_v2ex(md_name string) {
@@ -121,16 +130,12 @@ func get_v2ex(md_name string) {
 	doc.Find(".cell.item").Each(func(i int, s *goquery.Selection) {
 		// 提取标题和作者,title 去除span标签
 		title := strings.TrimSpace(s.Find("span.item_title a").Text())
-		author := strings.TrimSpace(s.Find("strong a").First().Text())
 		url := strings.TrimSpace(s.Find("span.item_title a").AttrOr("href", ""))
-		desc := strings.TrimSpace(s.Find("span.topic_info").Text())
 
 		// 将信息以 Markdown 格式写入文件
-		content := fmt.Sprintf("### 排名 %d:", i+1)
-		content += fmt.Sprintf("%s\n", title)
-		content += fmt.Sprintf("- Description: %s\n", desc)
-		content += fmt.Sprintf("- URL: https://www.v2ex.com%s\n", url)
-		content += fmt.Sprintf("- 作者: %s\n\n", author)
+		content := fmt.Sprintf("### %d:", i+1)
+		content += fmt.Sprintf("[%s]", title)
+		content += fmt.Sprintf("(https://www.v2ex.com%s)\n", url)
 
 		fmt.Println(content)
 
