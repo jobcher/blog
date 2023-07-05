@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -95,7 +96,6 @@ func get_weibo(md_name string) {
 	})
 }
 
-// 传入 md_name 参数
 func get_github(md_name string) {
 	//写入标题
 	file, err := os.OpenFile("content/posts/github/"+md_name, os.O_APPEND|os.O_WRONLY, 0644)
@@ -129,6 +129,7 @@ func get_github(md_name string) {
 		url := strings.TrimSpace(s.Find("h2.h3 a").AttrOr("href", ""))
 		desc := strings.TrimSpace(s.Find("p.col-9").Text())
 
+		translate_youdao(desc)
 		// 去除斜杠
 		author = strings.Replace(author, "/", "", -1)
 
@@ -198,4 +199,28 @@ func get_v2ex(md_name string) {
 		defer file.Close()
 		file.WriteString(content)
 	})
+}
+
+func translate_youdao(desc string) {
+	// 发送 get 请求
+	res, err := http.Get("http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i=" + desc)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+
+	if res.StatusCode != 200 {
+		log.Fatalf("请求失败，状态码：%d", res.StatusCode)
+	}
+
+	// 解析 JSON
+	var data map[string]interface{}
+	if err := json.NewDecoder(res.Body).Decode(&data); err != nil {
+		log.Fatal(err)
+	}
+
+	// 提取翻译结果
+	translate_result := data["translateResult"].([]interface{})[0].([]interface{})[0].(map[string]interface{})["tgt"].(string)
+	translate_result = strings.Replace(translate_result, " ", "", -1)
+	fmt.Println(translate_result)
 }
