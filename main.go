@@ -74,11 +74,10 @@ func get_weibo(md_name string) {
 	}
 
 	// 查找所有的 trending repository
-	doc.Find(".list_a li").Each(func(i int, s *goquery.Selection) {
-		// 提取标题和作者,title 去除span标签
-		title := strings.TrimSpace(s.Find("a").Text())
-		url := strings.TrimSpace(s.Find("a").AttrOr("href", ""))
-
+	doc.Find(".table tbody tr").Each(func(i int, s *goquery.Selection) {
+		// 提取标题和作者
+		title := strings.TrimSpace(s.Find("td.td-02 a").Text())
+		url := strings.TrimSpace(s.Find("td.td-02 a").AttrOr("href", ""))
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf("#### %d.", i+1)
 		content += fmt.Sprintf("[%s]", title)
