@@ -129,7 +129,6 @@ func get_github(md_name string) {
 		url := strings.TrimSpace(s.Find("h2.h3 a").AttrOr("href", ""))
 		desc := strings.TrimSpace(s.Find("p.col-9").Text())
 
-		translate_youdao(desc)
 		// 去除斜杠
 		author = strings.Replace(author, "/", "", -1)
 
