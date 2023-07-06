@@ -86,6 +86,7 @@ func get_weibo(md_name string) {
 
 		title = strings.Replace(title, "", "", -1)
 		url = strings.Replace(url, "", "", -1)
+		url = strings.Replace(url, " ", "", -1)
 
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf("#### 排名 %d.", i+1)
@@ -190,6 +191,9 @@ func get_v2ex(md_name string) {
 		// 提取标题和作者,title 去除span标签
 		title := strings.TrimSpace(s.Find("span.item_title a").Text())
 		url := strings.TrimSpace(s.Find("span.item_title a").AttrOr("href", ""))
+
+		title = strings.Replace(title, " ", "", -1)
+		url = strings.Replace(url, " ", "", -1)
 
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf("#### %d.", i+1)
