@@ -292,7 +292,9 @@ func downloadBingWallpaper() {
 
 func iciba(md_name string) {
 	// 发起 HTTP GET 请求
-	res, err := http.Get("http://news.iciba.com/views/dailysentence/daily.html#!/detail/title/" + time.Now().Format("2006-01-02"))
+	url := "http://news.iciba.com/views/dailysentence/daily.html#!/detail/title/" + time.Now().Format("2006-01-02")
+	fmt.Println(url)
+	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -312,6 +314,9 @@ func iciba(md_name string) {
 	doc.Find(".detail-box").Each(func(i int, s *goquery.Selection) {
 		detail_en := strings.TrimSpace(s.Find(".detail-content-en").Text())
 		detail_zh := strings.TrimSpace(s.Find(".detail-content-zh").Text())
+
+		fmt.Println(detail_en)
+		fmt.Println(detail_zh)
 
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf(">%s\n", detail_en)
