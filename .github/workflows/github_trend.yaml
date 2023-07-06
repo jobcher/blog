@@ -11,8 +11,8 @@ jobs:
   github_trend:
     runs-on: ubuntu-latest
     env:
-      BAIDU_TRANSLATE_API_KEY=${{ BAIDU_TRANSLATE_API_KEY }}
-      BAIDU_TRANSLATE_API_ID=${{ BAIDU_TRANSLATE_API_ID }}
+      BAIDU_TRANSLATE_API_KEY: ${{ BAIDU_TRANSLATE_API_KEY }}
+      BAIDU_TRANSLATE_API_ID: ${{ BAIDU_TRANSLATE_API_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
