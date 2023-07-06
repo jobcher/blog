@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -220,6 +221,12 @@ func get_v2ex(md_name string) {
 	})
 }
 
+type BingResponse struct {
+	Images []struct {
+		URL string `json:"url"`
+	} `json:"images"`
+}
+
 func downloadBingWallpaper() {
 	// 获取当前日期
 	currentTime := time.Now()
@@ -231,13 +238,37 @@ func downloadBingWallpaper() {
 	// 构建保存文件路径
 	savePath := filepath.Join(saveDirectory, dateString+".jpg")
 
-	// 发起 HTTP 请求获取 Bing 每日壁纸
+	// 发起 HTTP 请求获取 Bing 每日壁纸信息
 	response, err := http.Get("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US")
 	if err != nil {
 		fmt.Println("无法获取壁纸信息:", err)
 		return
 	}
 	defer response.Body.Close()
+
+	// 解析 JSON 数据
+	var bingResponse BingResponse
+	err = json.NewDecoder(response.Body).Decode(&bingResponse)
+	if err != nil {
+		fmt.Println("解析壁纸信息失败:", err)
+		return
+	}
+
+	if len(bingResponse.Images) == 0 {
+		fmt.Println("未找到壁纸信息")
+		return
+	}
+
+	// 获取壁纸 URL
+	imageURL := "https://www.bing.com" + bingResponse.Images[0].URL
+
+	// 发起 HTTP 请求下载壁纸
+	imageResponse, err := http.Get(imageURL)
+	if err != nil {
+		fmt.Println("无法下载壁纸:", err)
+		return
+	}
+	defer imageResponse.Body.Close()
 
 	// 创建保存文件
 	file, err := os.Create(savePath)
@@ -248,7 +279,7 @@ func downloadBingWallpaper() {
 	defer file.Close()
 
 	// 将壁纸内容保存到文件
-	_, err = io.Copy(file, response.Body)
+	_, err = io.Copy(file, imageResponse.Body)
 	if err != nil {
 		fmt.Println("保存壁纸失败:", err)
 		return
