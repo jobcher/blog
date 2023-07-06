@@ -32,7 +32,7 @@ func main() {
 	}
 	defer file.Close()
 
-	download_image_bing_wallpaper()
+	downloadBingWallpaper()
 
 	// 写入 Markdown 文件头部
 	_, err = file.WriteString("---\ntitle: " + today + " 打工人日报\ndate: " + today + "\ndraft: true\nauthor: 'jobcher'\nfeaturedImage: '/images/wallpaper/" + today + ".jpg'\nfeaturedImagePreview: '/images/wallpaper/" + today + ".jpg'\ntags: ['github']\ncategories: ['github']\nseries: ['github']\n---\n\n")
@@ -244,65 +244,33 @@ func translate_youdao(desc string) {
 	fmt.Println(translate_result)
 }
 
-func download_image_bing_wallpaper() {
-	date := time.Now().Format("2006-01-02")
-	//构建url
-	url := "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1"
-	fmt.Println(url)
+func downloadBingWallpaper() {
+	// 获取当前日期,用作图片名称
+	now := time.Now()
+	filename := now.Format("2006-01-02") + ".jpg"
 
-	// 发送 get 请求
-	res, err := http.Get(url)
+	// Bing壁纸API URL
+	url := "http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US"
+
+	// 获取响应
+	resp, err := http.Get(url)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
-	defer res.Body.Close()
+	defer resp.Body.Close()
 
-	if res.StatusCode != 200 {
-		log.Fatalf("请求失败，状态码：%d", res.StatusCode)
-	}
-
-	// 解析 JSON
-	var result struct {
-		Images []struct {
-			URL string `json:"url"`
-		} `json:"images"`
-	}
-
-	err = json.NewDecoder(res.Body).Decode(&result)
+	// 创建文件
+	file, err := os.Create("./static/images/wallpaper/" + filename)
 	if err != nil {
-		log.Fatal(err)
-	}
-
-	if len(result.Images) == 0 {
-		log.Fatal("获取图片失败")
-	}
-
-	// 下载图片
-	image_url := "https://cn.bing.com" + result.Images[0].URL
-
-	//保存图片
-	res, err = http.Get(image_url)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer res.Body.Close()
-
-	if res.StatusCode != 200 {
-		log.Fatalf("请求失败，状态码：%d", res.StatusCode)
-	}
-
-	//创建文件
-	file, err := os.Create("static/images/wallpaper" + date + ".jpg")
-	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	defer file.Close()
 
-	//写入文件
-	_, err = io.Copy(file, res.Body)
+	// 把响应内容写入文件
+	_, err = io.Copy(file, resp.Body)
 	if err != nil {
-		fmt.Printf("无法写入壁纸内容：%s\n", err)
-		return
+		panic(err)
 	}
-	fmt.Println("壁纸下载成功")
+
+	fmt.Println("下载完成:", filename)
 }
