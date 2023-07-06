@@ -89,7 +89,7 @@ func get_weibo(md_name string) {
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf("#### 排名 %d.", i+1)
 		content += fmt.Sprintf("[%s]", title)
-		content += fmt.Sprintf("(https://tophub.today/%s)\n", url)
+		content += fmt.Sprintf("(https://tophub.today%s)\n", url)
 
 		fmt.Println(content)
 
