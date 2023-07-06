@@ -1,11 +1,12 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 	"time"
 
@@ -40,11 +41,11 @@ func main() {
 	}
 
 	// // 获取微博热搜
-	get_weibo(md_name)
-	// 获取github热门
-	get_github(md_name)
-	// 获取v2ex热门
-	get_v2ex(md_name)
+	// get_weibo(md_name)
+	// // 获取github热门
+	// get_github(md_name)
+	// // 获取v2ex热门
+	// get_v2ex(md_name)
 
 	fmt.Println("成功生成文件")
 }
@@ -220,56 +221,39 @@ func get_v2ex(md_name string) {
 }
 
 func downloadBingWallpaper() {
-	// 获取当前日期,用作图片名称
-	now := time.Now()
-	filename := now.Format("2006-01-02") + ".jpg"
-	fmt.Print(filename)
+	// 获取当前日期
+	currentTime := time.Now()
+	dateString := currentTime.Format("2006-01-02")
 
-	// Bing壁纸API URL
-	url := "http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN"
+	// 指定保存目录
+	saveDirectory := "/path/to/save/directory/"
 
-	// 发起 HTTP GET 请求
-	res, err := http.Get(url)
+	// 构建保存文件路径
+	savePath := filepath.Join(saveDirectory, dateString+".jpg")
+
+	// 发起 HTTP 请求获取 Bing 每日壁纸
+	response, err := http.Get("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US")
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("无法获取壁纸信息:", err)
+		return
 	}
-	defer res.Body.Close()
+	defer response.Body.Close()
 
-	if res.StatusCode != 200 {
-		log.Fatalf("请求失败，状态码：%d", res.StatusCode)
-	}
-
-	// 解析 JSON
-	var result struct {
-		Images []struct {
-			URL string `json:"url"`
-		} `json:"images"`
-	}
-	if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
-		log.Fatal(err)
-	}
-
-	// 获取图片 URL
-	imgURL := "http://www.bing.com" + result.Images[0].URL
-	fmt.Println(imgURL)
-
-	// 构建保存壁纸的文件路径
-	filePath := "static/images/wallpaper" + filename
-
-	// 发起 HTTP GET 请求
-	res, err = http.Get(imgURL)
+	// 创建保存文件
+	file, err := os.Create(savePath)
 	if err != nil {
-		log.Fatal(err)
-	}
-	defer res.Body.Close()
-
-	// 创建文件
-	file, err := os.Create(filePath)
-	if err != nil {
-		log.Fatal(err)
+		fmt.Println("无法创建文件:", err)
+		return
 	}
 	defer file.Close()
 
-	fmt.Println("已保存壁纸"+filename, "到", filePath)
+	// 将壁纸内容保存到文件
+	_, err = io.Copy(file, response.Body)
+	if err != nil {
+		fmt.Println("保存壁纸失败:", err)
+		return
+	}
+
+	fmt.Println("壁纸已成功保存到:", savePath)
 
 }
