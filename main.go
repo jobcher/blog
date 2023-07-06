@@ -186,8 +186,13 @@ func get_v2ex(md_name string) {
 		log.Fatal(err)
 	}
 
+	count := 0
 	// 查找所有的 trending repository
 	doc.Find(".cell.item").Each(func(i int, s *goquery.Selection) {
+		count++
+		if count > 20 {
+			return
+		}
 		// 提取标题和作者,title 去除span标签
 		title := strings.TrimSpace(s.Find("span.item_title a").Text())
 		url := strings.TrimSpace(s.Find("span.item_title a").AttrOr("href", ""))
