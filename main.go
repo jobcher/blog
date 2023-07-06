@@ -226,7 +226,7 @@ func downloadBingWallpaper() {
 	dateString := currentTime.Format("2006-01-02")
 
 	// 指定保存目录
-	saveDirectory := "/path/to/save/directory/"
+	saveDirectory := "static/images/wallpaper/"
 
 	// 构建保存文件路径
 	savePath := filepath.Join(saveDirectory, dateString+".jpg")
