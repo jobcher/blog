@@ -77,7 +77,7 @@ func get_weibo(md_name string) {
 	// 查找所有的热搜
 	doc.Find(".table tbody tr").Each(func(i int, s *goquery.Selection) {
 		count++
-		if count > 10 {
+		if count > 20 {
 			return
 		}
 		// 提取标题和url
