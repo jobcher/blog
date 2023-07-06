@@ -38,7 +38,7 @@ func main() {
 	}
 
 	// // 获取微博热搜
-	// get_weibo(md_name)
+	get_weibo(md_name)
 	// 获取github热门
 	get_github(md_name)
 	// 获取v2ex热门
@@ -57,7 +57,7 @@ func get_weibo(md_name string) {
 	file.WriteString("## 微博热搜榜\n\n")
 
 	// 发起 HTTP GET 请求
-	res, err := http.Get("https://s.weibo.com/top/summary?cate=realtimehot")
+	res, err := http.Get("https://tophub.today/n/KqndgxeLl9")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -73,15 +73,23 @@ func get_weibo(md_name string) {
 		log.Fatal(err)
 	}
 
-	// 查找所有的 trending repository
+	count := 0
+	// 查找所有的热搜
 	doc.Find(".table tbody tr").Each(func(i int, s *goquery.Selection) {
-		// 提取标题和作者
-		title := strings.TrimSpace(s.Find("td.td-02 a").Text())
-		url := strings.TrimSpace(s.Find("td.td-02 a").AttrOr("href", ""))
+		count++
+		if count > 10 {
+			return
+		}
+		// 提取标题和url
+		title := strings.TrimSpace(s.Find("td a").Text())
+		url := strings.TrimSpace(s.Find("td a").AttrOr("href", ""))
+
+		title = strings.Replace(title, "", "", -1)
+
 		// 将信息以 Markdown 格式写入文件
-		content := fmt.Sprintf("#### %d.", i+1)
+		content := fmt.Sprintf("#### 排名 %d.", i+1)
 		content += fmt.Sprintf("[%s]", title)
-		content += fmt.Sprintf("(https://s.weibo.com%s)\n", url)
+		content += fmt.Sprintf("(https://tophub.today/%s)\n", url)
 
 		fmt.Println(content)
 
