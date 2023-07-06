@@ -40,7 +40,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	// 每日英语
+	iciba(md_name)
 	// 获取微博热搜
 	get_weibo(md_name)
 	// 获取github热门
@@ -287,4 +288,43 @@ func downloadBingWallpaper() {
 
 	fmt.Println("壁纸已成功保存到:", savePath)
 
+}
+
+func iciba(md_name string) {
+	// 发起 HTTP GET 请求
+	res, err := http.Get("http://news.iciba.com/views/dailysentence/daily.html#!/detail/title/" + time.Now().Format("2006-01-02"))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+
+	if res.StatusCode != 200 {
+		log.Fatalf("请求失败，状态码：%d", res.StatusCode)
+	}
+
+	// 使用 goquery 解析 HTML
+	doc, err := goquery.NewDocumentFromReader(res.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// 获取detail-content-en
+	doc.Find(".detail-box").Each(func(i int, s *goquery.Selection) {
+		detail_en := strings.TrimSpace(s.Find(".detail-content-en").Text())
+		detail_zh := strings.TrimSpace(s.Find(".detail-content-zh").Text())
+
+		// 将信息以 Markdown 格式写入文件
+		content := fmt.Sprintf(">%s\n", detail_en)
+		content += fmt.Sprintf(">%s\n\n", detail_zh)
+
+		fmt.Println(content)
+
+		// 写入 Markdown 文件
+		file, err := os.OpenFile("content/posts/github/"+md_name, os.O_APPEND|os.O_WRONLY, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer file.Close()
+		file.WriteString(content)
+	})
 }
