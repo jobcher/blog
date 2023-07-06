@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io"
 	"log"
 	"net/http"
 	"os"
@@ -220,9 +219,17 @@ func get_v2ex(md_name string) {
 	})
 }
 
-func translate_youdao(desc string) {
-	// 发送 get 请求
-	res, err := http.Get("http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i=" + desc)
+func downloadBingWallpaper() {
+	// 获取当前日期,用作图片名称
+	now := time.Now()
+	filename := now.Format("2006-01-02") + ".jpg"
+	fmt.Print(filename)
+
+	// Bing壁纸API URL
+	url := "http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN"
+
+	// 发起 HTTP GET 请求
+	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -233,44 +240,36 @@ func translate_youdao(desc string) {
 	}
 
 	// 解析 JSON
-	var data map[string]interface{}
-	if err := json.NewDecoder(res.Body).Decode(&data); err != nil {
+	var result struct {
+		Images []struct {
+			URL string `json:"url"`
+		} `json:"images"`
+	}
+	if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
 		log.Fatal(err)
 	}
 
-	// 提取翻译结果
-	translate_result := data["translateResult"].([]interface{})[0].([]interface{})[0].(map[string]interface{})["tgt"].(string)
-	translate_result = strings.Replace(translate_result, " ", "", -1)
-	fmt.Println(translate_result)
-}
+	// 获取图片 URL
+	imgURL := "http://www.bing.com" + result.Images[0].URL
+	fmt.Println(imgURL)
 
-func downloadBingWallpaper() {
-	// 获取当前日期,用作图片名称
-	now := time.Now()
-	filename := now.Format("2006-01-02") + ".jpg"
+	// 构建保存壁纸的文件路径
+	filePath := "static/images/wallpaper" + filename
 
-	// Bing壁纸API URL
-	url := "http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US"
-
-	// 获取响应
-	resp, err := http.Get(url)
+	// 发起 HTTP GET 请求
+	res, err = http.Get(imgURL)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
-	defer resp.Body.Close()
+	defer res.Body.Close()
 
 	// 创建文件
-	file, err := os.Create("./static/images/wallpaper/" + filename)
+	file, err := os.Create(filePath)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	defer file.Close()
 
-	// 把响应内容写入文件
-	_, err = io.Copy(file, resp.Body)
-	if err != nil {
-		panic(err)
-	}
+	fmt.Println("已保存壁纸"+filename, "到", filePath)
 
-	fmt.Println("下载完成:", filename)
 }
