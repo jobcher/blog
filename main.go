@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -31,8 +32,10 @@ func main() {
 	}
 	defer file.Close()
 
+	download_image_bing_wallpaper()
+
 	// 写入 Markdown 文件头部
-	_, err = file.WriteString("---\ntitle: " + today + " 打工人日报\ndate: " + today + "\ndraft: true\nauthor: 'jobcher'\nfeaturedImage: '/images/github.png'\nfeaturedImagePreview: '/images/github.png'\ntags: ['github']\ncategories: ['github']\nseries: ['github']\n---\n\n")
+	_, err = file.WriteString("---\ntitle: " + today + " 打工人日报\ndate: " + today + "\ndraft: true\nauthor: 'jobcher'\nfeaturedImage: '/images/wallpaper/" + today + ".jpg'\nfeaturedImagePreview: '/images/wallpaper/" + today + ".jpg'\ntags: ['github']\ncategories: ['github']\nseries: ['github']\n---\n\n")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -239,4 +242,67 @@ func translate_youdao(desc string) {
 	translate_result := data["translateResult"].([]interface{})[0].([]interface{})[0].(map[string]interface{})["tgt"].(string)
 	translate_result = strings.Replace(translate_result, " ", "", -1)
 	fmt.Println(translate_result)
+}
+
+func download_image_bing_wallpaper() {
+	date := time.Now().Format("2006-01-02")
+	//构建url
+	url := "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1"
+	fmt.Println(url)
+
+	// 发送 get 请求
+	res, err := http.Get(url)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+
+	if res.StatusCode != 200 {
+		log.Fatalf("请求失败，状态码：%d", res.StatusCode)
+	}
+
+	// 解析 JSON
+	var result struct {
+		Images []struct {
+			URL string `json:"url"`
+		} `json:"images"`
+	}
+
+	err = json.NewDecoder(res.Body).Decode(&result)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if len(result.Images) == 0 {
+		log.Fatal("获取图片失败")
+	}
+
+	// 下载图片
+	image_url := "https://cn.bing.com" + result.Images[0].URL
+
+	//保存图片
+	res, err = http.Get(image_url)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+
+	if res.StatusCode != 200 {
+		log.Fatalf("请求失败，状态码：%d", res.StatusCode)
+	}
+
+	//创建文件
+	file, err := os.Create("static/images/wallpaper" + date + ".jpg")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+
+	//写入文件
+	_, err = io.Copy(file, res.Body)
+	if err != nil {
+		fmt.Printf("无法写入壁纸内容：%s\n", err)
+		return
+	}
+	fmt.Println("壁纸下载成功")
 }
