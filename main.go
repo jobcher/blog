@@ -82,14 +82,15 @@ func get_weibo(md_name string) {
 		}
 		// 提取标题和url
 		title := strings.TrimSpace(s.Find("td a").Text())
-		url := strings.TrimSpace(s.Find("td a").AttrOr("href", ""))
+		url := strings.TrimSpace(s.Find("td a").Text())
 
 		title = strings.Replace(title, "", "", -1)
+		url = strings.Replace(url, "", "", -1)
 
 		// 将信息以 Markdown 格式写入文件
 		content := fmt.Sprintf("#### 排名 %d.", i+1)
 		content += fmt.Sprintf("[%s]", title)
-		content += fmt.Sprintf("(https://tophub.today%s)\n", url)
+		content += fmt.Sprintf("(https://s.weibo.com/weibo?q=%s)\n", url)
 
 		fmt.Println(content)
 
