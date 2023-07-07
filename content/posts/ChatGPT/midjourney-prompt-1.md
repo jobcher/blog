@@ -25,17 +25,17 @@ midjourney的使用非常简单，你只需要在[这里](https://midjourney.com
 ```sh
 digital wallpaper, abstract art, in the style of smooth curves, purple and pink and blue, 32k uhd, subtle gradients, vibrant, exaggerated scenes, dariusz klimczak, new topographics, redshift, deep curving, hyper-detailed
 ```
-![midjourney](/images/ChatGPT-Plus/homeelegance_digital_wallpaper_abstract_art_in_the_style_of_smo_ee2a6f7b-a402-4d72-b00b-5c2ab8879a54.png)
+![midjourney](/images/ChatGPT-Plus/homeelegance_digital_wallpaper_abstract_art_in_the_style_of_smo_ee2a6f7b-a402-4d72-b00b-5c2ab8879a54.png)  
 2. 白色背景线条灰色卡通贴纸，一名宇航员坐在漂浮在太空中的沙发上看电视。背景中有星星和月亮。
 ```sh
 white background linework greyscale cartoon sticker of an astronaut watching Television while sitting on a couch that is floating in space. Stars and moon in the background.
 ```
 ![midjourney](/images/ChatGPT-Plus/homeelegance_white_background_linework_greyscale_cartoon_sticke_0dc66fc8-8ac8-414d-8538-c3a7c63d38bb.png)
-3. 以毕加索为灵感的油画和山水照片的双重曝光
+3. 以毕加索为灵感的油画和山水照片的双重曝光  
 ```sh
 Double exposure of a painting inspired by Picasso and a mountain landscape photo
 ```
-![midjourney](/images/ChatGPT-Plus/homeelegance_Double_exposure_of_a_painting_inspired_by_Picasso__c853e35e-88bd-4b33-a698-c4d6a8b0108c.png)
+![midjourney](/images/ChatGPT-Plus/homeelegance_Double_exposure_of_a_painting_inspired_by_Picasso__c853e35e-88bd-4b33-a698-c4d6a8b0108c.png)  
 4. 皮卡丘摩托车手，头盔细节，微距镜头，高细节，照片逼真，电影般的灯光
 ```sh
 Pikachu biker with crash helmet detail, macro lens, high details, photorealistic, cinematic lights
