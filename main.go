@@ -137,8 +137,13 @@ func get_github(md_name string) {
 		log.Fatal(err)
 	}
 
+	count := 0
 	// 查找所有的 trending repository
 	doc.Find(".Box .Box-row").Each(func(i int, s *goquery.Selection) {
+		count++
+		if count > 10 {
+			return
+		}
 		// 提取标题和作者,title 去除span标签
 		title := strings.TrimSpace(s.Find("h2.h3 a").AttrOr("href", ""))
 		author := strings.TrimSpace(s.Find("span.text-normal").First().Text())
