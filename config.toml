@@ -82,7 +82,7 @@ theme = "LoveIt"
   # LoveIt 新增 | 0.2.0 日期格式
   dateFormat = "2006-01-02"
   # 网站图片, 用于 Open Graph 和 Twitter Cards
-  images = ["/bear2.png"]
+  #images = [""]
 
   # LoveIt 新增 | 0.2.0 应用图标配置
   [params.app]
