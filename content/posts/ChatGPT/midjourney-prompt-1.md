@@ -4,7 +4,7 @@ date: 2023-07-07
 draft: true
 featuredImage: "/images/ChatGPT-Plus/homeelegance_white_background_linework_greyscale_cartoon_sticke_0dc66fc8-8ac8-414d-8538-c3a7c63d38bb.png"
 featuredImagePreview: "/images/ChatGPT-Plus/homeelegance_white_background_linework_greyscale_cartoon_sticke_0dc66fc8-8ac8-414d-8538-c3a7c63d38bb.png"
-images: ["/images/ChatGPT-Plus/homeelegance_white_background_linework_greyscale_cartoon_sticke_0dc66fc8-8ac8-414d-8538-c3a7c63d38bb.png","/images/ChatGPT-Plus/homeelegance_white_background_linework_greyscale_cartoon_sticke_0dc66fc8-8ac8-414d-8538-c3a7c63d38bb.png"]
+images: ["/images/ChatGPT-Plus/homeelegance_white_background_linework_greyscale_cartoon_sticke_0dc66fc8-8ac8-414d-8538-c3a7c63d38bb.png"]
 author: "jobcher"
 tags: ["ChatGPT"]
 categories: ["人工智能"]
