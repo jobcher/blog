@@ -39,7 +39,7 @@ func main() {
 	downloadBingWallpaper()
 
 	// 写入 Markdown 文件头部
-	_, err = file.WriteString("---\ntitle: " + today + " 打工人日报\ndate: " + today + "\ndraft: true\nauthor: 'jobcher'\nfeaturedImage: '/images/wallpaper/" + today + ".jpg'\nfeaturedImagePreview: '/images/wallpaper/" + today + ".jpg'\ntags: ['github']\ncategories: ['github']\nseries: ['github']\n---\n\n")
+	_, err = file.WriteString("---\ntitle: " + today + " 打工人日报\ndate: " + today + "\ndraft: true\nauthor: 'jobcher'\nfeaturedImage: '/images/wallpaper/" + today + ".jpg'\nfeaturedImagePreview: '/images/wallpaper/" + today + ".jpg'\nimages: ['/images/wallpaper/" + today + ".jpg']\ntags: ['github']\ncategories: ['github']\nseries: ['github']\n---\n\n")
 	if err != nil {
 		log.Fatal(err)
 	}
