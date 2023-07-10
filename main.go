@@ -4,6 +4,9 @@ import (
 	"crypto/md5"
 	"encoding/json"
 	"fmt"
+	"image"
+	"image/jpeg"
+	"image/png"
 	"io"
 	"io/ioutil"
 	"log"
@@ -15,6 +18,7 @@ import (
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
+	"github.com/chai2010/webp"
 )
 
 func main() {
@@ -36,10 +40,13 @@ func main() {
 	}
 	defer file.Close()
 
+	// 下载壁纸
 	downloadBingWallpaper()
+	// 转换壁纸格式
+	tran_webp()
 
 	// 写入 Markdown 文件头部
-	_, err = file.WriteString("---\ntitle: " + today + " 打工人日报\ndate: " + today + "\ndraft: true\nauthor: 'jobcher'\nfeaturedImage: '/images/wallpaper/" + today + ".jpg'\nfeaturedImagePreview: '/images/wallpaper/" + today + ".jpg'\nimages: ['/images/wallpaper/" + today + ".jpg']\ntags: ['github']\ncategories: ['github']\nseries: ['github']\n---\n\n")
+	_, err = file.WriteString("---\ntitle: " + today + " 打工人日报\ndate: " + today + "\ndraft: true\nauthor: 'jobcher'\nfeaturedImage: '/images/wallpaper/" + today + ".jpg.webp'\nfeaturedImagePreview: '/images/wallpaper/" + today + ".jpg.webp'\nimages: ['/images/wallpaper/" + today + ".jpg.webp']\ntags: ['github']\ncategories: ['github']\nseries: ['github']\n---\n\n")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -249,7 +256,7 @@ func downloadBingWallpaper() {
 	dateString := currentTime.Format("2006-01-02")
 
 	// 指定保存目录
-	saveDirectory := "static/images/wallpaper/"
+	saveDirectory := "static/images/input/"
 
 	// 构建保存文件路径
 	savePath := filepath.Join(saveDirectory, dateString+".jpg")
@@ -365,4 +372,69 @@ func translateString(queryString string) (string, error) {
 	}
 
 	return "", fmt.Errorf("未找到翻译结果")
+}
+
+func tran_webp() {
+	// Specify input and output directories
+	inputDir := "static/images/input/"
+	outputDir := "static/images/wallpaper/"
+
+	// Walk input directory to process files
+	err := filepath.Walk(inputDir, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+
+		// Check for JPEG or PNG file
+		if info.IsDir() {
+			return nil
+		}
+		ext := filepath.Ext(path)
+		if ext != ".jpg" && ext != ".jpeg" && ext != ".png" {
+			return nil
+		}
+
+		// Open image file
+		file, err := os.Open(path)
+		if err != nil {
+			return err
+		}
+		defer file.Close()
+
+		// Decode image
+		var img image.Image
+		if ext == ".jpg" || ext == ".jpeg" {
+			img, err = jpeg.Decode(file)
+		} else if ext == ".png" {
+			img, err = png.Decode(file)
+		}
+		if err != nil {
+			return err
+		}
+
+		// Convert to webp
+		webpName := filepath.Join(outputDir, filepath.Base(path)+".webp")
+		f, _ := os.Create(webpName)
+		defer f.Close()
+
+		err = webp.Encode(f, img, &webp.Options{Quality: 50})
+		if err != nil {
+			return err
+		}
+
+		//关闭原文件
+		file.Close()
+
+		//清理原文件
+		err = os.Remove(path)
+		if err != nil {
+			return err
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }
