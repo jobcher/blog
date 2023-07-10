@@ -2,9 +2,9 @@
 title: "探索midjourney(二)：midjourney prompt初体验"
 date: 2023-07-09
 draft: true
-featuredImage: "/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png"
-featuredImagePreview: "/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png"
-images: ["/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png"]
+featuredImage: "/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png.webp"
+featuredImagePreview: "/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png.webp"
+images: ["/images/ChatGPT-Plus.webp/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png.webp"]
 author: "jobcher"
 tags: ["ChatGPT","midjourney"]
 categories: ["人工智能"]
@@ -113,19 +113,19 @@ apple --Weird
 ```sh
 Square cans Mango flavored gum packaging design
 ```
-![Square](/images/ChatGPT-Plus/homeelegance_Square_cans_Mango_flavored_gum_packaging_design_36ba5831-88f1-439f-b776-2aca6bc98b43.png)
+![Square](/images/ChatGPT-Plus/homeelegance_Square_cans_Mango_flavored_gum_packaging_design_36ba5831-88f1-439f-b776-2aca6bc98b43.png.webp)
 
 #### 2.一个未知的世界，在一个等轴测立方体内部，发光到灰色表面。鲜艳的色彩
 ```sh
 an unknown world, inside a isometric cube emitting Light onto a grey surface. Vibrant color
 ```
-![2](/images/ChatGPT-Plus/homeelegance_an_unknown_world_inside_a_isometric_cube_emitting__fda72beb-e92b-47e3-abc0-e9adac8c6e77.png)
+![2](/images/ChatGPT-Plus/homeelegance_an_unknown_world_inside_a_isometric_cube_emitting__fda72beb-e92b-47e3-abc0-e9adac8c6e77.png.webp)
 
 #### 3.控制器，彩色，半透明机身，由节食公羊设计，高细节，8k，工业设计，白色背景，工作室照明3D，C4D，搅拌器，OCrender，Pinterest，Dribble，高细节
 ```sh
 controller,colorful,translucent body, designed bydieter rams,high detail,8k,industrial design,whitebackground,studio lighting 3d, c4d, blender, OCrenderer, pinterest, dribbble, high detail
 ```
-![3](/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png)
+![3](/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png.webp)
 
 
 ## 感谢关注
