@@ -55,6 +55,7 @@ jobs:
           tar -zxvf loveit.tar.gz
           mv LoveIt-${LOVEIT_THEME_VERSION} LoveIt
           mv -f /home/runner/work/blog/blog/header.html ./LoveIt/layouts/partials/header.html
+          mv -f /home/runner/work/blog/blog/404.html ./LoveIt/layouts/404.html
           mv -f /home/runner/work/blog/blog/bilibili.html ./LoveIt/layouts/shortcodes/bilibili.html
           mv -f /home/runner/work/blog/blog/youtube.html ./LoveIt/layouts/shortcodes/youtube.html
           mv -f /home/runner/work/blog/blog/style.css ./LoveIt/assets/style.css
