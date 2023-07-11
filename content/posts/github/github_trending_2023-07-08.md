@@ -3,9 +3,9 @@ title: 2023-07-08 打工人日报
 date: 2023-07-08
 draft: true
 author: 'jobcher'
-featuredImage: '/images/wallpaper/2023-07-08.jpg'
-featuredImagePreview: '/images/wallpaper/2023-07-08.jpg'
-images: ['/images/wallpaper/2023-07-08.jpg']
+featuredImage: '/images/wallpaper/2023-07-08.jpg.webp'
+featuredImagePreview: '/images/wallpaper/2023-07-08.jpg.webp'
+images: ['/images/wallpaper/2023-07-08.jpg.webp']
 tags: ['github']
 categories: ['github']
 series: ['github']
