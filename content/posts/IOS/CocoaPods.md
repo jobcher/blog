@@ -51,3 +51,17 @@ source ~/.bash_profile
 ```sh
 gem cocoapods install --user-install
 ```
+### 第三方库
+在iOS开发中，有许多常用的框架和库，用于加速应用程序的开发和提供各种功能。以下是一些常用的iOS开发框架和库：  
+1. `UIKit`：UIKit是iOS开发的核心框架，它提供了构建用户界面和处理用户交互的基本组件，如视图（UIView）、控制器（UIViewController）、按钮（UIButton）、标签栏（UITabBarController）等。
+2. `SwiftUI`：SwiftUI是一种较新的声明性用户界面框架，它使您可以使用Swift代码轻松构建用户界面，并自动处理界面状态的变化。它为多平台开发（iOS、iPadOS、macOS、watchOS）提供了便捷的方式。
+3. `Core Data`：Core Data是Apple提供的数据持久化框架，用于在iOS应用程序中管理数据模型、数据存储和数据查询。
+4. `Core Animation`：Core Animation是处理iOS界面动画的底层框架，可以实现各种动画效果，包括平移、旋转、缩放和淡入淡出等。
+5. `Alamofire`：Alamofire是一个优秀的网络请求库，它简化了在iOS应用程序中进行HTTP请求的过程，支持多种请求方式和参数编码。
+6. `Kingfisher`：Kingfisher是一个流行的图像加载和缓存库，它能够异步加载网络上的图片，并且可以自动进行内存和磁盘缓存。
+7. `Firebase`：Firebase是谷歌提供的一组云服务，包括实时数据库、身份验证、云存储、推送通知等功能，用于简化iOS应用程序的后端开发。
+8. `SwiftyJSON`：SwiftyJSON是一个简单易用的JSON解析库，用于在iOS应用程序中解析和处理JSON数据。
+9. `MapKit`：MapKit是iOS提供的地图显示框架，可以在应用程序中集成地图、标记、路线等地理位置功能。
+10. `CoreDataKit`：CoreDataKit是一个便捷的Core Data封装库，简化了Core Data的使用和管理。  
+  
+这只是iOS开发中的一小部分常用框架和库，还有很多其他优秀的开源库可供选择，根据您的应用程序需求，选择适合的框架和库可以加快开发速度并提供更好的用户体验。
