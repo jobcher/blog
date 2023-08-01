@@ -105,7 +105,7 @@ theme = "LoveIt"
     # 搜索引擎的类型 ("lunr", "algolia")
     type = "algolia"
     # 文章内容最长索引长度
-    contentLength = 4000
+    contentLength = 1000
     # 搜索框的占位提示语
     placeholder = ""
     # LoveIt 新增 | 0.2.1 最大结果数目
