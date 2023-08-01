@@ -39,8 +39,8 @@ series: ["日常系列"]
 1、载写盘软件和群晖引导文件，然后二个文件复制到U盘上  
 引导文件下载链接: [https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA](https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA)  
 提取码: amf3  
->复制到U盘!
-
+>复制到U盘!  
+  
 ### 3. U盘启动黑群晖，写入文件
 > 开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。  
   
@@ -77,11 +77,12 @@ Synology Assistant: [https://cndl.synology.cn/download/Utility/Assistant/7.0.4-5
 ![搜索群晖](/images/111405jkajjnxxq5ij55tx.jpg)  
 3、打开群晖助手搜索到IP,如果要在线安装系统 就选联机  如果本地安装系统就选  安装  
 >推荐使用在线安装方式, `注意一定要指定系统文件安装`，否则会导致引导系统损坏无法进入系统。  
+  
 ![在线安装](/images/111405vxe630x4z8wjbxil.jpg)  
 4、然后右键点联机 会跳出网页，浏览器弹出群晖系统的安装界面，选择手动安装  
 ![跳出网页](/images/111530s2ccqy1yz4woy44o.jpg)  
 ![安装界面](/images/122025t7xxlsuzh9h6i9xe.jpg)  
-5、手动方式指定系统文件安装、勾选  开始格式化硬盘
+5、手动方式指定系统文件安装、勾选  开始格式化硬盘  
 ![手动安装](/images/190850bbk7n3an4znv4u14.jpg)  
 ![格式化硬盘](/images/111531kvqjwt44uvjx2rv4.jpg)  
 6、等待  
@@ -89,4 +90,4 @@ Synology Assistant: [https://cndl.synology.cn/download/Utility/Assistant/7.0.4-5
 ![重启](/images/111533srd1dy2khjdn5no4.jpg)  
 7、设置你的账号和密码，开始使用吧！
 ## 总结
-实际上安装并不复杂，只是在一些关键环节上不要出错，不过也没关系，如果有问题就重新安装就好了，既然你已经用了黑群晖了，就不要关注数据安全的问题了。其实对于我们普通人来说，数据其实没有你想象中的那么重要。
+实际上安装并不复杂，只是在一些关键环节上不要出错，不过也没关系，如果有问题就重新安装就好了，既然你已经用了黑群晖了，就不要关注数据安全的问题了。其实对于我们普通人来说，数据其实没有你想象中的那么重要。  
