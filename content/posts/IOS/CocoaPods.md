@@ -4,6 +4,7 @@ date: 2023-07-31
 draft: true
 featuredImage: "/images/cocoapods-orange-on-grey-1.jpg"
 featuredImagePreview: "/images/cocoapods-orange-on-grey-1.jpg"
+images: ['/images/cocoapods-orange-on-grey-1.jpg']
 author: "jobcher"
 tags: ["IOS 开发"]
 categories: ["IOS 开发"]

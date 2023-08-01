@@ -4,6 +4,7 @@ date: 2023-06-01
 draft: true
 featuredImage: "/images/nvidia-docker.png"
 featuredImagePreview: "/images/nvidia-docker.png"
+images: ['/images/nvidia-docker.png']
 author: "jobcher"
 tags: ["ChatGPT"]
 categories: ["人工智能"]

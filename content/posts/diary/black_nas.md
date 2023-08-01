@@ -5,6 +5,7 @@ draft: true
 author: "jobcher"
 featuredImage: "/images/lyd0wozvo39ycoc8t2ke.png"
 featuredImagePreview: "/images/lyd0wozvo39ycoc8t2ke.png"
+images: ['/images/lyd0wozvo39ycoc8t2ke.png']
 tags: ["日常生活"]
 categories: ["日常"]
 series: ["日常系列"]
