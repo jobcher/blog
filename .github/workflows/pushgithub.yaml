@@ -80,6 +80,14 @@ jobs:
             PUBLISH_DIR: ./public
             commit_message: ${{ github.event.head_commit.message }}
 
+      - name: Algolia Index Uploader
+        uses: rxrw/algolia-index-uploader@v1
+        with:
+          algolia_index_id: ${{ secrets.ALGOLIA_APP_ID }}
+          algolia_index_admin_key: ${{ secrets.ALGOLIA_API_KEY }}
+          algolia_index_name: ${{ secrets.ALGOLIA_INDEX_NAME }}
+          index_path: ./public/index.json
+
   #     - name: IPFS Filebase deploy GitHub action
   #       uses: aquiladev/ipfs-action@master
   #       with:
