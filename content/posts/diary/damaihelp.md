@@ -29,11 +29,11 @@ DaMaiHelper是一款大麦抢票辅助软件（只抢待开抢中的），软件
 6. 如果点击`开抢`后，页面未开始自动跳转，可手动杀死大麦，再次切到辅助app点击开抢
 7. 如果想终止辅助app，点击右上角悬浮窗`<点击停止>`即可  
   
-![操作演示](/images/damaiwang.gif)  
+![操作演示](/images/xkan.png)  
   
 ## 福利
 TFBOYS十年之约演唱会 2023 全机位  
-
+![tfboy](/images/tfboy.jpeg)  
 ### 百度网盘下载
 链接: [https://pan.baidu.com/s/1mry1Mib5TSAuTJWpasoG-g](https://pan.baidu.com/s/1mry1Mib5TSAuTJWpasoG-g)  
 提取码: icep  
