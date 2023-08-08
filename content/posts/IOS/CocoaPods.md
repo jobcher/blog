@@ -66,3 +66,37 @@ gem cocoapods install --user-install
 10. `CoreDataKit`：CoreDataKit是一个便捷的Core Data封装库，简化了Core Data的使用和管理。  
   
 这只是iOS开发中的一小部分常用框架和库，还有很多其他优秀的开源库可供选择，根据您的应用程序需求，选择适合的框架和库可以加快开发速度并提供更好的用户体验。
+
+## 初始化项目
+在xcode中创建项目，进入xcode根目录  
+```sh
+pod init
+```
+编写Podfile
+```yaml
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'demo' do ### app名称
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for demo
+  pod 'SWXMLHash' ### 添加的依赖
+  pod "ViewAnimator" ### 添加的依赖
+
+  target 'demoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'demoUITests' do
+    # Pods for testing
+  end
+
+end
+```
+安装依赖
+```sh
+pod install
+```
