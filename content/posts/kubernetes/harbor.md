@@ -217,3 +217,25 @@ proxy:
     - jobservice
     - clair
 ```
+
+## harbor 配置和使用
+在你需要上传的服务器上执行  
+```sh
+docker login <harbor域名>
+```
+输入用户名和密码，出现以下提示说明登录成功  
+```sh
+Login Succeeded
+```
+## 推送到harbor
+标记本地镜像, 将其归入某一仓库,这里使用`test`仓库  
+> docker tag <域名>/<仓库>/<镜像名>:<版本号>  
+  
+```sh
+docker tag 127.0.0.1/test/nginx:v1
+```
+  
+将本地镜像推送到镜像仓库(需先登录镜像仓库)
+```sh
+docker push 127.0.0.1/test/nginx:v1
+```
