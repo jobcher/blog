@@ -144,13 +144,13 @@ func get_github(md_name string) {
 		log.Fatal(err)
 	}
 
-	count := 0
+	// count := 0
 	// 查找所有的 trending repository
 	doc.Find(".Box .Box-row").Each(func(i int, s *goquery.Selection) {
-		count++
-		if count > 10 {
-			return
-		}
+		// count++
+		// if count > 10 {
+		// 	return
+		// }
 		// 提取标题和作者,title 去除span标签
 		title := strings.TrimSpace(s.Find("h2.h3 a").AttrOr("href", ""))
 		author := strings.TrimSpace(s.Find("span.text-normal").First().Text())
@@ -213,13 +213,13 @@ func get_v2ex(md_name string) {
 		log.Fatal(err)
 	}
 
-	count := 0
+	// count := 0
 	// 查找所有的 trending repository
 	doc.Find(".cell.item").Each(func(i int, s *goquery.Selection) {
-		count++
-		if count > 20 {
-			return
-		}
+		// count++
+		// if count > 20 {
+		// 	return
+		// }
 		// 提取标题和作者,title 去除span标签
 		title := strings.TrimSpace(s.Find("span.item_title a").Text())
 		url := strings.TrimSpace(s.Find("span.item_title a").AttrOr("href", ""))
