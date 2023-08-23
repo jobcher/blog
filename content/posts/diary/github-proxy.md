@@ -206,3 +206,12 @@ async function proxy(urlObj, reqInit) {
 }
 
 ```
+
+## 另外一种方法
+在你有科学上网的前提下使用代理方式来连接github
+```sh
+git config --global https.proxy http://127.0.0.1:1080
+#取消设置
+git config --global --unset https.proxy
+```
+http://127.0.0.1:1080 是你的代理服务地址
