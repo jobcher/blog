@@ -21,6 +21,9 @@
     }
 }
 
+header .logo {
+    border-radius: 10px;
+}
 
 .featured-image img {
     border-radius: 10px;
