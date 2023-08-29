@@ -1,3 +1,27 @@
 .featured-image-preview img {
     border-radius: 10px;
+    animation: shadow-color 5s ease-in-out infinite alternate;
+}
+
+@keyframes shadow-color {
+    0% {
+        box-shadow: 0 0 20px #E5DFEB;
+    }
+    25% {
+        box-shadow: 0 0 20px #EFE8D6;
+    }
+    50% {
+        box-shadow: 0 0 20px #F2D3CB;
+    }
+    75% {
+        box-shadow: 0 0 20px #9591B3;
+    }
+    100% {
+        box-shadow: 0 0 20px #C8A4B9;
+    }
+}
+
+
+.featured-image img {
+    border-radius: 10px;
 }
