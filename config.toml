@@ -1,4 +1,4 @@
-baseURL = "https://test.jobcher.com/"
+baseURL = "https://www.jobcher.com/"
 # [en, zh-cn, fr, ...] 设置默认的语言
 defaultContentLanguage = "zh-cn"
 # 网站语言, 仅在这里 CN 大写
