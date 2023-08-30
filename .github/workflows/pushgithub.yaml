@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.117.0
-      LOVEIT_THEME_VERSION: 0.2.11
+      LOVEIT_THEME_VERSION: 0.2.10
     steps:
       - name: Install Hugo CLI
         run: |
