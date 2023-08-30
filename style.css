@@ -28,3 +28,7 @@ header .logo {
 .featured-image img {
     border-radius: 10px;
 }
+
+#player {
+    border-radius: 10px;
+}
