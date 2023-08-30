@@ -55,7 +55,8 @@ RSS（receive side steering）利用网卡多队列特性，将每个核分别�
 ```sh
 ethtool -l eth0
 ```
-> Channel parameters for eth0:
+```sh
+Channel parameters for eth0:
 Pre-set maximums:
 RX:		0
 TX:		0
@@ -66,7 +67,7 @@ RX:		0
 TX:		0
 Other:		0
 Combined:	4
-  
+```
 可以看到硬件最多支持 6 个，当前使用了 4 个。将 RX 和 TX queue 数量都设为 8。
 ```sh
 ethtool -L eth0 combined 8
@@ -78,7 +79,8 @@ ethtool -L eth0 combined 8
 ```sh
 ethtool -g eth0
 ```
->Ring parameters for eth0:
+```sh
+Ring parameters for eth0:
 Pre-set maximums:
 RX:		1024
 RX Mini:	0
@@ -89,7 +91,7 @@ RX:		512
 RX Mini:	0
 RX Jumbo:	0
 TX:		512
-  
+```
 以上输出显示网卡最多支持 1024 个 RX/TX 数据包大小，但是现在只用到了 512 个。 ethtool -G 修改 queue 大小。  
 ```sh
 ethtool -G eth0 rx 1024
