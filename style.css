@@ -2,7 +2,11 @@
     border-radius: 10px;
 }
 
-.single summary {
+.home[posts] .summary {
+    margin: 10px;
+    padding-top: 1rem;
+    padding-bottom: 0.8rem;
+    color: #161209;
     border-radius: 10px;
     animation: shadow-color 5s ease-in-out infinite alternate;
 }
