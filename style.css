@@ -1,36 +1,7 @@
 .featured-image-preview img {
     border-radius: 10px;
-}
-
-.home[posts] .summary {
-    padding-top: 1rem;
-    padding-bottom: 0.8rem;
-    color: #161209;
-    border-radius: 10px;
     animation: shadow-color 5s ease-in-out infinite alternate;
 }
-
-.home[posts] .summary .single-title{
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.home[posts] .summary .post-meta {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.home[posts] .summary .content {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.home[posts] .summary .post-footer {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-
 
 @keyframes shadow-color {
     0% {
