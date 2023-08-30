@@ -2,8 +2,8 @@
 title: "3D Gaussian Splatting：3D模型渲染"
 date: 2023-08-30
 draft: true
-featuredImage: "/images/LOL.jpeg"
-featuredImagePreview: "/images/LOL.jpeg"
+featuredImage: "/images/graphdeco_logo.png"
+featuredImagePreview: "/images/graphdeco_logo.png"
 images: ["/images/LOL.jpeg"]
 author: "jobcher"
 tags: ["daliy"]
@@ -58,4 +58,5 @@ python metrics.py -m <path to trained model> # Compute error metrics on renderin
 GitHub：[链接](https://github.com/graphdeco-inria/gaussian-splatting)  
 
 ## 演示视频
-{{</* youtube kShNYOuDnlI */>}}
+{{< youtube kShNYOuDnlI >}}  
+{{< youtube mD0oBE9LJTQ >}}  
