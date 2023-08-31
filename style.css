@@ -21,6 +21,11 @@
     }
 }
 
+.single .content img {
+    border-radius: 10px;
+    width: 100%;
+}
+
 header .logo {
     border-radius: 10px;
 }
