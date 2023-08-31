@@ -4,7 +4,7 @@ date: 2023-08-30
 draft: true
 featuredImage: "/images/graphdeco_logo.png"
 featuredImagePreview: "/images/graphdeco_logo.png"
-images: ["/images/LOL.jpeg"]
+images: ["/images/graphdeco_logo.png"]
 author: "jobcher"
 tags: ["daliy"]
 categories: ["福利"]
