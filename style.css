@@ -37,3 +37,7 @@ header .logo {
 iframe {
     border-radius: 10px;
 }
+
+.v[data-class=v] .txt-right {
+    display: none;
+}
