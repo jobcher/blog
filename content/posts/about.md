@@ -3,33 +3,28 @@ title: "关于我"
 date: 2021-01-01
 draft: true
 ---
-# 关于
-![logo](/bear2.png)  
+![https://raw.githubusercontent.com/jobcher/BEPb/main/assets/Bottom_up_blog.svg](https://raw.githubusercontent.com/jobcher/BEPb/main/assets/Bottom_up_blog.svg)  
+  
+![https://raw.githubusercontent.com/jobcher/BEPb/main/profile-3d-contrib/profile-green-animate.svg](https://raw.githubusercontent.com/jobcher/BEPb/main/profile-3d-contrib/profile-green-animate.svg)  
 
-#### 后台就是花式curd工程师  
-#### 前端就是抠图工程师  
-#### 大数据就是sql工程师  
-#### 算法就是调参工程师  
-#### 中间件就是客服热线接线员  
-### 只有运维才能拯救世界！  
+![https://raw.githubusercontent.com/jobcher/jobcher/main/0.gif](https://raw.githubusercontent.com/jobcher/BEPb/output/github-contribution-grid-snake.svg)  
   
-## 兴趣爱好：
-游泳，干饭  
+感谢您对我们博客文章的关注和支持。您的支持是我们前进的动力，让我们能够不断地创作有价值、有趣的内容。在这篇文章中，我们想要向您表达我们的感激之情，并与您分享一些即将到来的精彩计划。  
+我们一直致力于为您带来最有价值的内容。不论是技术探讨、创意灵感、生活经验分享，还是深度思考的文章，我们都希望能够触及到您的内心，为您带来启发和帮助。同时，我们也非常欢迎您的反馈和建议，帮助我们不断提升，为您奉上更加精彩的阅读体验。
+
+### 在线博客 👋
+[https://www.jobcher.com](https://www.jobcher.com)  
+[https://jobcher.github.io](https://jobcher.github.io)  
   
-## 最近看的书：
-《荒野求生》  
+### 书签导航
+[https://nav.jobcher.com/](https://nav.jobcher.com/)  
+
+![trophy](https://github-profile-trophy.vercel.app/?username=jobcher)
+
+<p align="center"> 
+  访问次数<br>
+  <img src="https://profile-counter.glitch.me/jobcher/count.svg" />
+</p>  
   
-## 破窑赋
-天有不测风云，人有旦夕祸福。蜈蚣百足，行不及蛇；雄鸡两翼，飞不过鸦。马有千里之程，无骑不能自往；`人有冲天之志，非运不能自通`。  
   
-盖闻：人生在世，富贵不能淫，贫贱不能移。文章盖世，孔子厄于陈邦；武略超群，太公钓于渭水。颜渊命短，殊非凶恶之徒；盗跖年长，岂是善良之辈。尧帝明圣，却生不肖之儿；瞽叟愚顽，反生大孝之子。张良原是布衣，萧何称谓县吏。晏子身无五尺，封作齐国宰相；孔明卧居草庐，能作蜀汉军师。楚霸虽雄，败于乌江自刎；汉王虽弱，竟有万里江山。李广有射虎之威，到老无封；冯唐有乘龙之才，一生不遇。韩信未遇之时，无一日三餐，及至遇行，腰悬三尺玉印，一旦时衰，死于阴人之手。  
-  
-有先贫而后富，有老壮而少衰。满腹文章，白发竟然不中；才疏学浅，少年及第登科。深院宫娥，运退反为妓妾；风流妓女，时来配作夫人。  
-  
-青春美女，却招愚蠢之夫；俊秀郎君，反配粗丑之妇。蛟龙未遇，潜水于鱼鳖之间；君子失时，拱手于小人之下。衣服虽破，常存仪礼之容；面带忧愁，每抱怀安之量。时遭不遇，只宜安贫守份；心若不欺，必然扬眉吐气。初贫君子，天然骨骼生成；乍富小人，不脱贫寒肌体。  
-  
-天不得时，日月无光；地不得时，草木不生；水不得时，风浪不平；人不得时，利运不通。注福注禄，命里已安排定，富贵谁不欲？人若不依根基八字，岂能为卿为相？  
-  
-吾昔寓居洛阳，朝求僧餐，暮宿破窖，思衣不可遮其体，思食不可济其饥，上人憎，下人厌，人道我贱，非我不弃也。今居朝堂，官至极品，位置三公，身虽鞠躬于一人之下，而列职于千万人之上，有挞百僚之杖，有斩鄙吝之剑，思衣而有罗锦千箱，思食而有珍馐百味，出则壮士执鞭，入则佳人捧觞，上人宠，下人拥。人道我贵，非我之能也，此乃时也、运也、命也。  
-  
-嗟呼！人生在世，富贵不可尽用，贫贱不可自欺，听由天地循环，周而复始焉。  
+<img src="https://s01.flagcounter.com/count2/eSAC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_8/maxflags_60/viewers_0/labels_1/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
