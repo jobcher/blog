@@ -52,3 +52,28 @@ resize2fs /dev/sda2 #(ext4 文件系统)
 ```sh
 df -h
 ```
+
+## 逻辑卷没有正常扩容的情况
+1. 检查当前逻辑卷属于哪个卷组:
+```sh
+vgdisplay
+```
+![pve1-1.png](/images/pve1-1.png)  
+检查卷组中是有足够的空间可以扩容,还有99g  
+
+2. 扩展逻辑卷大小到200G:
+```sh
+lvextend -L +99G /dev/mapper/ubuntu--vg-ubuntu--lv
+```
+![pve1-2.png](/images/pve1-2.png)  
+
+3. 调整文件系统大小到逻辑卷大小:
+```sh
+resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+```
+![pve1-3.png](/images/pve1-3.png)  
+4. 检查
+```sh
+df -h /dev/mapper/ubuntu--vg-ubuntu--lv
+```
+成功扩容
