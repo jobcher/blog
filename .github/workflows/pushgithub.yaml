@@ -63,6 +63,7 @@ jobs:
         run: |
           hugo -t LoveIt -D
           mv -f ./ads.txt /home/runner/work/blog/blog/public/.
+          mv -f ./ChangeMirror.sh /home/runner/work/blog/blog/public/.
           curl \
           -H "Title: www.jobcher.com 更新" \
           -H "Priority: urgent" \
