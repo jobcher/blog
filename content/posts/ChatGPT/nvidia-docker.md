@@ -13,6 +13,13 @@ series: ["人工智能系列"]
 ## 背景
 在人工智能领域，GPU 是必不可少的。在本文中，我们将介绍如何在服务器上安装和部署 NVIDIA GPU 的 docker
 
+### 升级你的CUDA
+[官网链接](https://developer.nvidia.com/cuda-toolkit-archive)  
+  
+选择你的系统对应版本进行安装  
+![cuda](/images/CUDA-download.png)  
+
+
 ## 安装
 1. 确保你的系统已经安装了NVIDIA驱动和Docker引擎。确保驱动版本与Docker引擎兼容。你还需要安装nvidia-docker2软件包，它是NVIDIA Docker的一个插件。可以在[https://github.com/NVIDIA/nvidia-docker](https://github.com/NVIDIA/nvidia-docker)上找到安装说明  
 1.1 卸载旧版本的nvidia-docker(如果已安装)
