@@ -22,6 +22,7 @@ series: ["福利系列"]
 ## 教程
 ## [获取链接](https://www.icloud.com/shortcuts/f50d508c7ec9471a9fb94a3b2b57f1af)  
   
+自带19秒等待间隔，如果遇到熄屏可以修改为15秒。
 {{< bilibili BV11N4y1Z7Hk >}}  
 ## 注意
 - 小组件自动轮换失效
