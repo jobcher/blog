@@ -78,6 +78,8 @@ func main() {
 	get_v2ex(md_name)
 	// 获取DIYgod热门
 	DIY_god(md_name)
+	// 获取DNSPOD热门
+	dnsport_new(md_name)
 
 	fmt.Println("成功生成文件")
 }
@@ -296,8 +298,74 @@ func DIY_god(md_name string) {
 		return
 	}
 
+	// 获取当前时间
+	currentTime := time.Now().UTC().AddDate(0, 0, -1)
+
+	// 格式化为 Mon, 09 Oct 2023 03:03:35 GMT
+	formattedTime := currentTime.Format("Mon, 02 Jan 2006 15:04:05 GMT")
+
+	fmt.Println("Formatted time:", formattedTime)
+
 	// Process the RSS feed data as needed
 	for _, item := range rss.Channel.Items {
+		if item.PubDate[:16] != formattedTime[:16] {
+			continue
+		}
+		// description去除换行
+		description := strings.Replace(item.Description, "\n", "", -1)
+
+		// 写入 Markdown 文件
+		content := fmt.Sprintf("#### %s", item.Title)
+		content += fmt.Sprintf("%s\n", item.PubDate)
+		content += fmt.Sprintf("%s\n\n", description)
+		fmt.Println(content)
+
+		file, err := os.OpenFile("content/posts/github/"+md_name, os.O_APPEND|os.O_WRONLY, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer file.Close()
+		file.WriteString(content)
+	}
+}
+
+func dnsport_new(md_name string) {
+
+	rssURL := "https://rsshub.app/telegram/channel/DNSPODT" // Replace with the actual RSS feed URL
+
+	resp, err := http.Get(rssURL)
+	if err != nil {
+		fmt.Println("Error fetching RSS feed:", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("Error reading response body:", err)
+		return
+	}
+
+	var rss RSS
+	err = xml.Unmarshal(body, &rss)
+	if err != nil {
+		fmt.Println("Error unmarshaling XML:", err)
+		return
+	}
+
+	// 获取当前时间
+	currentTime := time.Now().UTC().AddDate(0, 0, -1)
+
+	// 格式化为 Mon, 09 Oct 2023 03:03:35 GMT
+	formattedTime := currentTime.Format("Mon, 02 Jan 2006 15:04:05 GMT")
+
+	fmt.Println("Formatted time:", formattedTime)
+
+	// Process the RSS feed data as needed
+	for _, item := range rss.Channel.Items {
+		if item.PubDate[:16] != formattedTime[:16] {
+			continue
+		}
 		// description去除换行
 		description := strings.Replace(item.Description, "\n", "", -1)
 
