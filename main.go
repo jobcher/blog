@@ -303,7 +303,6 @@ func DIY_god(md_name string) {
 
 		// 写入 Markdown 文件
 		content := fmt.Sprintf("#### %s", item.Title)
-		content += fmt.Sprintf("%s\n", item.Link)
 		content += fmt.Sprintf("%s\n", item.PubDate)
 		content += fmt.Sprintf("%s\n\n", description)
 		fmt.Println(content)
