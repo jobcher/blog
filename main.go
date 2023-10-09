@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/md5"
 	"encoding/json"
+	"encoding/xml"
 	"fmt"
 	"image"
 	"image/jpeg"
@@ -20,6 +21,24 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"github.com/chai2010/webp"
 )
+
+type Item struct {
+	Title       string `xml:"title"`
+	Description string `xml:"description"`
+	Link        string `xml:"link"`
+	PubDate     string `xml:"pubDate"`
+}
+
+type Channel struct {
+	Title       string `xml:"title"`
+	Description string `xml:"description"`
+	Link        string `xml:"link"`
+	Items       []Item `xml:"item"`
+}
+
+type RSS struct {
+	Channel Channel `xml:"channel"`
+}
 
 func main() {
 	// 当前日期
@@ -57,6 +76,8 @@ func main() {
 	get_github(md_name)
 	// 获取v2ex热门
 	get_v2ex(md_name)
+	// 获取DIYgod热门
+	DIY_god(md_name)
 
 	fmt.Println("成功生成文件")
 }
@@ -242,6 +263,58 @@ func get_v2ex(md_name string) {
 		defer file.Close()
 		file.WriteString(content)
 	})
+}
+
+func DIY_god(md_name string) {
+	//写入标题
+	file, err := os.OpenFile("content/posts/github/"+md_name, os.O_APPEND|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	file.WriteString("## 热点新闻\n\n")
+
+	rssURL := "https://rsshub.app/telegram/channel/tnews365" // Replace with the actual RSS feed URL
+
+	resp, err := http.Get(rssURL)
+	if err != nil {
+		fmt.Println("Error fetching RSS feed:", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("Error reading response body:", err)
+		return
+	}
+
+	var rss RSS
+	err = xml.Unmarshal(body, &rss)
+	if err != nil {
+		fmt.Println("Error unmarshaling XML:", err)
+		return
+	}
+
+	// Process the RSS feed data as needed
+	for _, item := range rss.Channel.Items {
+		// description去除换行
+		description := strings.Replace(item.Description, "\n", "", -1)
+
+		// 写入 Markdown 文件
+		content := fmt.Sprintf("#### %s", item.Title)
+		content += fmt.Sprintf("%s\n", item.Link)
+		content += fmt.Sprintf("%s\n", item.PubDate)
+		content += fmt.Sprintf("%s\n\n", description)
+		fmt.Println(content)
+
+		file, err := os.OpenFile("content/posts/github/"+md_name, os.O_APPEND|os.O_WRONLY, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer file.Close()
+		file.WriteString(content)
+	}
 }
 
 type BingResponse struct {
