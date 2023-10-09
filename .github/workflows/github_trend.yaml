@@ -4,7 +4,11 @@ name: github_trend
 on:
   schedule:
     # 每天，执行一次
+<<<<<<< HEAD
     - cron: "0 1 * * *"
+=======
+    - cron: "0 2 * * *"
+>>>>>>> d96fa66da0b292adfd3bc6fe07cd59a0e0752c9b
   workflow_dispatch:
 
 jobs:

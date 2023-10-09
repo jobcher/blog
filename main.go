@@ -315,8 +315,8 @@ func DIY_god(md_name string) {
 		description := strings.Replace(item.Description, "\n", "", -1)
 
 		// 写入 Markdown 文件
-		content := fmt.Sprintf("#### %s", item.Title)
-		content += fmt.Sprintf("%s\n", item.PubDate)
+		content := fmt.Sprintf("#### %s\n", item.Title)
+		// content += fmt.Sprintf("%s\n", item.PubDate)
 		content += fmt.Sprintf("%s\n\n", description)
 		fmt.Println(content)
 
@@ -370,8 +370,8 @@ func dnsport_new(md_name string) {
 		description := strings.Replace(item.Description, "\n", "", -1)
 
 		// 写入 Markdown 文件
-		content := fmt.Sprintf("#### %s", item.Title)
-		content += fmt.Sprintf("%s\n", item.PubDate)
+		content := fmt.Sprintf("#### %s\n", item.Title)
+		// content += fmt.Sprintf("%s\n", item.PubDate)
 		content += fmt.Sprintf("%s\n\n", description)
 		fmt.Println(content)
 
