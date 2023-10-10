@@ -80,6 +80,8 @@ func main() {
 	DIY_god(md_name)
 	// 获取DNSPOD热门
 	dnsport_new(md_name)
+	// 获取abskoop热门
+	abskoop(md_name)
 
 	fmt.Println("成功生成文件")
 }
@@ -126,7 +128,7 @@ func get_weibo(md_name string) {
 		url = strings.Replace(url, " ", "", -1)
 
 		// 将信息以 Markdown 格式写入文件
-		content := fmt.Sprintf("#### 排名 %d.", i+1)
+		content := fmt.Sprintf("- 排名 %d.", i+1)
 		content += fmt.Sprintf("[%s]", title)
 		content += fmt.Sprintf("(https://s.weibo.com/weibo?q=%s)\n", url)
 
@@ -192,7 +194,7 @@ func get_github(md_name string) {
 		desc = result
 
 		// 将信息以 Markdown 格式写入文件
-		content := fmt.Sprintf("### 排名 %d:", i+1)
+		content := fmt.Sprintf("#### 排名 %d:", i+1)
 		content += fmt.Sprintf("%s\n", title)
 		content += fmt.Sprintf("- 简介: %s\n", desc)
 		content += fmt.Sprintf("- URL: https://github.com%s\n", url)
@@ -277,6 +279,68 @@ func DIY_god(md_name string) {
 	file.WriteString("## 热点新闻\n\n")
 
 	rssURL := "https://rsshub.app/telegram/channel/tnews365" // Replace with the actual RSS feed URL
+
+	resp, err := http.Get(rssURL)
+	if err != nil {
+		fmt.Println("Error fetching RSS feed:", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("Error reading response body:", err)
+		return
+	}
+
+	var rss RSS
+	err = xml.Unmarshal(body, &rss)
+	if err != nil {
+		fmt.Println("Error unmarshaling XML:", err)
+		return
+	}
+
+	// 获取当前时间
+	currentTime := time.Now().UTC().AddDate(0, 0, -1)
+
+	// 格式化为 Mon, 09 Oct 2023 03:03:35 GMT
+	formattedTime := currentTime.Format("Mon, 02 Jan 2006 15:04:05 GMT")
+
+	fmt.Println("Formatted time:", formattedTime)
+
+	// Process the RSS feed data as needed
+	for _, item := range rss.Channel.Items {
+		if item.PubDate[:16] != formattedTime[:16] {
+			continue
+		}
+		// description去除换行
+		description := strings.Replace(item.Description, "\n", "", -1)
+
+		// 写入 Markdown 文件
+		content := fmt.Sprintf("#### %s\n", item.Title)
+		// content += fmt.Sprintf("%s\n", item.PubDate)
+		content += fmt.Sprintf("%s\n\n", description)
+		fmt.Println(content)
+
+		file, err := os.OpenFile("content/posts/github/"+md_name, os.O_APPEND|os.O_WRONLY, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer file.Close()
+		file.WriteString(content)
+	}
+}
+
+func abskoop(md_name string) {
+	//写入标题
+	file, err := os.OpenFile("content/posts/github/"+md_name, os.O_APPEND|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	file.WriteString("## 福利分享\n\n")
+
+	rssURL := "https://rsshub.app/telegram/channel/abskoop" // Replace with the actual RSS feed URL
 
 	resp, err := http.Get(rssURL)
 	if err != nil {
