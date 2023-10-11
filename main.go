@@ -253,7 +253,7 @@ func get_v2ex(md_name string) {
 		url = strings.Replace(url, " ", "", -1)
 
 		// 将信息以 Markdown 格式写入文件
-		content := fmt.Sprintf("#### %d.", i+1)
+		content := fmt.Sprintf("- %d.", i+1)
 		content += fmt.Sprintf("[%s]", title)
 		content += fmt.Sprintf("(https://www.v2ex.com%s)\n", url)
 
