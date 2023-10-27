@@ -1,3 +1,7 @@
+html {
+    filter: grayscale(100%);
+}
+
 .featured-image-preview img {
     border-radius: 10px;
     animation: shadow-color 5s ease-in-out infinite alternate;
