@@ -11,7 +11,7 @@ categories: ["gitlab"]
 series: ["git入门系列"]
 ---
 ## 背景
-我是在ubuntu服务器安装docker服务，我已经安装好了docker和docker-compose服务，这里我就不写这些服务的安装服务，直接开始安装服务
+我是在ubuntu服务器安装docker服务，我已经安装好了docker和docker-compose服务，这里我就不写这些服务的安装过程，直接开始安装sonarqube服务
 ## 安装 sonarqube服务器
 ### 1.执行脚本文件 `config.sh`
 ```bash
