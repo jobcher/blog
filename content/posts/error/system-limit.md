@@ -1,5 +1,5 @@
 ---
-title: "linux服务器进程占用过多导致服务异常"
+title: "linux服务器进程打开文件过多导致服务异常"
 date: 2023-11-07
 draft: true
 author: "jobcher"
