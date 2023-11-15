@@ -11,12 +11,12 @@ series: ["日常系列"]
 ---
 ## 演示代理
 1. 前缀
-```sh
-https://github.jobcher.com/gh/
-```
+
+>https://github.jobcher.com/gh/
+
 2. 下载仓库
-```shell
-git clone https://github.jobcher.com/gh/<你要下载的GitHub地址>
+>git clone https://github.jobcher.com/gh/<你要下载的GitHub地址>
+```sh
 #例子
 git clone https://github.jobcher.com/gh/https://github.com/jobcher/blog.git
 ```
