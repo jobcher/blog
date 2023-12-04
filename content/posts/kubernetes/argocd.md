@@ -4,7 +4,7 @@ date: 2023-12-04
 draft: true
 author: "jobcher"
 featuredImage: "/images/argo-logo.png"
-featuredImagePreview: "/argo-logo.png"
+featuredImagePreview: "/images/argo-logo.png"
 images: ["/images/argo-logo.png"]
 tags: ["k8s"]
 categories: ["k8s"]
