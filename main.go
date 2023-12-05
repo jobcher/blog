@@ -340,7 +340,7 @@ func abskoop(md_name string) {
 	defer file.Close()
 	file.WriteString("## 福利分享\n\n")
 
-	rssURL := "https://rsshub.app/telegram/channel/bboyapp" // Replace with the actual RSS feed URL
+	rssURL := "https://rsshub.app/telegram/channel/abskoop" // Replace with the actual RSS feed URL
 
 	resp, err := http.Get(rssURL)
 	if err != nil {
