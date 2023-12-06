@@ -117,3 +117,25 @@ services:
     ports:
       - "8180:8080"
 ```
+## skywalking 客户端部署
+下载客户端  
+[点击下载](https://archive.apache.org/dist/skywalking/8.14.0/apache-skywalking-java-agent-8.14.0.tgz)  
+### 安装到要监控的主机
+```sh
+wget https://archive.apache.org/dist/skywalking/8.14.0/apache-skywalking-java-agent-8.14.0.tgz
+tar -zxvf apache-skywalking-java-agent-8.14.0.tgz
+```
+### 配置变量
+```shell
+# SkyWalking Agent 配置
+export SW_AGENT_NAME=rf-consumer # 配置 Agent 名字。一般来说，我们直接使用 Spring Boot 项目的 `spring.application.name` 。
+export SW_AGENT_COLLECTOR_BACKEND_SERVICES=193.0.10.18:11800 # 配置 Collector 地址。
+#export SW_AGENT_SPAN_LIMIT=2000 # 配置链路的最大 Span 数量。一般情况下，不需要配置，默认为 300 。主要考虑，有些新上 SkyWalking Agent 的项目，代码可能比较糟糕。
+export JAVA_AGENT=-javaagent:/home/ubuntu/skywalking-agent/skywalking-agent.jar # SkyWalking Agent jar 地址。
+```
+### 启动java程序
+```sh
+java $JAVA_AGENT -jar yourapp.jar
+#或者
+java -javaagent:<skywalking-agent-path> -jar yourApp.jar
+```
