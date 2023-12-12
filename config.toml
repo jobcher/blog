@@ -53,7 +53,7 @@ theme = "LoveIt"
     pre = ""
     post = ""
     name = "k8s"
-    url = "https://k8s.jobcher.com/zh-cn/"
+    url = "https://k8sbook.jobcher.com/"
     title = ""
     weight = 5
   [[menu.main]]
