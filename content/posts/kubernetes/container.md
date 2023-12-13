@@ -1,5 +1,5 @@
 ---
-title: "Kubernetes — kubecost 分析 Kubernetes 成本"
+title: "Kubernetes — containerd 安装和部署"
 date: 2023-12-13
 draft: true
 featuredImage: "/images/containerd-horizontal-color.png"
