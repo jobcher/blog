@@ -1,6 +1,6 @@
 [submodule "themes/LoveIt"]
 	path = themes/LoveIt
 	url = https://github.com/dillonzq/LoveIt.git
-[submodule "themes/jobcher"]
-	path = themes/jobcher
-	url = git@github.com:jobcher/blog-hugo.git
+[submodule "themes/blog-theme"]
+	path = themes/blog-theme
+	url = https://github.com/jobcher/blog-hugo.git
