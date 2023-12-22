@@ -62,10 +62,10 @@ jobs:
           mv -f ./ads.txt /home/runner/work/blog/blog/public/.
           mv -f ./ChangeMirrors.sh /home/runner/work/blog/blog/public/.
           curl \
-          -H "Title: www.jobcher.com 更新" \
+          -H "Title: test.jobcher.com 更新" \
           -H "Priority: urgent" \
           -H "Tags: update" \
-          -d "www.jobcher.com 博客更新内容：${{ github.event.head_commit.message }}" \
+          -d "test.jobcher.com 博客更新内容：${{ github.event.head_commit.message }}" \
           ntfy.sh/jobcher
 
       - name: Deploy Web

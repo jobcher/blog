@@ -1,4 +1,4 @@
-baseURL = "https://www.jobcher.com/"
+baseURL = "https://test.jobcher.com/"
 # [en, zh-cn, fr, ...] 设置默认的语言
 defaultContentLanguage = "zh-cn"
 # 网站语言, 仅在这里 CN 大写
@@ -477,7 +477,7 @@ theme = "LoveIt"
   # LoveIt 新增 | 0.2.10 网站 SEO 配置
   [params.seo]
     # 图片 URL
-    image = "https://www.jobcher.com/images/image.gif"
+    image = "https://test.jobcher.com/images/image.gif"
     # 缩略图 URL
     thumbnailUrl = "/bear2.png.webp"
 

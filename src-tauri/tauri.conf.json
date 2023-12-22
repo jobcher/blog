@@ -6,7 +6,7 @@
   "tauri": {
     "windows": [
       {
-        "url": "https://www.jobcher.com/",
+        "url": "https://test.jobcher.com/",
         "transparent": true,
         "fullscreen": false,
         "width": 1200,

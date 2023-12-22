@@ -23,6 +23,6 @@ LoveIt配置目录：config.toml
 ```
 
 ## 个人网站地址
-网站：[https://www.jobcher.com](https://www.jobcher.com)  
+网站：[https://test.jobcher.com](https://test.jobcher.com)  
   
 github.io：[https://jobcher.github.io](https://jobcher.github.io)

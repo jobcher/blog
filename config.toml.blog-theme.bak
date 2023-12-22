@@ -1,4 +1,4 @@
-baseURL = 'https://www.jobcher.com'
+baseURL = 'https://test.jobcher.com'
 theme = "blog-theme"
 languageCode = 'zh-CN'
 title = '打工人日志'
@@ -46,11 +46,11 @@ url="https://k8sbook.jobcher.com/"
 weight="3"
 [[menu.main]]
 name="导航"
-url="https://www.jobcher.com/"
+url="https://test.jobcher.com/"
 weight="4"
 [[menu.main]]
 name="RSS"
-url="https://www.jobcher.com/index.xml"
+url="https://test.jobcher.com/index.xml"
 weight="5"
 [[menu.main]]
 name="关于"
