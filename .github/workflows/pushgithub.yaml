@@ -58,7 +58,7 @@ jobs:
 
       - name: Build with Hugo
         run: |
-          hugo -t LoveIt -D
+          hugo -t blog-theme -D
           mv -f ./ads.txt /home/runner/work/blog/blog/public/.
           mv -f ./ChangeMirrors.sh /home/runner/work/blog/blog/public/.
           curl \
