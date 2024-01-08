@@ -1,7 +1,7 @@
 ---
 title: "优雅的使用Conda管理python环境"
 date: 2022-12-14
-draft: true
+draft: false
 featuredImage: "/images/python-conda.png"
 featuredImagePreview: "/images/python-conda.png"
 author: "jobcher"
